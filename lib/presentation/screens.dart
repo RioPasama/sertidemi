@@ -1,0 +1,11 @@
+export 'package:sertidemi/presentation/bookshelf/bookshelf.screen.dart';
+export 'package:sertidemi/presentation/category_certifications/category_certifications.screen.dart';
+export 'package:sertidemi/presentation/certification/certification.screen.dart';
+export 'package:sertidemi/presentation/home/home.screen.dart';
+export 'package:sertidemi/presentation/list_data_certifications/list_data_certifications.screen.dart';
+export 'package:sertidemi/presentation/login/login.screen.dart';
+export 'package:sertidemi/presentation/main/main.screen.dart';
+export 'package:sertidemi/presentation/profile/profile.screen.dart';
+export 'package:sertidemi/presentation/registry/registry.screen.dart';
+export 'package:sertidemi/presentation/splash/splash.screen.dart';
+export 'package:sertidemi/presentation/verification_email/verification_email.screen.dart';
