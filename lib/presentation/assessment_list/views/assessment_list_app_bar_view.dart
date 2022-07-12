@@ -73,7 +73,7 @@ class AssessmentListAppBarView extends GetView {
                     width: 40,
                     decoration: inputBoxDecorationRounded.copyWith(
                         image: DecorationImage(
-                            image: Assets.icons.iconFilter, scale: 6),
+                            image:AssetImage( Assets.icons.iconFilter.path), scale: 6),
                         boxShadow: const [
                           BoxShadow(
                               color: Colors.black54,

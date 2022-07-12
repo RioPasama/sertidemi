@@ -165,7 +165,7 @@ class PaymentContentView extends GetView {
                 decoration: BoxDecoration(
                     color: Colors.red,
                     shape: BoxShape.circle,
-                    image: DecorationImage(image: Assets.icons.close))),
+                    image: DecorationImage(image: AssetImage(Assets.icons.close.path)))),
           ),
         ),
       ],

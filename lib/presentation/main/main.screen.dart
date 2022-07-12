@@ -20,44 +20,44 @@ class MainScreen extends GetView<MainController> {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Image.asset(
-                Assets.icons.menuHome.assetName,
+                Assets.icons.menuHome.path,
                 scale: 6,
               ),
               activeIcon: Image.asset(
-                Assets.icons.menuHomeKlik.assetName,
+                Assets.icons.menuHomeKlik.path,
                 scale: 6,
               ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
-                Assets.icons.menuEvent.assetName,
+                Assets.icons.menuEvent.path,
                 scale: 6,
               ),
               activeIcon: Image.asset(
-                Assets.icons.menuEventKlik.assetName,
+                Assets.icons.menuEventKlik.path,
                 scale: 6,
               ),
               label: 'Event',
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
-                Assets.icons.menuSertifikasi.assetName,
+                Assets.icons.menuSertifikasi.path,
                 scale: 6,
               ),
               activeIcon: Image.asset(
-                Assets.icons.menuSertifikasiKlik.assetName,
+                Assets.icons.menuSertifikasiKlik.path,
                 scale: 6,
               ),
               label: 'Sertifikasi',
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
-                Assets.icons.menuProfil.assetName,
+                Assets.icons.menuProfil.path,
                 scale: 6,
               ),
               activeIcon: Image.asset(
-                Assets.icons.menuProfilKlik.assetName,
+                Assets.icons.menuProfilKlik.path,
                 scale: 6,
               ),
               label: 'Profil',

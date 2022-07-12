@@ -17,7 +17,7 @@ class CountdownTimerView extends GetView {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Image.asset(
-          Assets.icons.transaksiJam.assetName,
+          Assets.icons.transaksiJam.path,
           scale: 3,
         ),
         SlideCountdownSeparated(

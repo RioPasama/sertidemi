@@ -37,7 +37,7 @@ class StartAssessmentScreen extends GetView<StartAssessmentController> {
             Row(
               children: [
                 Image.asset(
-                  Assets.icons.transaksiJam.assetName,
+                  Assets.icons.transaksiJam.path,
                   scale: 4,
                 ),
                 const SizedBox(width: 4),
@@ -49,7 +49,7 @@ class StartAssessmentScreen extends GetView<StartAssessmentController> {
             Row(
               children: [
                 Image.asset(
-                  Assets.icons.iconJumlahSoal.assetName,
+                  Assets.icons.iconJumlahSoal.path,
                   scale: 4,
                 ),
                 const SizedBox(width: 8),

@@ -38,7 +38,7 @@ class CardVoucherView extends GetView {
                 Row(
                   children: [
                     Image.asset(
-                      Assets.icons.kelender.assetName,
+                      Assets.icons.kelender.path,
                       scale: 4,
                     ),
                     Text(

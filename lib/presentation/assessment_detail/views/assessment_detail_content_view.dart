@@ -104,7 +104,7 @@ class AssessmentDetailContentView extends GetView {
                               Assets
                                   .icons
                                   .menuSertifikasiBagianSertifikasiIconMateri
-                                  .assetName,
+                                  .path,
                               scale: 4,
                             ),
                             const SizedBox(width: 10),
@@ -123,7 +123,7 @@ class AssessmentDetailContentView extends GetView {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset(
-                Assets.icons.kelender.assetName,
+                Assets.icons.kelender.path,
                 scale: 4,
               ),
               const SizedBox(width: 10),
@@ -142,7 +142,7 @@ class AssessmentDetailContentView extends GetView {
           Row(
             children: [
               Image.asset(
-                Assets.icons.iconPenulis.assetName,
+                Assets.icons.iconPenulis.path,
                 scale: 4,
               ),
               const SizedBox(width: 10),

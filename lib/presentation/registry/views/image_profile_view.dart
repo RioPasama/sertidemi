@@ -29,7 +29,7 @@ class ImageProfileView extends GetView {
                       border: Border.all(color: Colors.white, width: 6),
                       image: DecorationImage(
                           image: (!controller.isInputImage.value)
-                              ? AssetImage(Assets.images.imgDefaul.assetName)
+                              ? AssetImage(Assets.images.imgDefaul.path)
                               : FileImage(File(controller.image!.path))
                                   as ImageProvider,
                           fit: BoxFit.cover)),

@@ -74,7 +74,7 @@ class EventDetailContentView extends GetView {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset(
-                Assets.icons.kelender.assetName,
+                Assets.icons.kelender.path,
                 scale: 4,
               ),
               const SizedBox(width: 10),
@@ -91,7 +91,7 @@ class EventDetailContentView extends GetView {
           Row(
             children: [
               Image.asset(
-                Assets.icons.iconPenulis.assetName,
+                Assets.icons.iconPenulis.path,
                 scale: 4,
               ),
               const SizedBox(width: 10),

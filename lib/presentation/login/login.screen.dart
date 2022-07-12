@@ -22,7 +22,7 @@ class LoginScreen extends GetView<LoginController> {
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image:
-                        AssetImage(Assets.images.loginGambarCrop.assetName))),
+                        AssetImage(Assets.images.loginGambarCrop.path))),
           ),
         ),
         Container(color: primaryColor.withOpacity(0.8)),
@@ -150,13 +150,13 @@ class LoginScreen extends GetView<LoginController> {
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
-                                  Assets.icons.lingkaran.assetName))),
+                                  Assets.icons.lingkaran.path))),
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Image.asset(
-                              Assets.icons.loginBantuan.assetName,
+                              Assets.icons.loginBantuan.path,
                               scale: 4,
                             ),
                             const Text(

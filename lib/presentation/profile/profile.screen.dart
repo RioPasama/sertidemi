@@ -57,7 +57,7 @@ class ProfileScreen extends GetView<ProfileController> {
                         children: [
                           ListTile(
                             leading: Image.asset(
-                              Assets.icons.profilIconUbahData.assetName,
+                              Assets.icons.profilIconUbahData.path,
                               scale: 4,
                             ),
                             title: const Text('Ubah Data'),
@@ -65,7 +65,7 @@ class ProfileScreen extends GetView<ProfileController> {
                           // ListTile(
                           //   onTap: () => Get.toNamed(Routes.BOOKSHELF),
                           //   leading: Image.asset(
-                          //     Assets.icons.iconVoucher.assetName,
+                          //     Assets.icons.iconVoucher.path,
                           //     scale: 4,
                           //   ),
                           //   title: const Text('Voucher'),
@@ -73,14 +73,14 @@ class ProfileScreen extends GetView<ProfileController> {
                           // ListTile(
                           //   onTap: () => Get.toNamed(Routes.BOOKSHELF),
                           //   leading: Image.asset(
-                          //     Assets.icons.profilIconRakBuku.assetName,
+                          //     Assets.icons.profilIconRakBuku.path,
                           //     scale: 4,
                           //   ),
                           //   title: const Text('Rak Buku'),
                           // ),
                           // ListTile(
                           //   leading: Image.asset(
-                          //     Assets.icons.profilIconTransaksiEBook.assetName,
+                          //     Assets.icons.profilIconTransaksiEBook.path,
                           //     scale: 4,
                           //   ),
                           //   title: const Text('Transaksi E-Book'),
@@ -88,21 +88,21 @@ class ProfileScreen extends GetView<ProfileController> {
                           ListTile(
                             leading: Image.asset(
                               Assets
-                                  .icons.profilIconPelayananPelanggan.assetName,
+                                  .icons.profilIconPelayananPelanggan.path,
                               scale: 4,
                             ),
                             title: const Text('PelayananPelanggan'),
                           ),
                           ListTile(
                             leading: Image.asset(
-                              Assets.icons.profilIconLisensi.assetName,
+                              Assets.icons.profilIconLisensi.path,
                               scale: 4,
                             ),
                             title: const Text('Lisensi'),
                           ),
                           ListTile(
                             leading: Image.asset(
-                              Assets.icons.profilIconTentang.assetName,
+                              Assets.icons.profilIconTentang.path,
                               scale: 4,
                             ),
                             title: const Text('Tentang'),
@@ -151,7 +151,7 @@ class ProfileScreen extends GetView<ProfileController> {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 6),
                 image: DecorationImage(
-                    image: AssetImage(Assets.images.imgDefaul.assetName))),
+                    image: AssetImage(Assets.images.imgDefaul.path))),
           );
         },
         errorWidget: (context, url, error) {
@@ -162,7 +162,7 @@ class ProfileScreen extends GetView<ProfileController> {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 6),
                 image: DecorationImage(
-                    image: AssetImage(Assets.images.imgDefaul.assetName))),
+                    image: AssetImage(Assets.images.imgDefaul.path))),
           );
         });
   }

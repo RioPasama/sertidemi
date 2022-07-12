@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:sertidemi/app/controllers/klik_content_controller.dart';
 import 'package:sertidemi/app/data/models/event_tiket_model.dart';
 import 'package:sertidemi/domain/core/extensions/formatTime.extension.dart';
+import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 
@@ -61,20 +62,48 @@ class CardTiketEventView extends GetView {
                               )
                             ],
                           ),
-                          Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                                color: Colors.blueGrey,
-                                borderRadius: BorderRadius.circular(8)),
-                          ),
+                          //Assesmet
+                          Visibility(
+                            visible: eventTiketModel.idassessment != '',
+                            child: GestureDetector(
+                              onTap: () => klikContentController
+                                  .onTapTiketEventToAssesment(
+                                      idProduct: eventTiketModel.idassessment!),
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    color: Colors.blueGrey,
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      Assets
+                                          .icons.iconAssesmentDiTiketEvent.path,
+                                      scale: 4,
+                                    ),
+                                    const Text(
+                                      'Assesmet',
+                                      style: TextStyle(
+                                          fontSize: 8, color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                       const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
+                          //Buton link
                           GestureDetector(
+                            onTap: () =>
+                                klikContentController.onTapTiketEventLink(
+                                    eventTiketModel.linkMeeting!),
                             child: Container(
                               height: 30,
                               padding:
@@ -84,15 +113,17 @@ class CardTiketEventView extends GetView {
                                   color: Colors.blue.shade400,
                                   borderRadius: BorderRadius.circular(14)),
                               child: Text(
-                                'Gmeet',
+                                eventTiketModel.linkStatus!,
                                 style: textBold.copyWith(
                                     color: Colors.white, fontSize: 16),
                               ),
                             ),
                           ),
+                          //Buton Materi
                           Visibility(
                             visible: eventTiketModel.materiCount != '0',
                             child: GestureDetector(
+                              onTap: null,
                               child: Container(
                                 height: 30,
                                 padding:

@@ -25,13 +25,13 @@ class EventScreen extends GetView<EventController> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image:
-                          AssetImage(Assets.images.vektorMenuEvent.assetName))),
+                          AssetImage(Assets.images.vektorMenuEvent.path))),
             ),
             ListTile(
               onTap: () =>
                   controller.klikContentController.onKlikCategory(option: 1),
               leading: Image.asset(
-                Assets.icons.menuSertifikasiIconListEvent.assetName,
+                Assets.icons.menuSertifikasiIconListEvent.path,
                 scale: 4,
               ),
               title: const Text('Kategori Event'),
@@ -40,7 +40,7 @@ class EventScreen extends GetView<EventController> {
             ListTile(
               onTap: () => Get.toNamed(Routes.LIST_TIKET, arguments: 1),
               leading: Image.asset(
-                Assets.icons.menuSertifikasiIconTiket.assetName,
+                Assets.icons.menuSertifikasiIconTiket.path,
                 scale: 4,
               ),
               title: const Text('Tiket'),
@@ -49,7 +49,7 @@ class EventScreen extends GetView<EventController> {
             ListTile(
               onTap: () => Get.toNamed(Routes.LIST_TRANSACTION, arguments: 1),
               leading: Image.asset(
-                Assets.icons.menuSertifikasiIconTransaksi.assetName,
+                Assets.icons.menuSertifikasiIconTransaksi.path,
                 scale: 4,
               ),
               title: const Text('Transaksi'),
@@ -58,7 +58,7 @@ class EventScreen extends GetView<EventController> {
             ListTile(
               onTap: () => Get.toNamed(Routes.LIST_CERTIFICATE, arguments: 1),
               leading: Image.asset(
-                Assets.icons.menuSertifikasiIconSertifikat.assetName,
+                Assets.icons.menuSertifikasiIconSertifikat.path,
                 scale: 4,
               ),
               title: const Text('Sertifikat'),

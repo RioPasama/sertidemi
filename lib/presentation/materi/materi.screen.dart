@@ -187,7 +187,7 @@ class MateriScreen extends GetView<MateriController> {
               child: Column(
                 children: [
                   Image.asset(
-                    Assets.icons.unggalGambarMateri.assetName,
+                    Assets.icons.unggalGambarMateri.path,
                     scale: 3,
                   ),
                   const Text(

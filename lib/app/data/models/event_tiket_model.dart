@@ -1,4 +1,5 @@
 class EventTiketModel {
+  String? idassessment;
   String? idevent;
   String? namaEvent;
   String? eventMulai;
@@ -9,6 +10,7 @@ class EventTiketModel {
   String? linkStatus;
   String? linkMeeting;
   EventTiketModel({
+    required this.idassessment,
     required this.idevent,
     required this.namaEvent,
     required this.eventMulai,
@@ -21,6 +23,7 @@ class EventTiketModel {
   });
 
   EventTiketModel.fromJson(Map<String, dynamic> json) {
+    idassessment=json['idassessment']??'';
     idevent = json['idevent'] ?? '';
     namaEvent = json['nama_event'] ?? '';
     eventMulai = json['event_mulai'] ?? '';

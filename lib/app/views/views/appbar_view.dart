@@ -139,7 +139,7 @@ AppBar appBarHomeView() {
           GestureDetector(
             onTap: () => Get.toNamed(Routes.NOTIFICATION),
             child: Image.asset(
-              Assets.icons.iconNotifikasi.assetName,
+              Assets.icons.iconNotifikasi.path,
               scale: 6,
             ),
           ),

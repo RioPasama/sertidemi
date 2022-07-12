@@ -29,20 +29,20 @@ class FinishAssessmentContentView extends GetView {
                 ),
               ),
               Image.asset(
-                Assets.icons.vektorHasilNilaiMenuSertifikasi.assetName,
+                Assets.icons.vektorHasilNilaiMenuSertifikasi.path,
                 scale: 4,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    Assets.icons.kelender.assetName,
+                    Assets.icons.kelender.path,
                     scale: 4,
                   ),
                   Text(
                       ' ${timeFormatInCard(controller.asessmentAnswerModel.value!.submitAt!)} '),
                   Image.asset(
-                    Assets.icons.transaksiJam.assetName,
+                    Assets.icons.transaksiJam.path,
                     scale: 4,
                   ),
                   Text(
@@ -57,7 +57,7 @@ class FinishAssessmentContentView extends GetView {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    Assets.icons.transaksiJam.assetName,
+                    Assets.icons.transaksiJam.path,
                     scale: 2,
                   ),
                   Text(controller.asessmentAnswerModel.value!.duration!)
@@ -70,7 +70,7 @@ class FinishAssessmentContentView extends GetView {
                 margin: const EdgeInsets.only(top: 20, left: 16, right: 16),
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: Assets.images.transaksiBGDetailTransaksi,
+                        image: AssetImage(Assets.images.transaksiBGDetailTransaksi.path),
                         fit: BoxFit.fill)),
                 child: Column(
                   children: [
