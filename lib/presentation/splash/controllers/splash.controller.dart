@@ -1,12 +1,13 @@
 import 'package:get/get.dart';
-import 'package:sertidemi/presentation/main/main.screen.dart';
+import 'package:sertidemi/infrastructure/navigation/routes.dart';
 
 class SplashController extends GetxController {
   @override
   void onInit() {
     Future.delayed(const Duration(seconds: 4), () {
-      Get.off(() => MainScreen());
+      Get.offNamed(Routes.MAIN);
     });
+
     super.onInit();
   }
 

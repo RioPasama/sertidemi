@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sertidemi/gen/assets.gen.dart';
+import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
+import 'package:sertidemi/infrastructure/theme/widget_decoration.theme.dart';
 
 AppBar appBarMultiScreenView({
   required String title,
@@ -16,8 +19,9 @@ AppBar appBarMultiScreenView({
   );
 }
 
-AppBar appBarSearchCategory({
+AppBar appBarSearch({
   required String title,
+  bool leadingActive = true,
 }) {
   return AppBar(
       automaticallyImplyLeading: false,
@@ -36,16 +40,19 @@ AppBar appBarSearchCategory({
                   const BorderRadius.vertical(bottom: Radius.circular(18)),
             ),
           ),
-          SafeArea(
-              child: Padding(
-                  padding: const EdgeInsets.only(left: 16, top: 16),
-                  child: GestureDetector(
-                    onTap: () => Get.back(),
-                    child: const Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                      color: Colors.white,
-                    ),
-                  ))),
+          Visibility(
+            visible: leadingActive,
+            child: SafeArea(
+                child: Padding(
+                    padding: const EdgeInsets.only(left: 16, top: 16),
+                    child: GestureDetector(
+                      onTap: () => Get.back(),
+                      child: const Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        color: Colors.white,
+                      ),
+                    ))),
+          ),
           SafeArea(
               child: Padding(
             padding: const EdgeInsets.only(top: 16),
@@ -69,6 +76,13 @@ AppBar appBarSearchCategory({
                       blurRadius: 4,
                       offset: const Offset(0, 4))
                 ]),
+            child: TextField(
+              decoration: inputInputDecorationRounded.copyWith(
+                hintText: 'Pencarian',
+                hintStyle: const TextStyle(fontSize: 14),
+                prefixIcon: const Icon(Icons.search_outlined),
+              ),
+            ),
           ),
         ],
       ));
@@ -98,4 +112,40 @@ AppBar appBarDefaultView({
         onTap: () => Get.back(),
         child: const Icon(Icons.arrow_back_ios_new_rounded)),
   );
+}
+
+AppBar appBarHomeView() {
+  return AppBar(
+      automaticallyImplyLeading: false,
+      title: Row(
+        children: [
+          Container(
+              height: 40,
+              width: Get.width - 68,
+              decoration: inputBoxDecorationRounded,
+              child: TextField(
+                decoration: inputInputDecorationRounded.copyWith(
+                  hintText: 'Pencarian',
+                  hintStyle: const TextStyle(fontSize: 14),
+                  prefixIcon: const Icon(Icons.search_outlined),
+                ),
+              )),
+          // const Spacer(flex: 2),
+          // Image.asset(
+          //   Assets.icons.iconKeranjang.assetName,
+          //   scale: 6,
+          // ),
+          const Spacer(),
+          GestureDetector(
+            onTap: () => Get.toNamed(Routes.NOTIFICATION),
+            child: Image.asset(
+              Assets.icons.iconNotifikasi.assetName,
+              scale: 6,
+            ),
+          ),
+        ],
+      ),
+      elevation: 0,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.zero)));
 }

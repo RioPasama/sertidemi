@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:sertidemi/app/views/views/appbar_view.dart';
+import 'package:sertidemi/app/views/views/icon_category_view.dart';
 
 import 'controllers/category_certifications.controller.dart';
 
@@ -14,13 +15,15 @@ class CategoryCertificationsScreen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarSearchCategory(title: controller.title.value),
-      body: Center(
-        child: Text(
-          'CategoryCertificationsScreen is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
-    );
+        // appBar: appBarSearch(title: controller.title.value),
+        // body: GridView.builder(
+        //   itemCount: 14,
+        //   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        //       maxCrossAxisExtent: 120),
+        //   itemBuilder: (context, index) {
+        //     return IconCategoryView();
+        //   },
+        // )
+        );
   }
 }

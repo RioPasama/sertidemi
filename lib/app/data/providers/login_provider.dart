@@ -1,35 +1,18 @@
 import 'dart:async';
-import 'dart:convert';
-import 'dart:developer';
+import 'package:sertidemi/app/data/models/login_model.dart';
+import 'package:sertidemi/app/data/models/main_model.dart';
+import 'package:sertidemi/app/data/providers/main_provider.dart';
 
-import 'package:get/get.dart';
-import 'package:sertidemi/app/data/data_data.dart';
-import 'package:sertidemi/domain/core/extensions/apiErrorHandler.extension.dart';
-
-import '../models/login_model.dart';
-
-class LoginProvider extends GetConnect {
-  Future<Login> postLogin(
+///Fetch data from api to model
+class LoginProvider {
+  ///Fetch data postLogin
+  static Future<LoginModel> postLogin(
       {required String email, required String password}) async {
-    String url = '${urlApi}login.php';
-    dynamic res;
+    MainModel result = await MainProvider.postAPI(url: 'login.php', body: {
+      'email_login': email,
+      'pass_login': password,
+    });
 
-    try {
-      final response = await post(
-        '${urlApi}login.php',
-        {'email_login': email, 'pass_login': password},
-      ).timeout(const Duration(seconds: 20));
-      log('Status Code: ${response.statusCode}\nurl: $url\nemail_login: $email\npass_login: $password\n${response.bodyString}');
-
-      res = response;
-      final result = jsonDecode(response.body);
-      if (response.hasError) {
-        throw '';
-      }
-      return Login.fromJson(result);
-    } catch (e) {
-      apiErrorHandler(res, e.toString());
-      rethrow;
-    }
+    return LoginModel.fromJson(result.data);
   }
 }

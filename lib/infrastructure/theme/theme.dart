@@ -11,8 +11,7 @@ ThemeData themeData() {
       scaffoldBackgroundColor: scaffoldBackgroundColor,
       shadowColor: shadowColor,
       textTheme: textTheme,
-      dialogBackgroundColor:
-          const Color.fromARGB(255, 214, 234, 253).withOpacity(0.8),
+      dialogBackgroundColor: Colors.white.withOpacity(0.88),
       appBarTheme: AppBarTheme(
           color: primaryColor,
           shape: const RoundedRectangleBorder(

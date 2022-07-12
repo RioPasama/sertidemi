@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import 'package:sertidemi/presentation/screens.dart';
 import 'controllers/main.controller.dart';
@@ -16,27 +17,60 @@ class MainScreen extends GetView<MainController> {
           child: _widgetOptions.elementAt(controller.selectedIndex.value),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded),
+              icon: Image.asset(
+                Assets.icons.menuHome.assetName,
+                scale: 6,
+              ),
+              activeIcon: Image.asset(
+                Assets.icons.menuHomeKlik.assetName,
+                scale: 6,
+              ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.book),
-              label: 'Rak Buku',
+              icon: Image.asset(
+                Assets.icons.menuEvent.assetName,
+                scale: 6,
+              ),
+              activeIcon: Image.asset(
+                Assets.icons.menuEventKlik.assetName,
+                scale: 6,
+              ),
+              label: 'Event',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.book),
+              icon: Image.asset(
+                Assets.icons.menuSertifikasi.assetName,
+                scale: 6,
+              ),
+              activeIcon: Image.asset(
+                Assets.icons.menuSertifikasiKlik.assetName,
+                scale: 6,
+              ),
               label: 'Sertifikasi',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Image.asset(
+                Assets.icons.menuProfil.assetName,
+                scale: 6,
+              ),
+              activeIcon: Image.asset(
+                Assets.icons.menuProfilKlik.assetName,
+                scale: 6,
+              ),
               label: 'Profil',
             ),
           ],
           showUnselectedLabels: true,
+          type: BottomNavigationBarType.fixed,
+          selectedFontSize: 12,
+          unselectedFontSize: 12,
+          enableFeedback: false,
           unselectedItemColor: unselectedWidgetColor,
           selectedItemColor: primaryColor,
+          backgroundColor: Colors.white,
           currentIndex: controller.selectedIndex.value,
           onTap: controller.onItemTapped,
         ),
@@ -46,8 +80,8 @@ class MainScreen extends GetView<MainController> {
 
   static final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    BookshelfScreen(),
-    CertificationScreen(),
+    EventScreen(),
+    AssessmentScreen(),
     ProfileScreen()
   ];
 }

@@ -18,32 +18,35 @@ class FormRegistryView extends GetView {
           children: [
             Text('Nama Lengkap', style: textBold),
             Container(
-              height: 40,
               margin: const EdgeInsets.only(bottom: 16, top: 8),
               decoration: inputBoxDecorationRounded,
               child: TextFormField(
                 controller: controller.fullNameTextEditingController,
+                keyboardType: TextInputType.text,
                 decoration: inputInputDecorationRounded,
+                validator: (val) => controller.validatorName(val),
               ),
             ),
             Text('Nomor Telepon', style: textBold),
             Container(
-              height: 40,
               margin: const EdgeInsets.only(bottom: 16, top: 8),
               decoration: inputBoxDecorationRounded,
               child: TextFormField(
                 controller: controller.phoneNumberTextEditingController,
+                keyboardType: TextInputType.number,
                 decoration: inputInputDecorationRounded,
+                validator: (val) => controller.validatorPhoneNumber(val),
               ),
             ),
             Text('Email', style: textBold),
             Container(
-              height: 40,
               margin: const EdgeInsets.only(bottom: 16, top: 8),
               decoration: inputBoxDecorationRounded,
               child: TextFormField(
                 controller: controller.emailTextEditingController,
+                keyboardType: TextInputType.emailAddress,
                 decoration: inputInputDecorationRounded,
+                validator: (val) => controller.validatorEmail(val),
               ),
             ),
             Row(
@@ -56,12 +59,14 @@ class FormRegistryView extends GetView {
                     children: [
                       Text('Kata Sandi', style: textBold),
                       Container(
-                        height: 40,
                         margin: const EdgeInsets.only(top: 8),
                         decoration: inputBoxDecorationRounded,
                         child: TextFormField(
+                          keyboardType: TextInputType.visiblePassword,
                           controller: controller.passwordTextEditingController,
+                          obscureText: true,
                           decoration: inputInputDecorationRounded,
+                          validator: (val) => controller.validatorPassword(val),
                         ),
                       ),
                     ],
@@ -74,13 +79,16 @@ class FormRegistryView extends GetView {
                     children: [
                       Text('Konfirmasi Kata Sandi', style: textBold),
                       Container(
-                        height: 40,
                         margin: const EdgeInsets.only(top: 8),
                         decoration: inputBoxDecorationRounded,
                         child: TextFormField(
                           controller:
                               controller.confirmPasswordTextEditingController,
+                          keyboardType: TextInputType.visiblePassword,
+                          obscureText: true,
                           decoration: inputInputDecorationRounded,
+                          validator: (val) =>
+                              controller.validatorConfirmPassword(val),
                         ),
                       ),
                     ],
@@ -95,7 +103,9 @@ class FormRegistryView extends GetView {
                   hintText: 'Masukan kode referal jika Anda punya'),
             ),
             const SizedBox(height: 18),
-            ElevatedButton(onPressed: () {}, child: const Text('Daftar'))
+            ElevatedButton(
+                onPressed: () => controller.onTapDaftar(),
+                child: const Text('Daftar'))
           ],
         ));
   }

@@ -9,12 +9,9 @@ import 'controllers/bookshelf.controller.dart';
 class BookshelfScreen extends GetView<BookshelfController> {
   @override
   final BookshelfController controller = Get.put(BookshelfController());
-  final AuthenticationController authenticationControllercontroller =
-      Get.put(AuthenticationController());
 
   @override
   Widget build(BuildContext context) {
-    authenticationControllercontroller.auth();
     return DefaultTabController(
       length: 2,
       child: Scaffold(

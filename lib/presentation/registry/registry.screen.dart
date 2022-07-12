@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:sertidemi/app/views/views/appbar_view.dart';
+import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import './views/form_registry_view.dart';
 import './views/image_profile_view.dart';
@@ -17,7 +18,18 @@ class RegistryScreen extends GetView<RegistryController> {
     return Stack(
       children: [
         //background
+        Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            height: Get.height / 2,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image:
+                        AssetImage(Assets.images.loginGambarCrop.assetName))),
+          ),
+        ),
         Container(color: primaryColor.withOpacity(0.8)),
+
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: appBarTransparentView(title: 'Daftar'),
