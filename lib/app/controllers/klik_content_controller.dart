@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:sertidemi/app/data/models/checkout_assessment_model.dart';
 import 'package:sertidemi/app/data/models/checkout_event_model.dart';
+import 'package:sertidemi/app/data/models/materi_model.dart';
 import 'package:sertidemi/app/data/providers/checkout_provider.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -48,10 +49,12 @@ class KlikContentController extends GetxController {
         : log('can`t not luanch');
   }
 
-  void onTapTiketEventMateri(String? idEvent) {
-    // Map<String, dynamic> sendArguments = {'idProduct': idEvent};
-
-    // Get.toNamed(Routes.TIKET_DETAIL_EVENT, arguments: sendArguments);
+  void onTapTiketEventMateri(String idProduct) {
+    Map<String, dynamic> sendArguments = {
+      'titleHeader': 'Event',
+      'idProduct': idProduct
+    };
+    Get.toNamed(Routes.MATERI, arguments: sendArguments);
   }
 
   void onTapTiketEventToAssesment({required String idProduct}) {

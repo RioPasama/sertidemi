@@ -35,7 +35,6 @@ class TiketDetailAssessmentScreen
             if (snapshot.hasData) {
               controller.assessmentDetailModel.value =
                   snapshot.data as AssessmentDetailTiketModel;
-              controller.loadListMateri();
 
               return SizedBox(
                 height: Get.height,

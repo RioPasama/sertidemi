@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:sertidemi/app/data/models/assessment_materi_model.dart';
+import 'package:sertidemi/app/data/models/materi_model.dart';
+import 'package:sertidemi/app/data/providers/event_materi_provider.dart';
+import 'package:sertidemi/app/views/views/loading_view.dart';
 import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
@@ -23,22 +25,80 @@ class MateriScreen extends GetView<MateriController> {
           color: Colors.white,
         )),
         SafeArea(
-          child: Obx(() => ListView.builder(
-                itemCount: (controller.indexCategoryMateri.value == 0)
-                    ? controller.assessmentMateriTextModel.length
-                    : controller.assessmentMateriVideoModel.length,
-                padding: const EdgeInsets.only(left: 16, right: 16, top: 120),
-                itemBuilder: (context, index) {
-                  return (controller.indexCategoryMateri.value == 0)
-                      ? cardMateriText(index,
-                          assessmentMateriModel:
-                              controller.assessmentMateriTextModel)
-                      : cardMatriVideo(index,
-                          assessmentMateriModel:
-                              controller.assessmentMateriVideoModel);
-                },
-              )),
-        ),
+            child: Obx(
+          () => (controller.indexCategoryMateri.value == 0)
+              ? FutureBuilder(
+                  future: (controller.isSertifikasi.value)
+                      ? MateriProvider.getAssessmentMateriTextList(
+                          id: controller.getArguments['idProduct'])
+                      : MateriProvider.getEventMateriTextList(
+                          id: controller.getArguments['idProduct']),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      List<MateriModel> materiModel =
+                          snapshot.data as List<MateriModel>;
+                      return ListView.builder(
+                        itemCount: materiModel.length,
+                        padding: const EdgeInsets.only(
+                            left: 16, right: 16, top: 120),
+                        itemBuilder: (context, index) {
+                          return cardMateriText(index,
+                              materiModel: materiModel);
+                        },
+                      );
+                    } else {
+                      return Center(child: LoadingView());
+                    }
+                  },
+                )
+              : FutureBuilder(
+                  future: (controller.isSertifikasi.value)
+                      ? MateriProvider.getAssessmentMateriVideoList(
+                          id: controller.getArguments['idProduct'])
+                      : MateriProvider.getEventMateriVideoList(
+                          id: controller.getArguments['idProduct']),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      List<MateriModel> materiModel =
+                          snapshot.data as List<MateriModel>;
+                      return ListView.builder(
+                        itemCount: materiModel.length,
+                        padding: const EdgeInsets.only(
+                            left: 16, right: 16, top: 120),
+                        itemBuilder: (context, index) {
+                          return cardMatriVideo(index,
+                              materiModel: materiModel);
+                        },
+                      );
+                    } else {
+                      return Center(child: LoadingView());
+                    }
+                  },
+                ),
+        )
+            //  Obx(() => ListView.builder(
+            //       itemCount: (controller.indexCategoryMateri.value == 0)
+            //           ? (controller.isSertifikasi.value)
+            //               ? controller.assessmentMateriTextModel.length
+            //               : controller.eventMateriTextModel.length
+            //           : (controller.isSertifikasi.value)
+            //               ? controller.assessmentMateriVideoModel.length
+            //               : controller.eventMateriVideoModel.length,
+            //       padding: const EdgeInsets.only(left: 16, right: 16, top: 120),
+            //       itemBuilder: (context, index) {
+            //         return (controller.indexCategoryMateri.value == 0)
+            //             ? cardMateriText(
+            //                 index,
+            //                 assessmentMateriModel:
+            //                     controller.assessmentMateriTextModel,
+            //               )
+            //             : cardMatriVideo(index,
+            //                 assessmentMateriModel:
+            //                     controller.assessmentMateriVideoModel,
+            //                 eventMateriModel: controller.eventMateriVideoModel);
+            //       },
+            //     )),
+            ),
         appBar(),
         SafeArea(
             child: Container(
@@ -104,11 +164,9 @@ class MateriScreen extends GetView<MateriController> {
         ));
   }
 
-  Widget cardMatriVideo(int index,
-      {required List<AssessmentMateriModel> assessmentMateriModel}) {
+  Widget cardMatriVideo(int index, {required List<MateriModel> materiModel}) {
     return GestureDetector(
-      onTap: () =>
-          controller.onTapVideo(assessmentMateriModel[index].linkMateri!),
+      onTap: () => controller.onTapVideo(materiModel[index].linkMateri!),
       child: Container(
         padding: const EdgeInsets.all(6),
         margin: const EdgeInsets.symmetric(vertical: 8),
@@ -125,7 +183,7 @@ class MateriScreen extends GetView<MateriController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  assessmentMateriModel[index].deskripsiMateri!,
+                  materiModel[index].deskripsiMateri!,
                   style: textBold.copyWith(fontSize: 16),
                 ),
                 // Text(assessmentMateriModel[index].keterangan!)
@@ -149,12 +207,10 @@ class MateriScreen extends GetView<MateriController> {
     );
   }
 
-  Widget cardMateriText(int index,
-      {required List<AssessmentMateriModel> assessmentMateriModel}) {
+  Widget cardMateriText(int index, {required List<MateriModel> materiModel}) {
     return GestureDetector(
-      onTap: () => controller.requestDownload(
-          assessmentMateriModel[index].linkMateri!,
-          namefile: assessmentMateriModel[index].deskripsiMateri!),
+      onTap: () => controller.requestDownload(materiModel[index].linkMateri!,
+          namefile: materiModel[index].deskripsiMateri!),
       child: Container(
         padding: const EdgeInsets.all(6),
         margin: const EdgeInsets.symmetric(vertical: 8),
@@ -171,10 +227,10 @@ class MateriScreen extends GetView<MateriController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  assessmentMateriModel[index].deskripsiMateri!,
+                  materiModel[index].deskripsiMateri!,
                   style: textBold.copyWith(fontSize: 16),
                 ),
-                Text(assessmentMateriModel[index].keterangan!)
+                Text(materiModel[index].keterangan!)
               ],
             ),
             Container(

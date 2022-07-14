@@ -125,7 +125,8 @@ class TiketDetailAssessmentContentView extends GetView {
                         (controller.assessmentDetailModel.value!.statusMateri ==
                             'Y'),
                     child: ElevatedButton(
-                        onPressed: () => controller.onTapMateri(),
+                        onPressed: () => controller.onTapMateri(controller
+                            .assessmentDetailModel.value!.idassessment!),
                         child: Row(
                           children: [
                             Image.asset(

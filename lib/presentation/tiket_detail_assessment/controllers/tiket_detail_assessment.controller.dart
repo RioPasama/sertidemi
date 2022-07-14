@@ -1,16 +1,10 @@
 import 'package:get/get.dart';
 import 'package:sertidemi/app/data/models/asessment_answer_model.dart';
 import 'package:sertidemi/app/data/models/assessment_detail_tiket_model.dart';
-import 'package:sertidemi/app/data/models/assessment_materi_model.dart';
 import 'package:sertidemi/app/data/providers/asessment_answer_provider.dart';
-import 'package:sertidemi/app/data/providers/assessment_materi_provider.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
 
 class TiketDetailAssessmentController extends GetxController {
-  late RxList<AssessmentMateriModel> assessmentMateriTextModel =
-      RxList<AssessmentMateriModel>();
-  late RxList<AssessmentMateriModel> assessmentMateriVideoModel =
-      RxList<AssessmentMateriModel>();
   late Rxn<AssessmentDetailTiketModel> assessmentDetailModel =
       Rxn<AssessmentDetailTiketModel>();
   late Rxn<AsessmentAnswerModel> asessmentAnswerModel =
@@ -40,21 +34,10 @@ class TiketDetailAssessmentController extends GetxController {
     Get.toNamed(Routes.START_ASSESSMENT, arguments: sendArguments);
   }
 
-  void loadListMateri() async {
-    assessmentMateriTextModel.value =
-        await AssessmentMateriProvider.getAssessmentMateriTextList(
-            id: assessmentDetailModel.value!.idassessment!);
-
-    assessmentMateriVideoModel.value =
-        await AssessmentMateriProvider.getAssessmentMateriVideoList(
-            id: assessmentDetailModel.value!.idassessment!);
-  }
-
-  void onTapMateri() {
+  void onTapMateri(String idProduct) {
     Map<String, dynamic> sendArguments = {
       'titleHeader': 'Sertifikasi',
-      'assessmentMateriTextModel': assessmentMateriTextModel,
-      'assessmentMateriVideoModel': assessmentMateriVideoModel
+      'idProduct': idProduct,
     };
 
     Get.toNamed(Routes.MATERI, arguments: sendArguments);

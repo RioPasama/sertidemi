@@ -94,29 +94,31 @@ class AssessmentDetailContentView extends GetView {
                   style: textBold.copyWith(fontSize: 18),
                 ),
               ),
-              Obx(() => Visibility(
-                    visible: controller.showButtonMateri.value,
-                    child: ElevatedButton(
-                        onPressed: () => controller.onTapMateri(),
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              Assets
-                                  .icons
-                                  .menuSertifikasiBagianSertifikasiIconMateri
-                                  .path,
-                              scale: 4,
-                            ),
-                            const SizedBox(width: 10),
-                            const Text(
-                              'Materi',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.white),
-                            )
-                          ],
-                        )),
-                  ))
+              Visibility(
+                visible: false,
+                child: ElevatedButton(
+                    onPressed: () => controller.onTapMateri(controller
+                        .fetchAPIProductDetailsController
+                        .assessmentDetailModel
+                        .value!
+                        .idAssessment!),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          Assets.icons
+                              .menuSertifikasiBagianSertifikasiIconMateri.path,
+                          scale: 4,
+                        ),
+                        const SizedBox(width: 10),
+                        const Text(
+                          'Materi',
+                          style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white),
+                        )
+                      ],
+                    )),
+              )
             ],
           ),
           Row(

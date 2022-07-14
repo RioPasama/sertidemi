@@ -4,23 +4,19 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:sertidemi/app/data/models/assessment_materi_model.dart';
+import 'package:sertidemi/app/data/models/materi_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MateriController extends GetxController {
   Map<String, dynamic> getArguments = Get.arguments;
-  late RxList<AssessmentMateriModel> assessmentMateriTextModel =
-      RxList<AssessmentMateriModel>();
-  late RxList<AssessmentMateriModel> assessmentMateriVideoModel =
-      RxList<AssessmentMateriModel>();
 
   RxInt indexCategoryMateri = 0.obs;
   RxDouble progress = 0.0.obs;
+  RxBool isSertifikasi = true.obs;
 
   @override
   void onInit() {
-    assessmentMateriTextModel = getArguments['assessmentMateriTextModel'];
-    assessmentMateriVideoModel = getArguments['assessmentMateriVideoModel'];
+    initialModel();
     super.onInit();
   }
 
@@ -36,6 +32,18 @@ class MateriController extends GetxController {
 
   void onTapMateri({required int index}) {
     indexCategoryMateri.value = index;
+  }
+
+  void initialModel() {
+    switch (getArguments['titleHeader']) {
+      case 'Event':
+        isSertifikasi.value = false;
+        break;
+      case 'Sertifikasi':
+        isSertifikasi.value = true;
+        break;
+      default:
+    }
   }
 
   void requestDownload(String link, {required String namefile}) async {
