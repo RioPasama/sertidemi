@@ -95,7 +95,9 @@ class AssessmentDetailContentView extends GetView {
                 ),
               ),
               Visibility(
-                visible: false,
+                visible: controller.fetchAPIProductDetailsController
+                        .assessmentDetailModel.value!.statusMateri ==
+                    'Y',
                 child: ElevatedButton(
                     onPressed: () => controller.onTapMateri(controller
                         .fetchAPIProductDetailsController

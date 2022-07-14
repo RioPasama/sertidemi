@@ -6,7 +6,7 @@ class MateriProvider {
   static Future<List<MateriModel>> getEventMateriTextList(
       {required String id}) async {
     MainModel result = await MainProvider.getAPI(
-        url: 'event_materi.php?', body: {'idevent': id, 'tag': 'materi'});
+        url: 'event_materi.php', body: {'idevent': id, 'tag': 'materi'});
 
     return List<MateriModel>.from(
         result.data.map((e) => MateriModel.fromJson(e)));

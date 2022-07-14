@@ -10,14 +10,16 @@ import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 
 class CardListTransactionView extends GetView {
   final ListTransactionModel data;
-  const CardListTransactionView({required this.data, Key? key})
+  final String status;
+  const CardListTransactionView(
+      {required this.data, required this.status, Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () =>
-          Get.toNamed(Routes.DETAIL_TRANSACTION, arguments: data.idtransaksi),
+      onTap: () => Get.toNamed(Routes.DETAIL_TRANSACTION,
+          arguments: {'idTransaksi': data.idtransaksi, 'status': status}),
       child: Container(
         padding: const EdgeInsets.all(8),
         margin: const EdgeInsets.symmetric(vertical: 8),

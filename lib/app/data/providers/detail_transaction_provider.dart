@@ -11,4 +11,12 @@ class DetailTransactionProvider {
 
     return DetailTransactionModel.fromJson(result.data);
   }
+
+  static Future<DetailTransactionModel> getEventDetailTransaction(
+      String idAssessmen) async {
+    MainModel result = await MainProvider.getAPI(
+        url: 'transactions.php', body: {'tag': 'event', 'id': idAssessmen});
+
+    return DetailTransactionModel.fromJson(result.data);
+  }
 }

@@ -7,6 +7,7 @@ class DetailTransactionController extends GetxController {
   Rxn<DetailTransactionModel> detailTransactionModel =
       Rxn<DetailTransactionModel>();
 
+  Map<String, dynamic> getArguments = Get.arguments;
   @override
   void onInit() {
     super.onInit();

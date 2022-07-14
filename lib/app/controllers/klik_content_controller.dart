@@ -1,10 +1,6 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
-import 'package:sertidemi/app/data/models/checkout_assessment_model.dart';
-import 'package:sertidemi/app/data/models/checkout_event_model.dart';
-import 'package:sertidemi/app/data/models/materi_model.dart';
-import 'package:sertidemi/app/data/providers/checkout_provider.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 

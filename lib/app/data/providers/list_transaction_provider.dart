@@ -11,4 +11,13 @@ class ListTransactionProvider {
     return List<ListTransactionModel>.from(
         result.data.map((e) => ListTransactionModel.fromJson(e)));
   }
+
+  static Future<List<ListTransactionModel>> getEventListTransactionModel(
+      String id) async {
+    MainModel result = await MainProvider.getAPI(
+        url: 'transactions.php', body: {'tag': 'event', 'iduser': id});
+
+    return List<ListTransactionModel>.from(
+        result.data.map((e) => ListTransactionModel.fromJson(e)));
+  }
 }

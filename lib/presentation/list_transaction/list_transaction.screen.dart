@@ -21,11 +21,28 @@ class ListTransactionScreen extends GetView<ListTransactionController> {
     return Scaffold(
         appBar: appBarDefaultView(title: 'Transaction'),
         body: (Get.arguments == 1)
-            ? Center(
-                child: Text(
-                  'Coming Soon',
-                  style: TextStyle(fontSize: 20),
-                ),
+            ? FutureBuilder(
+                future: ListTransactionProvider.getEventListTransactionModel(
+                    GetStorage().read('idUser')),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<ListTransactionModel> listTransactionModel =
+                        snapshot.data as List<ListTransactionModel>;
+
+                    return ListView.builder(
+                      itemCount: listTransactionModel.length,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      itemBuilder: (context, index) {
+                        return CardListTransactionView(
+                          data: listTransactionModel[index],
+                          status: 'event',
+                        );
+                      },
+                    );
+                  } else {
+                    return Center(child: LoadingView());
+                  }
+                },
               )
             : FutureBuilder(
                 future:
@@ -41,7 +58,9 @@ class ListTransactionScreen extends GetView<ListTransactionController> {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       itemBuilder: (context, index) {
                         return CardListTransactionView(
-                            data: listTransactionModel[index]);
+                          data: listTransactionModel[index],
+                          status: 'assessment',
+                        );
                       },
                     );
                   } else {

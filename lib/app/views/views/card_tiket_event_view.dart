@@ -123,7 +123,9 @@ class CardTiketEventView extends GetView {
                           Visibility(
                             visible: eventTiketModel.materiCount != '0',
                             child: GestureDetector(
-                              onTap: null,
+                              onTap: () =>
+                                  klikContentController.onTapTiketEventMateri(
+                                      eventTiketModel.idevent!),
                               child: Container(
                                 height: 30,
                                 padding:

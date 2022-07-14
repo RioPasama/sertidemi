@@ -21,8 +21,11 @@ class DetailTransactionScreen extends GetView<DetailTransactionController> {
     return Scaffold(
       appBar: appBarDefaultView(title: 'Detail Transaction'),
       body: FutureBuilder(
-        future: DetailTransactionProvider.getAssessmentDetailTransaction(
-            Get.arguments),
+        future: (controller.getArguments['status'] == 'assessment')
+            ? DetailTransactionProvider.getAssessmentDetailTransaction(
+                controller.getArguments['idTransaksi'])
+            : DetailTransactionProvider.getEventDetailTransaction(
+                controller.getArguments['idTransaksi']),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             controller.detailTransactionModel.value =

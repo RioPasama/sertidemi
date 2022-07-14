@@ -15,6 +15,7 @@ class AssessmentDetailModel {
   String? waktuPengerjaan;
   String? tampilAssessmentEssay;
   String? tampilAssessmentPilgan;
+  String? statusMateri;
 
   /// [idAssessment], [namaAssessment], [deskripsiAssessment], [tanggalMulaiAssessment],
   /// [tanggalBatasAssessment], [urlSertifikatDepanTemplate], [hargaAssessment],
@@ -35,6 +36,7 @@ class AssessmentDetailModel {
       this.waktuPengerjaan,
       this.tampilAssessmentEssay,
       this.tampilAssessmentPilgan,
+      this.statusMateri,
       this.penulis});
 
   AssessmentDetailModel.fromJson(Map<String, dynamic> json) {
@@ -52,5 +54,6 @@ class AssessmentDetailModel {
     waktuPengerjaan = json['waktu_pengerjaan'] ?? '';
     tampilAssessmentEssay = json['tampil_assessment_essay'];
     tampilAssessmentPilgan = json['tampil_assessment_pilgan'];
+    statusMateri = json['status_materi'];
   }
 }
