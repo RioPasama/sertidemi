@@ -123,11 +123,15 @@ AppBar appBarHomeView() {
               height: 40,
               width: Get.width - 68,
               decoration: inputBoxDecorationRounded,
-              child: TextField(
-                decoration: inputInputDecorationRounded.copyWith(
-                  hintText: 'Pencarian',
-                  hintStyle: const TextStyle(fontSize: 14),
-                  prefixIcon: const Icon(Icons.search_outlined),
+              child: GestureDetector(
+                onTap: () => Get.toNamed(Routes.HOME_SEARCH),
+                child: TextField(
+                  enabled: false,
+                  decoration: inputInputDecorationRounded.copyWith(
+                    hintText: 'Pencarian',
+                    hintStyle: const TextStyle(fontSize: 14),
+                    prefixIcon: const Icon(Icons.search_outlined),
+                  ),
                 ),
               )),
           // const Spacer(flex: 2),
@@ -136,13 +140,13 @@ AppBar appBarHomeView() {
           //   scale: 6,
           // ),
           const Spacer(),
-          GestureDetector(
-            onTap: () => Get.toNamed(Routes.NOTIFICATION),
-            child: Image.asset(
-              Assets.icons.iconNotifikasi.path,
-              scale: 6,
-            ),
-          ),
+          // GestureDetector(
+          //   onTap: () => Get.toNamed(Routes.NOTIFICATION),
+          //   child: Image.asset(
+          //     Assets.icons.iconNotifikasi.path,
+          //     scale: 6,
+          //   ),
+          // ),
         ],
       ),
       elevation: 0,

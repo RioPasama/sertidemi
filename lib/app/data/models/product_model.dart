@@ -23,12 +23,12 @@ class ProductModel {
   ProductModel.fromJson(Map<String, dynamic> json) {
     idProduct = json['id'] ?? '';
     namaProduct = json['nama'] ?? '';
-    tanggalMulaiProduct = json['mulai'] ?? '';
-    tanggalBatasProduct = json['selesai'] ?? '';
-    urlImageCover = json['url_image_panjang'] ?? '';
+    tanggalMulaiProduct = json['mulai'] ?? json['tgl_mulai'] ?? '';
+    tanggalBatasProduct = json['selesai'] ?? json['tgl_selesai'] ?? '';
+    urlImageCover = json['url_image_panjang'] ?? json['image_panjang'] ?? '';
     harga = json['harga'] ?? '';
     hargaDiskon = json['harga_diskon'] ?? '';
-    diskon = json['diskon'] ?? '';
+    diskon = json['diskon'] ?? '0';
     status = json['status'] ?? '';
   }
 }

@@ -5,6 +5,7 @@ export 'package:sertidemi/infrastructure/navigation/bindings/controllers/assessm
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/bookshelf.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/category_certifications.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/certificate.controller.binding.dart'; 
+export 'package:sertidemi/infrastructure/navigation/bindings/controllers/change_profile.controller.binding.dart'; 
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/detail_transaction.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/ebook.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/edit_profile.controller.binding.dart';
@@ -12,6 +13,7 @@ export 'package:sertidemi/infrastructure/navigation/bindings/controllers/event.c
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/event_detail.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/event_list.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/finish_assessment.controller.binding.dart';
+export 'package:sertidemi/infrastructure/navigation/bindings/controllers/home_search.controller.binding.dart'; 
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/list_category.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/list_certificate.controller.binding.dart'; 
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/list_data_certifications.controller.binding.dart';

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sertidemi/app/controllers/authentication_controller.dart';
@@ -7,12 +9,16 @@ import 'package:sertidemi/app/data/models/status_transaction_model.dart';
 import 'package:sertidemi/app/data/providers/checkout_provider.dart';
 import 'package:sertidemi/app/data/providers/transaction_provider.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
+import 'package:sertidemi/presentation/register_event/controllers/register_event_api_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RegisterEventController extends GetxController {
   final FetchAPIProductDetailsController fetchAPIProductDetailsController =
       Get.put(FetchAPIProductDetailsController());
   final AuthenticationController authenticationControllercontroller =
       Get.put(AuthenticationController());
+  final RegisterEventApiController registerEventApiController =
+      Get.put(RegisterEventApiController());
 
   late TextEditingController nameTextEditingController;
   late StatusTransactionModel statusTransactionModel;
@@ -37,7 +43,7 @@ class RegisterEventController extends GetxController {
   }
 
   String? validatorName(String? val) {
-    return (GetUtils.isUsername(val!)) ? null : 'Silakan masukan Nama Lengkap';
+    // return (GetUtils.isUsername(val!)) ? null : 'Silakan masukan Nama Lengkap';
   }
 
   void onTapRegister() {
@@ -56,21 +62,29 @@ class RegisterEventController extends GetxController {
   }
 
   void transaction() async {
-    CheckoutEventDetailModel checkoutEventDetailModel =
-        await CheckoutProvider.postCheckoutEvent(
-            id: fetchAPIProductDetailsController
-                .eventDetailModel.value!.idEvent!);
+    String url = await registerEventApiController.postPaymentToBrowser(
+        nameCertificate: nameTextEditingController.text,
+        status: 'event',
+        idProduct:
+            fetchAPIProductDetailsController.eventDetailModel.value!.idEvent!);
+    await canLaunchUrl(Uri.parse(url))
+        ? launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)
+        : log('cant open');
+    // CheckoutEventDetailModel checkoutEventDetailModel =
+    //     await CheckoutProvider.postCheckoutEvent(
+    //         id: fetchAPIProductDetailsController
+    //             .eventDetailModel.value!.idEvent!);
 
-    if (checkoutEventDetailModel.idEvent!.isEmpty) {
-      return;
-    }
+    // if (checkoutEventDetailModel.idEvent!.isEmpty) {
+    //   return;
+    // }
 
-    Map<String, dynamic> sendArguments = {
-      'nameOption': 'Event',
-      'nameUser': nameTextEditingController.text,
-      'modelProductCheckout': checkoutEventDetailModel
-    };
-    Get.toNamed(Routes.PAYMENT, arguments: sendArguments);
+    // Map<String, dynamic> sendArguments = {
+    //   'nameOption': 'Event',
+    //   'nameUser': nameTextEditingController.text,
+    //   'modelProductCheckout': checkoutEventDetailModel
+    // };
+    // Get.toNamed(Routes.PAYMENT, arguments: sendArguments);
   }
 
   void freeTransaction() async {

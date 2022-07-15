@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:sertidemi/app/data/models/list_certificate_model.dart';
+import 'package:sertidemi/app/data/models/list_assessment_certificate_model.dart';
 import 'package:sertidemi/domain/core/extensions/formatTime.extension.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 
-class ListCertificateContentView extends GetView {
-  final List<ListCertificateModel> listCertificateModel;
-  const ListCertificateContentView(
+class ListAssessmentCertificateView extends GetView {
+  final List<ListAssessmentCertificateModel> listCertificateModel;
+  const ListAssessmentCertificateView(
       {required this.listCertificateModel, Key? key})
       : super(key: key);
   @override
@@ -22,7 +22,7 @@ class ListCertificateContentView extends GetView {
     );
   }
 
-  Widget cardCertificate(ListCertificateModel data) {
+  Widget cardCertificate(ListAssessmentCertificateModel data) {
     return GestureDetector(
       onTap: () =>
           Get.toNamed(Routes.CERTIFICATE, arguments: data.linkSertifikat),

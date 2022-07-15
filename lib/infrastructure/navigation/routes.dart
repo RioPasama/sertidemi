@@ -18,6 +18,7 @@ class Routes {
   static const EVENT_LIST = '/event-list';
   static const FINISH_ASSESSMENT = '/finish-assessment';
   static const HOME = '/home';
+  static const HOME_SEARCH = '/home-search';
   static const LIST = '/list';
   static const LIST_CATEGORY = '/list-category';
   static const LIST_CERTIFICATE = '/list-certificate';
@@ -41,4 +42,5 @@ class Routes {
   static const TIKET_DETAIL_ASSESSMENT = '/tiket-detail-assessment';
   static const TIKET_DETAIL_EVENT = '/tiket-detail-event';
   static const VERIFICATION_EMAIL = '/verification-email';
+  static const CHANGE_PROFILE = '/change-profile';
 }

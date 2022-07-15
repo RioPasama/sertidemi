@@ -27,12 +27,13 @@ dependencies:
   permission_handler: ^10.0.0
   shimmer: ^2.0.0
   syncfusion_flutter_pdfviewer: ^20.1.57-beta
+  package_info_plus: ^1.4.2
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
+  flutter_gen_runner:
   flutter_test: 
     sdk: flutter
-  flutter_gen_runner:
 
 flutter: 
   uses-material-design: true

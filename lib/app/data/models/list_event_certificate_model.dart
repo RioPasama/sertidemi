@@ -1,24 +1,21 @@
-class ListCertificateModel {
+class ListEventCertificateModel {
   String? idassessmentSertifikat;
   String? namaAssessment;
   String? tglInputTime;
-  String? nilai;
   String? urlSertifikatDepanTemplate;
   String? linkSertifikat;
 
-  ListCertificateModel(
+  ListEventCertificateModel(
       {this.idassessmentSertifikat,
       this.namaAssessment,
       this.tglInputTime,
-      this.nilai,
       this.linkSertifikat,
       this.urlSertifikatDepanTemplate});
 
-  ListCertificateModel.fromJson(Map<String, dynamic> json) {
-    idassessmentSertifikat = json['idassessment_sertifikat'] ?? '';
-    namaAssessment = json['nama_assessment'] ?? '';
-    tglInputTime = json['tgl_input_time'] ?? '';
-    nilai = json['nilai'] ?? '';
+  ListEventCertificateModel.fromJson(Map<String, dynamic> json) {
+    idassessmentSertifikat = json['idevent_sertifikat'] ?? '';
+    namaAssessment = json['nama_event'] ?? '';
+    tglInputTime = json['tanggal_input'] ?? '0000-00-00 00:00:00';
     urlSertifikatDepanTemplate = json['url_sertifikat_depan_template'] ?? '';
     linkSertifikat = json['link_sertifikat'] ?? '';
   }

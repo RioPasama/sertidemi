@@ -4,6 +4,7 @@ export 'package:sertidemi/presentation/assessment_list/assessment_list.screen.da
 export 'package:sertidemi/presentation/bookshelf/bookshelf.screen.dart';
 export 'package:sertidemi/presentation/category_certifications/category_certifications.screen.dart';
 export 'package:sertidemi/presentation/certificate/certificate.screen.dart';
+export 'package:sertidemi/presentation/change_profile/change_profile.screen.dart';
 export 'package:sertidemi/presentation/detail_transaction/detail_transaction.screen.dart';
 export 'package:sertidemi/presentation/ebook/ebook.screen.dart';
 export 'package:sertidemi/presentation/edit_profile/edit_profile.screen.dart';
@@ -12,6 +13,7 @@ export 'package:sertidemi/presentation/event_detail/event_detail.screen.dart';
 export 'package:sertidemi/presentation/event_list/event_list.screen.dart';
 export 'package:sertidemi/presentation/finish_assessment/finish_assessment.screen.dart';
 export 'package:sertidemi/presentation/home/home.screen.dart';
+export 'package:sertidemi/presentation/home_search/home_search.screen.dart';
 export 'package:sertidemi/presentation/list_category/list_category.screen.dart';
 export 'package:sertidemi/presentation/list_certificate/list_certificate.screen.dart';
 export 'package:sertidemi/presentation/list_data_certifications/list_data_certifications.screen.dart';

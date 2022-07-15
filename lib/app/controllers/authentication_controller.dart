@@ -66,6 +66,12 @@ class AuthenticationController extends GetxController {
         await LoginProvider.postLogin(email: email, password: password);
 
     isLogin.value = true;
+    idUser.value = resultLogin.idUser!;
+    nameUser.value = resultLogin.nama!;
+    emailUser.value = resultLogin.loginEmail!;
+    kodeReferalUser.value = resultLogin.kodeReferal!;
+    telpUser.value = resultLogin.telp!;
+    urlImageUser.value = resultLogin.urlImage!;
 
     GetStorage().write('isLogin', true);
     GetStorage().write('idUser', resultLogin.idUser);

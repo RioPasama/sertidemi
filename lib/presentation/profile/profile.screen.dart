@@ -44,7 +44,10 @@ class ProfileScreen extends GetView<ProfileController> {
                       authenticationControllercontroller.nameUser.value,
                       style: textBold.copyWith(fontSize: 18),
                     ),
-                    Text(authenticationControllercontroller.emailUser.value),
+                    Obx(
+                      () => Text(
+                          authenticationControllercontroller.emailUser.value),
+                    ),
                     Text(
                         authenticationControllercontroller
                             .kodeReferalUser.value,
@@ -60,7 +63,8 @@ class ProfileScreen extends GetView<ProfileController> {
                               Assets.icons.profilIconUbahData.path,
                               scale: 4,
                             ),
-                            title: const Text('Ubah Data'),
+                            title: const Text('Change Proifle'),
+                            onTap: () => Get.toNamed(Routes.CHANGE_PROFILE),
                           ),
                           // ListTile(
                           //   onTap: () => Get.toNamed(Routes.BOOKSHELF),
@@ -87,25 +91,26 @@ class ProfileScreen extends GetView<ProfileController> {
                           // ),
                           ListTile(
                             leading: Image.asset(
-                              Assets
-                                  .icons.profilIconPelayananPelanggan.path,
+                              Assets.icons.profilIconPelayananPelanggan.path,
                               scale: 4,
                             ),
-                            title: const Text('PelayananPelanggan'),
+                            title: const Text('Customer Service'),
                           ),
                           ListTile(
+                            onTap: () => controller.onTapPrivacyPolicy(),
                             leading: Image.asset(
                               Assets.icons.profilIconLisensi.path,
                               scale: 4,
                             ),
-                            title: const Text('Lisensi'),
+                            title: const Text('Privacy Policy'),
                           ),
                           ListTile(
+                            onTap: () => controller.onTapAbout(),
                             leading: Image.asset(
                               Assets.icons.profilIconTentang.path,
                               scale: 4,
                             ),
-                            title: const Text('Tentang'),
+                            title: const Text('About'),
                           ),
                           const SizedBox(height: 16),
                           const Divider(thickness: 2),
@@ -113,7 +118,7 @@ class ProfileScreen extends GetView<ProfileController> {
                           TextButton(
                               onPressed: () =>
                                   authenticationControllercontroller.logOut(),
-                              child: Text('Keluar',
+                              child: Text('Logout',
                                   style: textBold.copyWith(color: Colors.red)))
                         ],
                       ),
@@ -140,7 +145,8 @@ class ProfileScreen extends GetView<ProfileController> {
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 6),
-                image: DecorationImage(image: imageProvider)),
+                image:
+                    DecorationImage(image: imageProvider, fit: BoxFit.cover)),
           );
         },
         placeholder: (context, url) {

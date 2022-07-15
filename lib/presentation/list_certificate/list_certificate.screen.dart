@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:sertidemi/app/data/models/list_certificate_model.dart';
+import 'package:sertidemi/app/data/models/list_assessment_certificate_model.dart';
+import 'package:sertidemi/app/data/models/list_event_certificate_model.dart';
 import 'package:sertidemi/app/data/providers/list_certificate_provider.dart';
 import 'package:sertidemi/app/views/views/appbar_view.dart';
 import 'package:sertidemi/app/views/views/loading_view.dart';
-import 'package:sertidemi/presentation/list_certificate/views/list_certificate_content_view.dart';
+import 'package:sertidemi/presentation/list_certificate/views/list_assessment_certificate_view.dart';
+import 'package:sertidemi/presentation/list_certificate/views/list_event_certificate_view.dart';
 
 import 'controllers/list_certificate.controller.dart';
 
@@ -19,19 +21,26 @@ class ListCertificateScreen extends GetView<ListCertificateController> {
     return Scaffold(
       appBar: appBarDefaultView(title: 'Certificate'),
       body: (Get.arguments == 1)
-          ? Center(
-              child: Text(
-                'Coming Soon',
-                style: TextStyle(fontSize: 20),
-              ),
-            )
-          : FutureBuilder(
-              future: ListCertificateProvider.getListCertificate(),
+          ? FutureBuilder(
+              future: ListCertificateProvider.getEventListCertificate(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  List<ListCertificateModel> listCertificateModel =
-                      snapshot.data as List<ListCertificateModel>;
-                  return ListCertificateContentView(
+                  List<ListEventCertificateModel> listCertificateModel =
+                      snapshot.data as List<ListEventCertificateModel>;
+                  return ListEventCertificateView(
+                      listCertificateModel: listCertificateModel);
+                } else {
+                  return Center(child: LoadingView());
+                }
+              },
+            )
+          : FutureBuilder(
+              future: ListCertificateProvider.getAssessmentListCertificate(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List<ListAssessmentCertificateModel> listCertificateModel =
+                      snapshot.data as List<ListAssessmentCertificateModel>;
+                  return ListAssessmentCertificateView(
                       listCertificateModel: listCertificateModel);
                 } else {
                   return Center(child: LoadingView());

@@ -30,6 +30,15 @@ class HomeProvider {
     return List<HomeBannerModel>.from(
         result.data.map((e) => HomeBannerModel.fromJson(e)));
   }
+
+  static Future<List<ProductModel>> getHomeSearch(
+      String q, String offset) async {
+    MainModel result = await MainProvider.getAPI(
+        url: 'home.php', body: {'q': q, 'offset': offset});
+
+    return List<ProductModel>.from(
+        result.data.map((e) => ProductModel.fromJson(e)));
+  }
 }
 
 class FetchModel {

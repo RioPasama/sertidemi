@@ -208,5 +208,15 @@ class Nav {
       page: () => ListCertificateScreen(),
       binding: ListCertificateControllerBinding(),
     ),
+    GetPage(
+      name: Routes.HOME_SEARCH,
+      page: () => const HomeSearchScreen(),
+      binding: HomeSearchControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.CHANGE_PROFILE,
+      page: () => const ChangeProfileScreen(),
+      binding: ChangeProfileControllerBinding(),
+    ),
   ];
 }
