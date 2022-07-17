@@ -24,7 +24,7 @@ class StatusTransactionContentView extends GetView {
               Align(
                 alignment: Alignment.topCenter,
                 child: Text(
-                  'Transaksi Berhasil',
+                  'Transaction Success',
                   style: textBold.copyWith(fontSize: 18),
                 ),
               ),
@@ -70,7 +70,8 @@ class StatusTransactionContentView extends GetView {
                 margin: const EdgeInsets.only(top: 20, left: 16, right: 16),
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(Assets.images.transaksiBGDetailTransaksi.path),
+                        image: AssetImage(
+                            Assets.images.transaksiBGDetailTransaksi.path),
                         fit: BoxFit.fill)),
                 child: Column(
                   children: [
@@ -88,7 +89,7 @@ class StatusTransactionContentView extends GetView {
                         style: textBold),
                     const SizedBox(height: 40),
                     const Text(
-                      'Total Transaksi',
+                      'Total of payment',
                       style: TextStyle(color: Colors.grey),
                     ),
                     Text(

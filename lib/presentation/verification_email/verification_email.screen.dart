@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:sertidemi/app/views/views/appbar_view.dart';
+import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 import 'package:sertidemi/infrastructure/theme/widget_decoration.theme.dart';
@@ -25,7 +26,7 @@ class VerificationEmailScreen extends GetView<VerificationEmailController> {
                     width: Get.width,
                     margin: const EdgeInsets.symmetric(
                         horizontal: 26, vertical: 16),
-                    color: Colors.grey,
+                    // decoration: BoxDecoration(image: DecorationImage(image: Assets.images.)),
                   ),
                   const Spacer(),
                   Padding(
@@ -51,7 +52,7 @@ class VerificationEmailScreen extends GetView<VerificationEmailController> {
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     color: Colors.white,
                     child: const Text(
-                        'Jika kamu belum menerima Email Varifikasi silahkan klik Tombol di bawah ini.'),
+                        "Check you email and find verification email, if you doesn't receive that email, click this batton  below ti resend"),
                   ),
                   Container(
                     height: 60,
@@ -61,7 +62,7 @@ class VerificationEmailScreen extends GetView<VerificationEmailController> {
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     color: primaryColor,
                     child: Text(
-                      'Kirim Ulang',
+                      'Re-Send',
                       style:
                           textBold.copyWith(color: Colors.white, fontSize: 16),
                     ),

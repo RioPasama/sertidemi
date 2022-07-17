@@ -37,7 +37,7 @@ class RegisterAssessmentContentView extends GetView {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Nama', style: textBold),
+          Text('Name', style: textBold),
           const SizedBox(height: 8),
           TextFormField(
             controller: controller.nameTextEditingController,
@@ -46,7 +46,8 @@ class RegisterAssessmentContentView extends GetView {
               return controller.validatorName(val);
             },
           ),
-          const Text('*Nama ini akan dicantumkan di Sertifikat'),
+          const Text(
+              '*Please write your name correctly and will be place on certificate'),
         ],
       ),
     );

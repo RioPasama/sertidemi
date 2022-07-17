@@ -21,8 +21,7 @@ class LoginScreen extends GetView<LoginController> {
             height: Get.height / 2,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image:
-                        AssetImage(Assets.images.loginGambarCrop.path))),
+                    image: AssetImage(Assets.images.loginGambarCrop.path))),
           ),
         ),
         Container(color: primaryColor.withOpacity(0.8)),
@@ -49,7 +48,7 @@ class LoginScreen extends GetView<LoginController> {
                           Align(
                             alignment: Alignment.center,
                             child: Text(
-                              'Masuk',
+                              'Login',
                               style: textBold.copyWith(fontSize: 28),
                             ),
                           ),
@@ -59,11 +58,11 @@ class LoginScreen extends GetView<LoginController> {
                             controller: controller.emailTextEditingController,
                             keyboardType: TextInputType.emailAddress,
                             decoration: const InputDecoration(
-                                hintText: 'Nama@gmail.com'),
+                                hintText: 'email@gmail.com'),
                             validator: (val) => controller.validatorEmail(val),
                           ),
                           const Spacer(flex: 1),
-                          Text('Kata Sandi', style: textBold),
+                          Text('Password', style: textBold),
                           TextFormField(
                             controller:
                                 controller.passwordTextEditingController,
@@ -93,7 +92,7 @@ class LoginScreen extends GetView<LoginController> {
                                           textBold.copyWith(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 16))),
-                                  child: const Text('Lupa Password'))
+                                  child: const Text('Fotgrt Password'))
                             ],
                           ),
                           const Spacer(flex: 2),
@@ -103,11 +102,11 @@ class LoginScreen extends GetView<LoginController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Text(
-                                  'Belum punya akun ?  ',
+                                  "Doesn't have account ? ",
                                   style: TextStyle(color: Colors.grey),
                                 ),
                                 Text(
-                                  'Daftar',
+                                  'Sign up',
                                   style: textBold.copyWith(color: primaryColor),
                                 ),
                               ],
@@ -121,7 +120,7 @@ class LoginScreen extends GetView<LoginController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Verifikasi email ',
+                                  'Verify email ',
                                   style: textBold.copyWith(
                                       color: unselectedWidgetColor),
                                 ),
@@ -149,8 +148,7 @@ class LoginScreen extends GetView<LoginController> {
                       padding: const EdgeInsets.only(left: 8, top: 8),
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage(
-                                  Assets.icons.lingkaran.path))),
+                              image: AssetImage(Assets.icons.lingkaran.path))),
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -160,7 +158,7 @@ class LoginScreen extends GetView<LoginController> {
                               scale: 4,
                             ),
                             const Text(
-                              'Bantuan',
+                              'Help',
                               style: TextStyle(color: Colors.white),
                             )
                           ]),

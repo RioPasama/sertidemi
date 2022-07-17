@@ -32,7 +32,7 @@ class AssessmentListAppBarView extends GetView {
                     icon:
                         const Icon(Icons.arrow_back_ios, color: Colors.white)),
                 Text(
-                  'Sertifikasi ${controller.getArguments['title']}',
+                  '${controller.getArguments['title']} Certification',
                   style: const TextStyle(color: Colors.white, fontSize: 18),
                 ),
                 const SizedBox(width: 48)
@@ -57,7 +57,7 @@ class AssessmentListAppBarView extends GetView {
                   child: TextField(
                     controller: controller.search,
                     decoration: inputInputDecorationRounded.copyWith(
-                      hintText: 'Pencarian',
+                      hintText: 'Search',
                       hintStyle: const TextStyle(fontSize: 14),
                       prefixIcon: const Icon(Icons.search_outlined),
                     ),
@@ -73,7 +73,8 @@ class AssessmentListAppBarView extends GetView {
                     width: 40,
                     decoration: inputBoxDecorationRounded.copyWith(
                         image: DecorationImage(
-                            image:AssetImage( Assets.icons.iconFilter.path), scale: 6),
+                            image: AssetImage(Assets.icons.iconFilter.path),
+                            scale: 6),
                         boxShadow: const [
                           BoxShadow(
                               color: Colors.black54,

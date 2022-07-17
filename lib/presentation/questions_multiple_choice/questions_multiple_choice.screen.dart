@@ -178,7 +178,7 @@ class QuestionsMultipleChoiceScreen
                                 borderRadius: const BorderRadius.only(
                                     topRight: Radius.circular(28))),
                             child: Text(
-                              'Sebelumnya',
+                              'Previous',
                               style: textBold.copyWith(
                                   fontSize: 16, color: Colors.white),
                             ),
@@ -199,7 +199,7 @@ class QuestionsMultipleChoiceScreen
                                 borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(28))),
                             child: Text(
-                              'Selanjutnya',
+                              'Next',
                               style: textBold.copyWith(
                                   fontSize: 16, color: Colors.white),
                             ),
@@ -219,7 +219,7 @@ class QuestionsMultipleChoiceScreen
                                 borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(28))),
                             child: Text(
-                              'Selesai',
+                              'Done',
                               style: textBold.copyWith(
                                   fontSize: 16, color: Colors.white),
                             ),

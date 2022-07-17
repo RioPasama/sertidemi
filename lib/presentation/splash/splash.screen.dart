@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:sertidemi/gen/assets.gen.dart';
 
 import 'controllers/splash.controller.dart';
 
@@ -10,13 +11,15 @@ class SplashScreen extends GetView<SplashController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text(
-          'SplashScreen is working',
-          style: TextStyle(fontSize: 20),
+          child: SizedBox(
+        height: 100,
+        width: 100,
+        child: Image.asset(
+          Assets.images.logoSertidemi.path,
         ),
-      ),
+      )),
     );
   }
 }

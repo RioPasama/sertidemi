@@ -54,7 +54,7 @@ class ListHomeView extends GetView {
                               child: Row(
                                 children: const [
                                   Text(
-                                    'Lainnya',
+                                    'Others',
                                     style: TextStyle(color: Colors.white),
                                   ),
                                   Icon(

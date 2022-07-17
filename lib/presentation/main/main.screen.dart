@@ -49,7 +49,7 @@ class MainScreen extends GetView<MainController> {
                 Assets.icons.menuSertifikasiKlik.path,
                 scale: 6,
               ),
-              label: 'Sertifikasi',
+              label: 'Certification',
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
@@ -60,7 +60,7 @@ class MainScreen extends GetView<MainController> {
                 Assets.icons.menuProfilKlik.path,
                 scale: 6,
               ),
-              label: 'Profil',
+              label: 'Profile',
             ),
           ],
           showUnselectedLabels: true,

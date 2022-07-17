@@ -42,9 +42,9 @@ class ListCategoryController extends GetxController {
 
   void setTitle() {
     if (getArguments['option'] == 1) {
-      title.value = 'Kategori Event';
+      title.value = 'Event Category';
     } else {
-      title.value = 'Kategori Sertifikasi';
+      title.value = 'Certification Category';
     }
   }
 

@@ -24,15 +24,14 @@ class RegistryScreen extends GetView<RegistryController> {
             height: Get.height / 2,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image:
-                        AssetImage(Assets.images.loginGambarCrop.path))),
+                    image: AssetImage(Assets.images.loginGambarCrop.path))),
           ),
         ),
         Container(color: primaryColor.withOpacity(0.8)),
 
         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: appBarTransparentView(title: 'Daftar'),
+          appBar: appBarTransparentView(title: 'Sign Up'),
           body: ListView(
             children: [
               SizedBox(

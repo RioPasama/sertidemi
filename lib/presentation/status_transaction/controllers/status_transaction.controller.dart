@@ -43,7 +43,7 @@ class StatusTransactionController extends GetxController {
 
     Share.shareFiles([path],
         text:
-            'Terima kasih telah mendaftarkan diri pada Sertifikasi Sertidemi.\nHarap simpan tanda bukti transaksi berhasil berikut ini:\n\nNama Peserta: ${Get.arguments['nameUser']}\n${nameOption.value}: ${statusTransactionModel.namaProduct}\nTotal Transaksi: ${currencyRp(statusTransactionModel.total)}\nNo Transaksi: ${statusTransactionModel.noInvoice}\n\n\nTerima kasih.');
+            'Thankyou for your registration to Sertidemi Certification.\n\nPlease save this reciepe as a sign proof that your transaction has been success. Here are your reciepe:\n\nName: ${Get.arguments['nameUser']}\n${nameOption.value}: ${statusTransactionModel.namaProduct}\nTotal Amount: ${currencyRp(statusTransactionModel.total)}\nInvoice Number: ${statusTransactionModel.noInvoice}\n\n\nThankyou.');
   }
 
   Future<Uint8List> capturePng() async {

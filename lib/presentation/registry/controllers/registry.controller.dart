@@ -55,27 +55,27 @@ class RegistryController extends GetxController {
   }
 
   String? validatorName(String? val) {
-    return (GetUtils.isUsername(val!)) ? null : 'Silakan masukan Nama Lengkap';
+    return !(val!.length < 3) ? null : 'Please enter Full Name';
   }
 
   String? validatorPhoneNumber(String? val) {
     return (GetUtils.isPhoneNumber(val!))
         ? null
-        : 'Pastikan nomor yang anda masukan benar';
+        : 'Make sure the number you entered is correct';
   }
 
   String? validatorEmail(String? val) {
-    return (GetUtils.isEmail(val!)) ? null : 'Silakan cek email anda kembali';
+    return (GetUtils.isEmail(val!)) ? null : 'Please check your email again';
   }
 
   String? validatorPassword(String? val) {
-    return (val!.length >= 6) ? null : 'Kata sandi min 6';
+    return (val!.length >= 6) ? null : 'Password min 6';
   }
 
   String? validatorConfirmPassword(String? val) {
     return (val! == passwordTextEditingController.text)
         ? null
-        : 'Kata sandi tidak sama';
+        : 'Password is not the same';
   }
 
   void onTapDaftar() {
@@ -95,7 +95,7 @@ class RegistryController extends GetxController {
               address: '',
               password: passwordTextEditingController.text)
           .then((value) => Get.dialog(AlertDialog(
-                title: const Center(child: Text('Daftar')),
+                title: const Center(child: Text('Sign Up')),
                 content: SizedBox(
                   height: 170,
                   child: Column(
@@ -118,7 +118,7 @@ class RegistryController extends GetxController {
               address: '',
               password: passwordTextEditingController.text)
           .then((value) => Get.dialog(AlertDialog(
-                title: const Center(child: Text('Daftar')),
+                title: const Center(child: Text('Sign Up')),
                 content: SizedBox(
                   height: 170,
                   child: Column(

@@ -209,16 +209,16 @@ class AssessmentListController extends GetxController {
 
     switch (value) {
       case 0:
-        tag.value = 'semua';
+        tag.value = 'All';
         break;
       case 1:
-        tag.value = 'video';
+        tag.value = 'Video';
         break;
       case 2:
-        tag.value = 'materi';
+        tag.value = 'Text File';
         break;
       case 3:
-        tag.value = 'sertifikasi';
+        tag.value = 'Certification';
         break;
       default:
     }

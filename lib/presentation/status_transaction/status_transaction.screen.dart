@@ -49,7 +49,7 @@ class StatusTransactionScreen extends GetView<StatusTransactionController> {
                       color: primaryColor,
                       borderRadius: BorderRadius.circular(18)),
                   child: Text(
-                    'Bagikan',
+                    'Share',
                     style: textBold.copyWith(color: Colors.white, fontSize: 16),
                   ),
                 ),

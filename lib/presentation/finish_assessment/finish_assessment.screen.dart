@@ -50,7 +50,7 @@ class FinishAssessmentScreen extends GetView<FinishAssessmentController> {
                         color: primaryColor,
                         borderRadius: BorderRadius.circular(18)),
                     child: Text(
-                      'Bagikan',
+                      'Share',
                       style:
                           textBold.copyWith(color: Colors.white, fontSize: 16),
                     ),

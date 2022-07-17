@@ -68,7 +68,7 @@ class RegisterAssessmentController extends GetxController {
     }
 
     Map<String, dynamic> sendArguments = {
-      'nameOption': 'Assessment',
+      'nameOption': 'Certification',
       'nameUser': nameTextEditingController.text,
       'modelProductCheckout': checkoutAssessmentDetailModel
     };
@@ -90,7 +90,7 @@ class RegisterAssessmentController extends GetxController {
     }
 
     Map<String, dynamic> sendArguments = {
-      'nameOption': 'Sertifikasi',
+      'nameOption': 'Certification',
       'nameUser': nameTextEditingController.text,
       'statusTransactionModel': statusTransactionModel,
     };

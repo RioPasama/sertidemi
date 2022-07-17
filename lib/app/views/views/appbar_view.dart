@@ -128,7 +128,7 @@ AppBar appBarHomeView() {
                 child: TextField(
                   enabled: false,
                   decoration: inputInputDecorationRounded.copyWith(
-                    hintText: 'Pencarian',
+                    hintText: 'Search',
                     hintStyle: const TextStyle(fontSize: 14),
                     prefixIcon: const Icon(Icons.search_outlined),
                   ),

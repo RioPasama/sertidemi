@@ -25,9 +25,9 @@ class StartAssessmentScreen extends GetView<StartAssessmentController> {
                 controller.assessmentDetailModel.value!.urlImagePanjang!),
             const SizedBox(height: 8),
             Text(
-                'Mulai : ${timeFormatInCard(controller.assessmentDetailModel.value!.tanggalMulaiAssessment!)}, ${clockFormat(controller.assessmentDetailModel.value!.tanggalMulaiAssessment!)} WIB'),
+                'Start : ${timeFormatInCard(controller.assessmentDetailModel.value!.tanggalMulaiAssessment!)}, ${clockFormat(controller.assessmentDetailModel.value!.tanggalMulaiAssessment!)} WIB'),
             Text(
-                'Selesai : ${timeFormatInCard(controller.assessmentDetailModel.value!.tanggalBatasAssessment!)}, ${clockFormat(controller.assessmentDetailModel.value!.tanggalBatasAssessment!)} WIB'),
+                'End  : ${timeFormatInCard(controller.assessmentDetailModel.value!.tanggalBatasAssessment!)}, ${clockFormat(controller.assessmentDetailModel.value!.tanggalBatasAssessment!)} WIB'),
             const SizedBox(height: 28),
             Text(
               controller.assessmentDetailModel.value!.namaAssessment!,
@@ -42,7 +42,7 @@ class StartAssessmentScreen extends GetView<StartAssessmentController> {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                    'Duration pengerjaan  ${Duration(seconds: int.parse(controller.assessmentDetailModel.value!.waktuPengerjaan!)).inHours}:${Duration(seconds: int.parse(controller.assessmentDetailModel.value!.waktuPengerjaan!)).inMinutes.remainder(60)}:${Duration(seconds: int.parse(controller.assessmentDetailModel.value!.waktuPengerjaan!)).inSeconds.remainder(60)}')
+                    'Duration  of test  ${Duration(seconds: int.parse(controller.assessmentDetailModel.value!.waktuPengerjaan!)).inHours}:${Duration(seconds: int.parse(controller.assessmentDetailModel.value!.waktuPengerjaan!)).inMinutes.remainder(60)}:${Duration(seconds: int.parse(controller.assessmentDetailModel.value!.waktuPengerjaan!)).inSeconds.remainder(60)}')
               ],
             ),
             const SizedBox(height: 4),
@@ -54,7 +54,7 @@ class StartAssessmentScreen extends GetView<StartAssessmentController> {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                    '${(int.parse(controller.assessmentDetailModel.value!.tampilAssessmentEssay!) + int.parse(controller.assessmentDetailModel.value!.tampilAssessmentPilgan!))} Soal')
+                    '${(int.parse(controller.assessmentDetailModel.value!.tampilAssessmentEssay!) + int.parse(controller.assessmentDetailModel.value!.tampilAssessmentPilgan!))} question')
               ],
             )
           ],

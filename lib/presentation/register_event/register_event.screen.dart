@@ -15,7 +15,7 @@ class RegisterEventScreen extends GetView<RegisterEventController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Daftar Acara'),
+      appBar: appBarDefaultView(title: 'Register Event'),
       body: RegisterEventContentView(),
       bottomSheet: GestureDetector(
         onTap: () => controller.onTapRegister(),
@@ -25,7 +25,7 @@ class RegisterEventScreen extends GetView<RegisterEventController> {
           color: primaryColor,
           alignment: Alignment.center,
           child: Text(
-            'Daftar',
+            'Register',
             style: textBold.copyWith(color: Colors.white, fontSize: 16),
           ),
         ),

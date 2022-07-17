@@ -16,7 +16,7 @@ class RegisterAssessmentScreen extends GetView<RegisterAssessmentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Daftar Sertifikat'),
+      appBar: appBarDefaultView(title: 'Register Certification'),
       body: RegisterAssessmentContentView(),
       bottomSheet: GestureDetector(
         onTap: () => controller.onTapRegister(),
@@ -26,7 +26,7 @@ class RegisterAssessmentScreen extends GetView<RegisterAssessmentController> {
           color: primaryColor,
           alignment: Alignment.center,
           child: Text(
-            'Daftar',
+            'Register',
             style: textBold.copyWith(color: Colors.white, fontSize: 16),
           ),
         ),

@@ -16,7 +16,7 @@ class FormRegistryView extends GetView {
         child: ListView(
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            Text('Nama Lengkap', style: textBold),
+            Text('Full Name', style: textBold),
             Container(
               margin: const EdgeInsets.only(bottom: 16, top: 8),
               decoration: inputBoxDecorationRounded,
@@ -27,7 +27,7 @@ class FormRegistryView extends GetView {
                 validator: (val) => controller.validatorName(val),
               ),
             ),
-            Text('Nomor Telepon', style: textBold),
+            Text('Phone Number', style: textBold),
             Container(
               margin: const EdgeInsets.only(bottom: 16, top: 8),
               decoration: inputBoxDecorationRounded,
@@ -57,7 +57,7 @@ class FormRegistryView extends GetView {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Kata Sandi', style: textBold),
+                      Text('Password', style: textBold),
                       Container(
                         margin: const EdgeInsets.only(top: 8),
                         decoration: inputBoxDecorationRounded,
@@ -77,7 +77,7 @@ class FormRegistryView extends GetView {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Konfirmasi Kata Sandi', style: textBold),
+                      Text('Password Confrimation', style: textBold),
                       Container(
                         margin: const EdgeInsets.only(top: 8),
                         decoration: inputBoxDecorationRounded,
@@ -100,12 +100,12 @@ class FormRegistryView extends GetView {
             TextFormField(
               controller: controller.referralCodeTextEditingController,
               decoration: const InputDecoration(
-                  hintText: 'Masukan kode referal jika Anda punya'),
+                  hintText: 'Input if you have referal code'),
             ),
             const SizedBox(height: 18),
             ElevatedButton(
                 onPressed: () => controller.onTapDaftar(),
-                child: const Text('Daftar'))
+                child: const Text('Sign Up'))
           ],
         ));
   }

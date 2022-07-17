@@ -46,7 +46,7 @@ class AssessmentDetailContentView extends GetView {
         // shrinkWrap: true,
         children: [
           Text(
-            'Deskripsi',
+            'Description',
             style: textBold.copyWith(fontSize: 16),
           ),
           Text(controller.fetchAPIProductDetailsController.assessmentDetailModel
@@ -65,13 +65,13 @@ class AssessmentDetailContentView extends GetView {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Aturan Pengerjaan Soal',
+            'Assessment test rules',
             style: textBold.copyWith(fontSize: 16),
           ),
           Text(
-              'Duration Pengerjaan ${Duration(seconds: int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.waktuPengerjaan!)).inHours}:${Duration(seconds: int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.waktuPengerjaan!)).inMinutes.remainder(60)}:${Duration(seconds: int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.waktuPengerjaan!)).inSeconds.remainder(60)}'),
+              'Duration ot test ${Duration(seconds: int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.waktuPengerjaan!)).inHours}:${Duration(seconds: int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.waktuPengerjaan!)).inMinutes.remainder(60)}:${Duration(seconds: int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.waktuPengerjaan!)).inSeconds.remainder(60)}'),
           Text(
-              '${int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.tampilAssessmentEssay!) + int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.tampilAssessmentPilgan!)} Soal'),
+              '${int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.tampilAssessmentEssay!) + int.parse(controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.tampilAssessmentPilgan!)} question'),
         ],
       ),
     );
@@ -113,7 +113,7 @@ class AssessmentDetailContentView extends GetView {
                         ),
                         const SizedBox(width: 10),
                         const Text(
-                          'Materi',
+                          'Lessons',
                           style: TextStyle(
                               fontWeight: FontWeight.normal,
                               color: Colors.white),
@@ -136,9 +136,9 @@ class AssessmentDetailContentView extends GetView {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                      'Mulai    : ${controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.tanggalMulaiAssessment!} WIB'),
+                      'Start : ${controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.tanggalMulaiAssessment!} WIB'),
                   Text(
-                      'Selesai  : ${controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.tanggalBatasAssessment!} WIB'),
+                      'End   : ${controller.fetchAPIProductDetailsController.assessmentDetailModel.value!.tanggalBatasAssessment!} WIB'),
                 ],
               ),
             ],

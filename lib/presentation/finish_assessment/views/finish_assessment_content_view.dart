@@ -24,7 +24,7 @@ class FinishAssessmentContentView extends GetView {
               Align(
                 alignment: Alignment.topCenter,
                 child: Text(
-                  'Sertifikasi Berhasil',
+                  'Certification Successed',
                   style: textBold.copyWith(fontSize: 18),
                 ),
               ),
@@ -70,12 +70,13 @@ class FinishAssessmentContentView extends GetView {
                 margin: const EdgeInsets.only(top: 20, left: 16, right: 16),
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(Assets.images.transaksiBGDetailTransaksi.path),
+                        image: AssetImage(
+                            Assets.images.transaksiBGDetailTransaksi.path),
                         fit: BoxFit.fill)),
                 child: Column(
                   children: [
                     const Text(
-                      'Sertifikasi',
+                      'Certification',
                       style: TextStyle(color: Colors.grey),
                       maxLines: 2,
                     ),
@@ -86,7 +87,7 @@ class FinishAssessmentContentView extends GetView {
                     ),
                     const Spacer(),
                     const Text(
-                      'Nilai',
+                      'Score',
                       style: TextStyle(color: Colors.grey),
                     ),
                     Text(controller.asessmentAnswerModel.value!.nilai!,

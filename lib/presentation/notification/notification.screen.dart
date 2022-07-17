@@ -9,7 +9,7 @@ class NotificationScreen extends GetView<NotificationController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Notifikasi'),
+      appBar: appBarDefaultView(title: 'Notification'),
       body: Center(
         child: Text(
           'Coming Soon',

@@ -22,7 +22,7 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Detail Sertifikasi'),
+      appBar: appBarDefaultView(title: 'Detail Certification'),
       body: Stack(
         children: [
           RefreshIndicator(
@@ -61,7 +61,7 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16, vertical: 10),
                     child: Text(
-                      'Penyedia Sertifikat',
+                      'Certificatin Provide by',
                       style: textBold.copyWith(fontSize: 16),
                     ),
                   ),
