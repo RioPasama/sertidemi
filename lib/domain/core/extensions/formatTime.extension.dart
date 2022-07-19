@@ -4,8 +4,8 @@ String timeFormatInCard(String time) {
   var inputFormat = DateFormat('yyyy-MM-dd HH:mm');
   var inputDate = inputFormat.parse(time);
   var day = DateFormat('d').format(inputDate);
-  var month = mothInID(DateFormat('MM').format(inputDate));
-
+  // var month = mothInID(DateFormat('MM').format(inputDate));
+  var month = (DateFormat('MMM').format(inputDate));
   var year = DateFormat('yyy').format(inputDate);
 
   return ('$day $month $year');

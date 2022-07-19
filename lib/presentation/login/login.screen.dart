@@ -24,7 +24,18 @@ class LoginScreen extends GetView<LoginController> {
                     image: AssetImage(Assets.images.loginGambarCrop.path))),
           ),
         ),
-        Container(color: primaryColor.withOpacity(0.8)),
+
+        Container(color: Colors.white.withOpacity(0.8)),
+        Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            height: Get.height / 4,
+            width: Get.height / 4,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(Assets.images.logoSertidemiPng.path))),
+          ),
+        ),
         Scaffold(
             backgroundColor: Colors.transparent,
             body: Stack(
@@ -83,7 +94,8 @@ class LoginScreen extends GetView<LoginController> {
                                           Size(Get.width / 2 - 26, 40))),
                                   child: const Text('Login')),
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () =>
+                                      Get.toNamed(Routes.FORGOT_PASSWROD),
                                   style: ButtonStyle(
                                       foregroundColor:
                                           MaterialStateProperty.all(
@@ -92,7 +104,7 @@ class LoginScreen extends GetView<LoginController> {
                                           textBold.copyWith(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 16))),
-                                  child: const Text('Fotgrt Password'))
+                                  child: const Text('Forgot Password'))
                             ],
                           ),
                           const Spacer(flex: 2),

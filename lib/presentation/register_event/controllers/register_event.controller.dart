@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sertidemi/app/controllers/authentication_controller.dart';
 import 'package:sertidemi/app/controllers/fetch_a_p_i_product_details_controller.dart';
-import 'package:sertidemi/app/data/models/checkout_event_model.dart';
+import 'package:sertidemi/app/controllers/register_api_payment_to_browser_controller.dart';
 import 'package:sertidemi/app/data/models/status_transaction_model.dart';
-import 'package:sertidemi/app/data/providers/checkout_provider.dart';
 import 'package:sertidemi/app/data/providers/transaction_provider.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
-import 'package:sertidemi/presentation/register_event/controllers/register_event_api_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RegisterEventController extends GetxController {
@@ -17,8 +15,8 @@ class RegisterEventController extends GetxController {
       Get.put(FetchAPIProductDetailsController());
   final AuthenticationController authenticationControllercontroller =
       Get.put(AuthenticationController());
-  final RegisterEventApiController registerEventApiController =
-      Get.put(RegisterEventApiController());
+  final RegisterApiPaymentToBrowserController registerEventApiController =
+      Get.put(RegisterApiPaymentToBrowserController());
 
   late TextEditingController nameTextEditingController;
   late StatusTransactionModel statusTransactionModel;

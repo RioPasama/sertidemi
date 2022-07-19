@@ -22,7 +22,9 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: themeData(),
       initialRoute: initialRoute,
       getPages: Nav.routes,

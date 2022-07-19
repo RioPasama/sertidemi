@@ -27,11 +27,25 @@ class RegistryScreen extends GetView<RegistryController> {
                     image: AssetImage(Assets.images.loginGambarCrop.path))),
           ),
         ),
-        Container(color: primaryColor.withOpacity(0.8)),
+        Container(color: Colors.white.withOpacity(0.8)),
 
         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: appBarTransparentView(title: 'Sign Up'),
+          appBar: AppBar(
+            title: Text(
+              'Sign Up',
+              style: TextStyle(color: primaryColor),
+            ),
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            leading: GestureDetector(
+                onTap: () => Get.back(),
+                child: const Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  color: Colors.black,
+                )),
+          ),
           body: ListView(
             children: [
               SizedBox(

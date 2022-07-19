@@ -46,7 +46,7 @@ class DetailTransactionScreen extends GetView<DetailTransactionController> {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14), color: primaryColor),
           child: Text(
-            'Lihat Resi',
+            'View receipt',
             style: textBold.copyWith(color: Colors.white, fontSize: 16),
           ),
         ),

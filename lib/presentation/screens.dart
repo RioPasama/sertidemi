@@ -12,6 +12,7 @@ export 'package:sertidemi/presentation/event/event.screen.dart';
 export 'package:sertidemi/presentation/event_detail/event_detail.screen.dart';
 export 'package:sertidemi/presentation/event_list/event_list.screen.dart';
 export 'package:sertidemi/presentation/finish_assessment/finish_assessment.screen.dart';
+export 'package:sertidemi/presentation/forgot_passwrod/forgot_passwrod.screen.dart';
 export 'package:sertidemi/presentation/home/home.screen.dart';
 export 'package:sertidemi/presentation/home_search/home_search.screen.dart';
 export 'package:sertidemi/presentation/list_category/list_category.screen.dart';

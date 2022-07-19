@@ -10,6 +10,7 @@ class Routes {
   static const BOOKSHELF = '/bookshelf';
   static const CATEGORY_CERTIFICATIONS = '/category-certifications';
   static const CERTIFICATE = '/certificate';
+  static const CHANGE_PROFILE = '/change-profile';
   static const DETAIL_TRANSACTION = '/detail-transaction';
   static const EBOOK = '/ebook';
   static const EDIT_PROFILE = '/edit-profile';
@@ -42,5 +43,5 @@ class Routes {
   static const TIKET_DETAIL_ASSESSMENT = '/tiket-detail-assessment';
   static const TIKET_DETAIL_EVENT = '/tiket-detail-event';
   static const VERIFICATION_EMAIL = '/verification-email';
-  static const CHANGE_PROFILE = '/change-profile';
+  static const FORGOT_PASSWROD = '/forgot-passwrod';
 }

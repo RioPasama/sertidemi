@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:sertidemi/infrastructure/navigation/bindings/controllers/home.controller.binding.dart';
+import 'package:sertidemi/infrastructure/navigation/bindings/controllers/register_event.controller.binding.dart';
 
 import '../../config.dart';
 import '../../presentation/screens.dart';
@@ -217,6 +218,11 @@ class Nav {
       name: Routes.CHANGE_PROFILE,
       page: () => const ChangeProfileScreen(),
       binding: ChangeProfileControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.FORGOT_PASSWROD,
+      page: () => ForgotPasswrodScreen(),
+      binding: ForgotPasswrodControllerBinding(),
     ),
   ];
 }

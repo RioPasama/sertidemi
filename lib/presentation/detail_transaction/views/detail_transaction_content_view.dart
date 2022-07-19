@@ -31,7 +31,8 @@ class DetailTransactionContentView extends GetView {
             decs: '',
             totalPrice:
                 controller.detailTransactionModel.value!.totalPembayaran!,
-            priceProduct: '0',
+            priceProduct:
+                controller.detailTransactionModel.value!.totalPembayaran!,
             url: controller.detailTransactionModel.value!.urlImagePanjang!),
         const SizedBox(height: 20),
         Visibility(visible: false, child: cardInfoPayment()),

@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sertidemi/app/data/providers/Re_register_account_provider.dart';
+import 'package:sertidemi/app/data/providers/forgot_password._provider.dart';
 
-class VerificationEmailController extends GetxController {
+class ForgotPasswrodController extends GetxController {
   final formKey = GlobalKey<FormState>();
   late TextEditingController emailTextEditingController;
-
   @override
   void onInit() {
     emailTextEditingController = TextEditingController();
@@ -20,19 +18,19 @@ class VerificationEmailController extends GetxController {
 
   @override
   void onClose() {
-    emailTextEditingController.dispose();
+    super.onClose();
   }
 
   String? validatorEmail(String? val) {
     return (GetUtils.isEmail(val!)) ? null : 'Please check your email again';
   }
 
-  void onTapReSendEmail() async {
+  void onTapForgotPasswordEmail() async {
     //cek validator
     if (!formKey.currentState!.validate()) {
       return;
     }
-    String result = await ReRegisterAccount.postReRegisterAccount(
+    String result = await ForgotPassword.postForgotPassword(
         emailTextEditingController.text);
 
     Get.dialog(AlertDialog(

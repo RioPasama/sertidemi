@@ -7,13 +7,17 @@ import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 import 'package:sertidemi/infrastructure/theme/widget_decoration.theme.dart';
 
-import 'controllers/verification_email.controller.dart';
+import 'controllers/forgot_passwrod.controller.dart';
 
-class VerificationEmailScreen extends GetView<VerificationEmailController> {
+class ForgotPasswrodScreen extends GetView<ForgotPasswrodController> {
+  ForgotPasswrodScreen({Key? key}) : super(key: key);
+  @override
+  final ForgotPasswrodController controller =
+      Get.put(ForgotPasswrodController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBarDefaultView(title: 'Verification'),
+        appBar: appBarDefaultView(title: 'Forgot Passwrod'),
         body: ListView(
           children: [
             SizedBox(
@@ -29,7 +33,7 @@ class VerificationEmailScreen extends GetView<VerificationEmailController> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(
-                                Assets.images.vektorVerifikasi.path))),
+                                Assets.images.vektorLupaKataSandi.path))),
                   ),
                   const Spacer(),
                   Padding(
@@ -55,16 +59,8 @@ class VerificationEmailScreen extends GetView<VerificationEmailController> {
                     ),
                   ),
                   const Spacer(flex: 8),
-                  Container(
-                    width: Get.width,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    color: Colors.white,
-                    child: const Text(
-                        "Check you email and find verification email, if you doesn't receive that email, click this batton  below ti resend"),
-                  ),
                   GestureDetector(
-                    onTap: () => controller.onTapReSendEmail(),
+                    onTap: () => controller.onTapForgotPasswordEmail(),
                     child: Container(
                       height: 60,
                       width: Get.width,
@@ -73,7 +69,7 @@ class VerificationEmailScreen extends GetView<VerificationEmailController> {
                           horizontal: 16, vertical: 8),
                       color: primaryColor,
                       child: Text(
-                        'Re-Send',
+                        'Forgot Password',
                         style: textBold.copyWith(
                             color: Colors.white, fontSize: 16),
                       ),

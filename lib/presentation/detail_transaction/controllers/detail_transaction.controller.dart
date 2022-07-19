@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
+import 'package:sertidemi/app/controllers/register_api_payment_to_browser_controller.dart';
 import 'package:sertidemi/app/data/models/detail_transaction_model.dart';
 import 'package:sertidemi/app/data/models/status_transaction_model.dart';
+import 'package:sertidemi/app/data/providers/registry_provider.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
 
 class DetailTransactionController extends GetxController {
@@ -25,11 +27,30 @@ class DetailTransactionController extends GetxController {
 
   void onTapBottomSheet() {
     switch (detailTransactionModel.value!.statusTransaksi!) {
-      case 'Transaksi Selesai':
+      case 'Waiting For Payment':
+        break;
+      case 'Waiting for Payment Verification':
+        break;
+      case 'Payment Successfully':
         transactionDone();
         break;
+      case 'Received':
+        break;
+      case 'Payment declined':
+        break;
+      case 'Not defined':
+        break;
+
       default:
     }
+  }
+
+  void waitingForPayment() async {
+    String url =
+        await RegisterApiPaymentToBrowserController.postWaitingPaymentToBrowser(
+            idTransaksi: detailTransactionModel.value!.idTransaksi!);
+
+    url;
   }
 
   void transactionDone() {
