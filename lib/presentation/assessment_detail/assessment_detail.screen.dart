@@ -61,7 +61,7 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16, vertical: 10),
                     child: Text(
-                      'Certificatin Provide by',
+                      'Certification Provide by',
                       style: textBold.copyWith(fontSize: 16),
                     ),
                   ),

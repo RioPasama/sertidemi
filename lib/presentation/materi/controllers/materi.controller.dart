@@ -8,6 +8,7 @@ import 'package:sertidemi/app/data/models/materi_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MateriController extends GetxController {
+  RxList<MateriModel> materiModel = RxList<MateriModel>();
   Map<String, dynamic> getArguments = Get.arguments;
 
   RxInt indexCategoryMateri = 0.obs;
@@ -31,6 +32,7 @@ class MateriController extends GetxController {
   }
 
   void onTapMateri({required int index}) {
+    materiModel.value = [];
     indexCategoryMateri.value = index;
   }
 

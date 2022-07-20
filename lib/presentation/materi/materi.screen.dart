@@ -35,15 +35,15 @@ class MateriScreen extends GetView<MateriController> {
                           id: controller.getArguments['idProduct']),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      List<MateriModel> materiModel =
+                      controller.materiModel.value =
                           snapshot.data as List<MateriModel>;
                       return ListView.builder(
-                        itemCount: materiModel.length,
+                        itemCount: controller.materiModel.length,
                         padding: const EdgeInsets.only(
                             left: 16, right: 16, top: 120),
                         itemBuilder: (context, index) {
                           return cardMateriText(index,
-                              materiModel: materiModel);
+                              materiModel: controller.materiModel);
                         },
                       );
                     } else {
@@ -59,15 +59,15 @@ class MateriScreen extends GetView<MateriController> {
                           id: controller.getArguments['idProduct']),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      List<MateriModel> materiModel =
+                      controller.materiModel.value =
                           snapshot.data as List<MateriModel>;
                       return ListView.builder(
-                        itemCount: materiModel.length,
+                        itemCount: controller.materiModel.length,
                         padding: const EdgeInsets.only(
                             left: 16, right: 16, top: 120),
                         itemBuilder: (context, index) {
                           return cardMatriVideo(index,
-                              materiModel: materiModel);
+                              materiModel: controller.materiModel);
                         },
                       );
                     } else {

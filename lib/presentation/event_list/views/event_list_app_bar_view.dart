@@ -48,7 +48,7 @@ class EventListAppBarView extends GetView {
               ]),
               child: TextField(
                 decoration: inputInputDecorationRounded.copyWith(
-                  hintText: 'Pencarian',
+                  hintText: 'Search',
                   hintStyle: const TextStyle(fontSize: 14),
                   prefixIcon: const Icon(Icons.search_outlined),
                 ),

@@ -61,7 +61,7 @@ class VerificationEmailScreen extends GetView<VerificationEmailController> {
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     color: Colors.white,
                     child: const Text(
-                        "Check you email and find verification email, if you doesn't receive that email, click this batton  below ti resend"),
+                        "Check you email and find verification email, if you doesn't receive that email, click this button  bellow to resend"),
                   ),
                   GestureDetector(
                     onTap: () => controller.onTapReSendEmail(),

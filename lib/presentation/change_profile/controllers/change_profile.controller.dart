@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:image_picker/image_picker.dart';
@@ -25,6 +26,8 @@ class ChangeProfileController extends GetxController {
   XFile? image;
   RxBool isInputImage = false.obs;
   RxString? pathImage = ''.obs;
+  RxBool passwordObscureText = true.obs;
+  RxBool confirmPasswordObscureText = true.obs;
 
   @override
   void onInit() {
@@ -94,9 +97,24 @@ class ChangeProfileController extends GetxController {
       return;
     }
 
+    if (fullNameTextEditingController.text ==
+            authenticationControllercontroller.nameUser.value &&
+        phoneNumberTextEditingController.text ==
+            authenticationControllercontroller.telpUser.value &&
+        isInputImage.value == false) {
+      Get.dialog(AlertDialog(
+        title: const Text('Change profile'),
+        content: const Text('Your data has not changed'),
+        actions: [
+          TextButton(onPressed: () => Get.back(), child: const Text('Back'))
+        ],
+      ));
+      return;
+    }
+
     //
     LoginModel resultLogin;
-    if (isInputImage.value) {
+    if (!isInputImage.value) {
       resultLogin = await EditProfileProvider.postEditProfile(
           name: fullNameTextEditingController.text,
           telp: phoneNumberTextEditingController.text,

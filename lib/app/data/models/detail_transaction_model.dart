@@ -4,6 +4,7 @@ class DetailTransactionModel {
   String? jenisTransaksi;
   String? statusTransaksi;
   String? tanggalInput;
+  String? deskripsi;
   String? batasPembayaran;
   String? totalPembayaran;
   String? nama;
@@ -19,6 +20,7 @@ class DetailTransactionModel {
       this.jenisTransaksi,
       this.statusTransaksi,
       this.tanggalInput,
+      this.deskripsi,
       this.batasPembayaran,
       this.nama,
       this.namaSertifikat,
@@ -31,6 +33,7 @@ class DetailTransactionModel {
   DetailTransactionModel.fromJson(Map<String, dynamic> json) {
     idTransaksi = json['idtransaksi'] ?? '';
     invoice = json['invoice'] ?? '';
+    deskripsi = json['deskripsi'] ?? '';
     jenisTransaksi = json['jenis_transaksi'] ?? '';
     statusTransaksi = json['status_transaksi'] ?? '';
     batasPembayaran = json['batas_pembayaran'] ?? '';

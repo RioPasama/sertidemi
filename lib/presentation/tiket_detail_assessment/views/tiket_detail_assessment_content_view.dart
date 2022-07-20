@@ -17,82 +17,31 @@ class TiketDetailAssessmentContentView extends GetView {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      // crossAxisAlignment: CrossAxisAlignment.start,
       shrinkWrap: true,
       children: [
         // Header
         header(),
 
-        const Spacer(flex: 1),
+        const SizedBox(height: 10),
 
         //Deskripsi
         description(),
 
-        const Spacer(flex: 1),
+        const SizedBox(height: 10),
 
-        //Peyedia Sertifikat
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          child: Text(
-            'Penyedia Sertifikat',
-            style: textBold.copyWith(fontSize: 16),
-          ),
-        ),
-        SizedBox(
-            height: 80,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemCount:
-                  controller.assessmentDetailModel.value!.contribution!.length,
-              itemBuilder: (context, index) {
-                return imageContribution(controller
-                    .assessmentDetailModel.value!.contribution![index].icon);
-              },
-            )),
-
-        const Spacer(flex: 2),
+        // const Spacer(flex: 2),
       ],
     );
   }
 
-  Widget imageContribution(url) {
-    return CachedNetworkImage(
-        imageUrl: url,
-        imageBuilder: (context, imageProvider) {
-          return Container(
-            height: 80,
-            width: 80,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            decoration:
-                BoxDecoration(image: DecorationImage(image: imageProvider)),
-          );
-        },
-        placeholder: (context, url) {
-          return Container(
-            height: 80,
-            width: 80,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            decoration: const BoxDecoration(color: Colors.grey),
-          );
-        },
-        errorWidget: (context, url, error) {
-          return Container(
-            height: 80,
-            width: 80,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            decoration: const BoxDecoration(color: Colors.grey),
-          );
-        });
-  }
-
   Container description() {
     return Container(
-      height: Get.height / 2.8,
+      // height: Get.height / 2.8,
       width: Get.width,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       color: Colors.white,
-      child: ListView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Deskripsi',

@@ -24,8 +24,7 @@ class EventScreen extends GetView<EventController> {
               margin: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image:
-                          AssetImage(Assets.images.vektorMenuEvent.path))),
+                      image: AssetImage(Assets.images.vektorMenuEvent.path))),
             ),
             ListTile(
               onTap: () =>
@@ -34,7 +33,7 @@ class EventScreen extends GetView<EventController> {
                 Assets.icons.menuSertifikasiIconListEvent.path,
                 scale: 4,
               ),
-              title: const Text('Kategori Event'),
+              title: const Text('Event Category'),
             ),
             const Divider(),
             ListTile(
@@ -43,7 +42,7 @@ class EventScreen extends GetView<EventController> {
                 Assets.icons.menuSertifikasiIconTiket.path,
                 scale: 4,
               ),
-              title: const Text('Tiket'),
+              title: const Text('Ticket'),
             ),
             const Divider(),
             ListTile(
@@ -52,7 +51,7 @@ class EventScreen extends GetView<EventController> {
                 Assets.icons.menuSertifikasiIconTransaksi.path,
                 scale: 4,
               ),
-              title: const Text('Transaksi'),
+              title: const Text('Transaction'),
             ),
             const Divider(),
             ListTile(
@@ -61,7 +60,7 @@ class EventScreen extends GetView<EventController> {
                 Assets.icons.menuSertifikasiIconSertifikat.path,
                 scale: 4,
               ),
-              title: const Text('Sertifikat'),
+              title: const Text('certificate'),
             ),
             const Divider(),
           ],

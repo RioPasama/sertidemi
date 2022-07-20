@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:sertidemi/app/views/views/appbar_view.dart';
 import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import './views/form_registry_view.dart';

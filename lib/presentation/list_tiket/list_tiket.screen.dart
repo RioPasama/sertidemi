@@ -19,7 +19,7 @@ class ListTiketScreen extends GetView<ListTiketController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBarDefaultView(title: 'Tiket'),
+        appBar: appBarDefaultView(title: 'Ticket'),
         body: (Get.arguments == 1)
             ? FutureBuilder(
                 future: TiketProvider.getMyEvent(),

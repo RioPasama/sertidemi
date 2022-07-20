@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:sertidemi/app/controllers/authentication_controller.dart';
+import 'package:sertidemi/app/controllers/customer_services_controller.dart';
 import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
@@ -22,7 +23,7 @@ class ProfileScreen extends GetView<ProfileController> {
         backgroundColor: primaryColor,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text('Profil'),
+          title: const Text('Profile'),
           elevation: 0,
           centerTitle: true,
         ),
@@ -40,9 +41,11 @@ class ProfileScreen extends GetView<ProfileController> {
                         BorderRadius.vertical(top: Radius.circular(50))),
                 child: Column(
                   children: [
-                    Text(
-                      authenticationControllercontroller.nameUser.value,
-                      style: textBold.copyWith(fontSize: 18),
+                    Obx(
+                      () => Text(
+                        authenticationControllercontroller.nameUser.value,
+                        style: textBold.copyWith(fontSize: 18),
+                      ),
                     ),
                     Obx(
                       () => Text(
@@ -63,7 +66,7 @@ class ProfileScreen extends GetView<ProfileController> {
                               Assets.icons.profilIconUbahData.path,
                               scale: 4,
                             ),
-                            title: const Text('Change Proifle'),
+                            title: const Text('Change Profile'),
                             onTap: () => Get.toNamed(Routes.CHANGE_PROFILE),
                           ),
                           // ListTile(
@@ -90,6 +93,8 @@ class ProfileScreen extends GetView<ProfileController> {
                           //   title: const Text('Transaksi E-Book'),
                           // ),
                           ListTile(
+                            onTap: () => CustomerServicesController()
+                                .onTapCustomerServices(),
                             leading: Image.asset(
                               Assets.icons.profilIconPelayananPelanggan.path,
                               scale: 4,
@@ -129,8 +134,10 @@ class ProfileScreen extends GetView<ProfileController> {
             ),
             Align(
                 alignment: Alignment.topCenter,
-                child: imageProfile(
-                    authenticationControllercontroller.urlImageUser.value)),
+                child: Obx(
+                  () => imageProfile(
+                      authenticationControllercontroller.urlImageUser.value),
+                )),
           ],
         ));
   }

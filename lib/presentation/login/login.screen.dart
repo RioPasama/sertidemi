@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sertidemi/app/controllers/customer_services_controller.dart';
 import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
@@ -74,14 +75,24 @@ class LoginScreen extends GetView<LoginController> {
                           ),
                           const Spacer(flex: 1),
                           Text('Password', style: textBold),
-                          TextFormField(
-                            controller:
-                                controller.passwordTextEditingController,
-                            obscureText: true,
-                            decoration:
-                                const InputDecoration(hintText: 'xxxxxx'),
-                            validator: (val) =>
-                                controller.validatorPassword(val),
+                          Obx(
+                            () => TextFormField(
+                              controller:
+                                  controller.passwordTextEditingController,
+                              obscureText: controller.passwordObscureText.value,
+                              decoration: InputDecoration(
+                                hintText: 'xxxxxx',
+                                suffixIcon: IconButton(
+                                    onPressed: () =>
+                                        controller.passwordObscureText.toggle(),
+                                    icon: Icon(
+                                        (!controller.passwordObscureText.value)
+                                            ? Icons.visibility
+                                            : Icons.visibility_off)),
+                              ),
+                              validator: (val) =>
+                                  controller.validatorPassword(val),
+                            ),
                           ),
                           const Spacer(flex: 1),
                           Row(
@@ -153,7 +164,8 @@ class LoginScreen extends GetView<LoginController> {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () =>
+                        CustomerServicesController().onTapCustomerServices(),
                     child: Container(
                       height: 80,
                       width: 80,

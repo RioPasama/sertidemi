@@ -1,13 +1,18 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:sertidemi/app/controllers/register_api_payment_to_browser_controller.dart';
 import 'package:sertidemi/app/data/models/detail_transaction_model.dart';
 import 'package:sertidemi/app/data/models/status_transaction_model.dart';
 import 'package:sertidemi/app/data/providers/registry_provider.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailTransactionController extends GetxController {
   Rxn<DetailTransactionModel> detailTransactionModel =
       Rxn<DetailTransactionModel>();
+
+  RxString textButton = ''.obs;
 
   Map<String, dynamic> getArguments = Get.arguments;
   @override
@@ -25,13 +30,39 @@ class DetailTransactionController extends GetxController {
     super.onClose();
   }
 
-  void onTapBottomSheet() {
+  void initialTextButton() {
     switch (detailTransactionModel.value!.statusTransaksi!) {
       case 'Waiting For Payment':
+        textButton.value = 'Continue Payment';
         break;
       case 'Waiting for Payment Verification':
         break;
       case 'Payment Successfully':
+        break;
+      case 'Transaction Complete':
+        textButton.value = 'View Receipt';
+        break;
+      case 'Received':
+        break;
+      case 'Payment declined':
+        break;
+      case 'Not defined':
+        break;
+
+      default:
+    }
+  }
+
+  void onTapBottomSheet() {
+    switch (detailTransactionModel.value!.statusTransaksi!) {
+      case 'Waiting For Payment':
+        waitingForPayment();
+        break;
+      case 'Waiting for Payment Verification':
+        break;
+      case 'Payment Successfully':
+        break;
+      case 'Transaction Complete':
         transactionDone();
         break;
       case 'Received':
@@ -50,7 +81,9 @@ class DetailTransactionController extends GetxController {
         await RegisterApiPaymentToBrowserController.postWaitingPaymentToBrowser(
             idTransaksi: detailTransactionModel.value!.idTransaksi!);
 
-    url;
+    await canLaunchUrl(Uri.parse(url))
+        ? launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)
+        : log('cant open');
   }
 
   void transactionDone() {

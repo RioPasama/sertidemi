@@ -20,7 +20,7 @@ class CardCoverProductView extends GetView {
     return GestureDetector(
       onTap: () => klikContentController.onTapCardProduct(
           idProduct: data.idProduct!,
-          urlImageCover: data.urlImageCover!,
+          urlImageCover: data.urlImageCoverKotak!,
           status: data.status!),
       child: Container(
         width: 220,
@@ -29,7 +29,7 @@ class CardCoverProductView extends GetView {
         child: Column(
           children: [
             CachedNetworkImage(
-                imageUrl: data.urlImageCover!,
+                imageUrl: data.urlImageCoverKotak!,
                 imageBuilder: (context, imageProvider) {
                   return Container(
                     height: 120,
@@ -106,13 +106,13 @@ class CardCoverProductView extends GetView {
                               ],
                             ),
 
-                      Visibility(
-                        visible: data.status == 'event',
-                        child: Text(
-                          '1.4rb Terjual',
-                          style: TextStyle(fontSize: 12, color: Colors.grey),
-                        ),
-                      )
+                      // Visibility(
+                      //   visible: data.status == 'event',
+                      //   child: Text(
+                      //     '1.4rb Terjual',
+                      //     style: TextStyle(fontSize: 12, color: Colors.grey),
+                      //   ),
+                      // )
                     ],
                   )
                 ],

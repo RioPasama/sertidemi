@@ -28,12 +28,12 @@ class DetailTransactionContentView extends GetView {
         const SizedBox(height: 20),
         cardProduct(
             nameProduct: controller.detailTransactionModel.value!.nama!,
-            decs: '',
+            decs: controller.detailTransactionModel.value!.deskripsi!,
             totalPrice:
                 controller.detailTransactionModel.value!.totalPembayaran!,
             priceProduct:
                 controller.detailTransactionModel.value!.totalPembayaran!,
-            url: controller.detailTransactionModel.value!.urlImagePanjang!),
+            url: controller.detailTransactionModel.value!.urlImageKotak!),
         const SizedBox(height: 20),
         Visibility(visible: false, child: cardInfoPayment()),
         const SizedBox(height: 40)
@@ -117,7 +117,7 @@ class DetailTransactionContentView extends GetView {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Transaksi',
+                'Transaction',
                 style: textBold,
               ),
               const Spacer(),
@@ -139,7 +139,7 @@ class DetailTransactionContentView extends GetView {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Nomor Invoice',
+                'Number Invoice',
                 style: textBold,
               ),
               const Spacer(),
@@ -157,7 +157,7 @@ class DetailTransactionContentView extends GetView {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Tanggal Transaksi',
+                'Transaction Date',
                 style: textBold,
               ),
               const Spacer(),
@@ -182,21 +182,21 @@ class DetailTransactionContentView extends GetView {
         imageUrl: url,
         imageBuilder: (context, imageProvider) {
           return Container(
-            height: 100,
-            width: 80,
+            height: 78,
+            width: 142,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: const [
                   BoxShadow(
                       color: Colors.grey, blurRadius: 4, offset: Offset(2, 2))
                 ],
-                image: DecorationImage(image: imageProvider)),
+                image: DecorationImage(image: imageProvider, fit: BoxFit.fill)),
           );
         },
         placeholder: (context, url) {
           return Container(
-            height: 100,
-            width: 80,
+            height: 78,
+            width: 142,
             decoration: BoxDecoration(
                 color: Colors.grey,
                 borderRadius: BorderRadius.circular(8),
@@ -208,8 +208,8 @@ class DetailTransactionContentView extends GetView {
         },
         errorWidget: (context, url, error) {
           return Container(
-            height: 100,
-            width: 80,
+            height: 78,
+            width: 142,
             decoration: BoxDecoration(
                 color: Colors.grey,
                 borderRadius: BorderRadius.circular(8),
@@ -248,12 +248,12 @@ class DetailTransactionContentView extends GetView {
               imageProduct(url),
               const SizedBox(width: 6),
               SizedBox(
-                height: 100,
+                height: 120,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: Get.width / 1.6,
+                      width: Get.width / 2,
                       child: Text(
                         nameProduct,
                         style: textBold,
@@ -261,7 +261,13 @@ class DetailTransactionContentView extends GetView {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    SizedBox(width: Get.width / 1.6, child: Text('test aja')),
+                    SizedBox(
+                        width: Get.width / 2,
+                        child: Text(
+                          decs,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                        )),
                     const Spacer(),
                     Text(
                       currencyRp(priceProduct),
@@ -277,7 +283,7 @@ class DetailTransactionContentView extends GetView {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Total Harga :',
+                'Total :',
                 style: textBold,
               ),
               Text(

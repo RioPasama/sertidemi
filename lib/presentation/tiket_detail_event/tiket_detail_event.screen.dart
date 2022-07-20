@@ -19,7 +19,7 @@ class TiketDetailEventScreen extends GetView<TiketDetailEventController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Detail Tiket'),
+      appBar: appBarDefaultView(title: 'Ticket Detail'),
       body: Stack(
         children: [
           RefreshIndicator(

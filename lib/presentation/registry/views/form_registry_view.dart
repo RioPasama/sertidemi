@@ -59,16 +59,27 @@ class FormRegistryView extends GetView {
                     children: [
                       Text('Password', style: textBold),
                       Container(
-                        margin: const EdgeInsets.only(top: 8),
-                        decoration: inputBoxDecorationRounded,
-                        child: TextFormField(
-                          keyboardType: TextInputType.visiblePassword,
-                          controller: controller.passwordTextEditingController,
-                          obscureText: true,
-                          decoration: inputInputDecorationRounded,
-                          validator: (val) => controller.validatorPassword(val),
-                        ),
-                      ),
+                          margin: const EdgeInsets.only(top: 8),
+                          decoration: inputBoxDecorationRounded,
+                          child: Obx(
+                            () => TextFormField(
+                              keyboardType: TextInputType.visiblePassword,
+                              controller:
+                                  controller.passwordTextEditingController,
+                              obscureText: controller.passwordObscureText.value,
+                              decoration: inputInputDecorationRounded.copyWith(
+                                  suffixIcon: IconButton(
+                                      onPressed: () => controller
+                                          .passwordObscureText
+                                          .toggle(),
+                                      icon: Icon((!controller
+                                              .passwordObscureText.value)
+                                          ? Icons.visibility
+                                          : Icons.visibility_off))),
+                              validator: (val) =>
+                                  controller.validatorPassword(val),
+                            ),
+                          )),
                     ],
                   ),
                 ),
@@ -77,20 +88,30 @@ class FormRegistryView extends GetView {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Password Confrimation', style: textBold),
+                      Text('Password Confirmation', style: textBold),
                       Container(
-                        margin: const EdgeInsets.only(top: 8),
-                        decoration: inputBoxDecorationRounded,
-                        child: TextFormField(
-                          controller:
-                              controller.confirmPasswordTextEditingController,
-                          keyboardType: TextInputType.visiblePassword,
-                          obscureText: true,
-                          decoration: inputInputDecorationRounded,
-                          validator: (val) =>
-                              controller.validatorConfirmPassword(val),
-                        ),
-                      ),
+                          margin: const EdgeInsets.only(top: 8),
+                          decoration: inputBoxDecorationRounded,
+                          child: Obx(
+                            () => TextFormField(
+                              controller: controller
+                                  .confirmPasswordTextEditingController,
+                              keyboardType: TextInputType.visiblePassword,
+                              obscureText:
+                                  controller.confirmPasswordObscureText.value,
+                              decoration: inputInputDecorationRounded.copyWith(
+                                  suffixIcon: IconButton(
+                                      onPressed: () => controller
+                                          .confirmPasswordObscureText
+                                          .toggle(),
+                                      icon: Icon((!controller
+                                              .confirmPasswordObscureText.value)
+                                          ? Icons.visibility
+                                          : Icons.visibility_off))),
+                              validator: (val) =>
+                                  controller.validatorConfirmPassword(val),
+                            ),
+                          )),
                     ],
                   ),
                 )

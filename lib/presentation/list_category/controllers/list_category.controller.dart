@@ -49,6 +49,7 @@ class ListCategoryController extends GetxController {
   }
 
   void onTapCategoryMaster({required int index}) async {
+    categoryModel.value = [];
     indexCategoryMaster.value = index;
     // setSubCategory();
     idCategoryMaster.value =

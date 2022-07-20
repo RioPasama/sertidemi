@@ -49,7 +49,7 @@ class MainScreen extends GetView<MainController> {
                 Assets.icons.menuSertifikasiKlik.path,
                 scale: 6,
               ),
-              label: 'Certification',
+              label: 'Assessment',
             ),
             BottomNavigationBarItem(
               icon: Image.asset(

@@ -3,7 +3,8 @@ class ProductModel {
   String? namaProduct;
   String? tanggalMulaiProduct;
   String? tanggalBatasProduct;
-  String? urlImageCover;
+  String? urlImageCoverKotak;
+  String? urlImageCoverPanjang;
   dynamic harga;
   dynamic hargaDiskon;
   dynamic diskon;
@@ -14,7 +15,8 @@ class ProductModel {
       this.namaProduct,
       this.tanggalMulaiProduct,
       this.tanggalBatasProduct,
-      this.urlImageCover,
+      this.urlImageCoverKotak,
+      this.urlImageCoverPanjang,
       this.harga,
       this.hargaDiskon,
       this.diskon,
@@ -25,7 +27,8 @@ class ProductModel {
     namaProduct = json['nama'] ?? '';
     tanggalMulaiProduct = json['mulai'] ?? json['tgl_mulai'] ?? '';
     tanggalBatasProduct = json['selesai'] ?? json['tgl_selesai'] ?? '';
-    urlImageCover = json['url_image_panjang'] ?? json['image_panjang'] ?? '';
+    urlImageCoverKotak = json['url_image_kotak'];
+    urlImageCoverPanjang = json['url_image_panjang'];
     harga = json['harga'] ?? '';
     hargaDiskon = json['harga_diskon'] ?? '';
     diskon = json['diskon'] ?? '0';

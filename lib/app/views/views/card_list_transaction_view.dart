@@ -45,7 +45,7 @@ class CardListTransactionView extends GetView {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Acara'),
+                const Text('Product'),
                 SizedBox(
                     width: Get.width - (16 * 2) - (8 * 2) - 100,
                     child: Text(
@@ -70,13 +70,13 @@ class CardListTransactionView extends GetView {
               children: [
                 const Text('Total'),
                 SizedBox(
-                    width: Get.width - (16 * 2) - (8 * 2) - 244,
+                    width: Get.width - (16 * 2) - (8 * 2) - 222,
                     child: Text(
                       currencyRp(data.totalHargaTicketAkhir!),
                       style: textBold,
                     )),
                 Text(
-                  'Lihat Detail',
+                  'Detail',
                   style: textBold.copyWith(color: primaryColor),
                 ),
               ],

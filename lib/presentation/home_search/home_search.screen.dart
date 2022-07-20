@@ -21,7 +21,7 @@ class HomeSearchScreen extends GetView<HomeSearchController> {
             child: TextField(
               autofocus: true,
               decoration: inputInputDecorationRounded.copyWith(
-                hintText: 'Pencarian',
+                hintText: 'Search',
                 hintStyle: const TextStyle(fontSize: 14),
                 prefixIcon: const Icon(Icons.search_outlined),
               ),
@@ -31,8 +31,8 @@ class HomeSearchScreen extends GetView<HomeSearchController> {
         ),
         body: Obx(() => ((controller.productModel.isEmpty)
             ? (controller.isSearch.value)
-                ? const Center(child: Text('Data Tidak ada'))
-                : const Center(child: Text('Silakan Melakukan Pencarian'))
+                ? const Center(child: Text('Data Empety'))
+                : const Center(child: Text('Please Do a Search'))
             : GridView.builder(
                 itemCount: controller.productModel.length,
                 padding: const EdgeInsets.only(top: 20),

@@ -19,6 +19,8 @@ class RegistryController extends GetxController {
   final ImagePicker _picker = ImagePicker();
   XFile? image;
   RxBool isInputImage = false.obs;
+  RxBool passwordObscureText = true.obs;
+  RxBool confirmPasswordObscureText = true.obs;
   RxString? pathImage = ''.obs;
 
   @override

@@ -30,26 +30,34 @@ class DetailTransactionScreen extends GetView<DetailTransactionController> {
           if (snapshot.hasData) {
             controller.detailTransactionModel.value =
                 snapshot.data as DetailTransactionModel;
-            return DetailTransactionContentView();
+            controller.initialTextButton();
+            return Stack(children: [
+              DetailTransactionContentView(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: GestureDetector(
+                  onTap: () => controller.onTapBottomSheet(),
+                  child: Container(
+                    height: 44,
+                    width: Get.width,
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: primaryColor),
+                    child: Text(
+                      controller.textButton.value,
+                      style:
+                          textBold.copyWith(color: Colors.white, fontSize: 16),
+                    ),
+                  ),
+                ),
+              )
+            ]);
           } else {
             return Center(child: LoadingView());
           }
         },
-      ),
-      bottomSheet: GestureDetector(
-        onTap: () => controller.onTapBottomSheet(),
-        child: Container(
-          height: 44,
-          width: Get.width,
-          alignment: Alignment.center,
-          margin: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14), color: primaryColor),
-          child: Text(
-            'View receipt',
-            style: textBold.copyWith(color: Colors.white, fontSize: 16),
-          ),
-        ),
       ),
     );
   }

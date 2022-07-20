@@ -19,7 +19,7 @@ class CardLengthProductView extends StatelessWidget {
     return GestureDetector(
       onTap: () => klikContentController.onTapCardProduct(
           idProduct: data.idProduct!,
-          urlImageCover: data.urlImageCover!,
+          urlImageCover: data.urlImageCoverPanjang!,
           status: data.status!),
       child: Container(
         width: Get.width - (16 * 2),
@@ -32,39 +32,40 @@ class CardLengthProductView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CachedNetworkImage(
-                imageUrl: data.urlImageCover!,
+                imageUrl: data.urlImageCoverPanjang!,
                 imageBuilder: (context, imageProvider) {
                   return Container(
-                    height: (Get.width / 2.4) / 2,
+                    // height: (Get.width / 2.4) / 2,
                     width: Get.width - (16 * 2),
+                    height: (Get.width / 2.5),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey, width: 1),
                         borderRadius: BorderRadius.circular(13),
-                        color: Colors.white,
+                        // color: Colors.white,
                         image: DecorationImage(
                             image: imageProvider, fit: BoxFit.fill)),
                   );
                 },
                 placeholder: (context, url) {
                   return Container(
-                    height: (Get.width / 2.4) / 2,
+                    height: (Get.width / 2.5),
                     width: Get.width - (16 * 2),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey, width: 1),
                         borderRadius: BorderRadius.circular(13),
-                        color: Colors.white,
+                        color: Colors.grey,
                         image: DecorationImage(
                             image: AssetImage('assetName'), fit: BoxFit.fill)),
                   );
                 },
                 errorWidget: (context, url, error) {
                   return Container(
-                    height: (Get.width / 2.4) / 2,
+                    height: (Get.width / 2.5),
                     width: Get.width - (16 * 2),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey, width: 1),
                         borderRadius: BorderRadius.circular(13),
-                        color: Colors.white,
+                        color: Colors.grey,
                         image: DecorationImage(
                             image: AssetImage('assetName'), fit: BoxFit.fill)),
                   );

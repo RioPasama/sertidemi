@@ -13,7 +13,7 @@ class AssessmentScreen extends GetView<AssessmentController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Certification'),
+          title: const Text(' Assessment'),
           centerTitle: true,
         ),
         body: ListView(
@@ -33,7 +33,7 @@ class AssessmentScreen extends GetView<AssessmentController> {
                 Assets.icons.menuSertifikasiIconListEvent.path,
                 scale: 4,
               ),
-              title: const Text('Certification Caregory'),
+              title: const Text('Assessment Category'),
             ),
             const Divider(),
             ListTile(
@@ -60,7 +60,7 @@ class AssessmentScreen extends GetView<AssessmentController> {
                 Assets.icons.menuSertifikasiIconSertifikat.path,
                 scale: 4,
               ),
-              title: const Text('Certificat'),
+              title: const Text('certificate'),
             ),
             const Divider(),
           ],

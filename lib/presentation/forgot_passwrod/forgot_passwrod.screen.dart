@@ -17,7 +17,7 @@ class ForgotPasswrodScreen extends GetView<ForgotPasswrodController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBarDefaultView(title: 'Forgot Passwrod'),
+        appBar: appBarDefaultView(title: 'Forgot Password'),
         body: ListView(
           children: [
             SizedBox(

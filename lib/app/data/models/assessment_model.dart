@@ -48,7 +48,7 @@ class AssessmentDetailModel {
     urlSertifikatDepanTemplate = json['url_sertifikat_depan_template'] ?? '';
     urlImagePanjang = json['url_image_panjang'] ?? '';
     hargaAssessment = json['harga_assessment'] ?? '';
-    deskripsiAssessment = json['diskon_assessment'] ?? '';
+    diskonAssessment = json['diskon_assessment'] ?? '';
     hargaDiskon = json['harga_diskon'] ?? '';
     penulis = json['penulis'] ?? '';
     waktuPengerjaan = json['waktu_pengerjaan'] ?? '';

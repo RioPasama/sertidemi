@@ -40,28 +40,45 @@ class ChangeProfileFormView extends GetView {
               validator: (val) => controller.validatorPhoneNumber(val),
             ),
           ),
-          Text('Password', style: textBold),
+          Text('New Password', style: textBold),
           Container(
-            margin: const EdgeInsets.only(bottom: 16, top: 8),
-            decoration: inputBoxDecorationRounded,
-            child: TextFormField(
-              controller: controller.passwordTextEditingController,
-              keyboardType: TextInputType.text,
-              decoration: inputInputDecorationRounded,
-              validator: (val) => controller.validatorPassword(val),
-            ),
-          ),
-          Text('Password Confirmation', style: textBold),
+              margin: const EdgeInsets.only(bottom: 16, top: 8),
+              decoration: inputBoxDecorationRounded,
+              child: Obx(
+                () => TextFormField(
+                  controller: controller.passwordTextEditingController,
+                  keyboardType: TextInputType.text,
+                  obscureText: controller.passwordObscureText.value,
+                  decoration: inputInputDecorationRounded.copyWith(
+                      suffixIcon: IconButton(
+                          onPressed: () =>
+                              controller.passwordObscureText.toggle(),
+                          icon: Icon((!controller.passwordObscureText.value)
+                              ? Icons.visibility
+                              : Icons.visibility_off))),
+                  validator: (val) => controller.validatorPassword(val),
+                ),
+              )),
+          Text('Confirmation New Password', style: textBold),
           Container(
-            margin: const EdgeInsets.only(bottom: 16, top: 8),
-            decoration: inputBoxDecorationRounded,
-            child: TextFormField(
-              controller: controller.confirmPasswordTextEditingController,
-              keyboardType: TextInputType.text,
-              decoration: inputInputDecorationRounded,
-              validator: (val) => controller.validatorConfirmPassword(val),
-            ),
-          ),
+              margin: const EdgeInsets.only(bottom: 16, top: 8),
+              decoration: inputBoxDecorationRounded,
+              child: Obx(
+                () => TextFormField(
+                  controller: controller.confirmPasswordTextEditingController,
+                  keyboardType: TextInputType.text,
+                  obscureText: controller.confirmPasswordObscureText.value,
+                  decoration: inputInputDecorationRounded.copyWith(
+                      suffixIcon: IconButton(
+                          onPressed: () =>
+                              controller.confirmPasswordObscureText.toggle(),
+                          icon: Icon(
+                              (!controller.confirmPasswordObscureText.value)
+                                  ? Icons.visibility
+                                  : Icons.visibility_off))),
+                  validator: (val) => controller.validatorConfirmPassword(val),
+                ),
+              )),
         ],
       ),
     );

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sertidemi/app/data/models/category_master_model.dart';
 import 'package:sertidemi/domain/core/extensions/haxColor.dart';
-import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 import 'package:sertidemi/presentation/home/controllers/home.controller.dart';
 
@@ -15,7 +14,7 @@ class CategoryHomeView extends GetView {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 170,
+        height: 150,
         child: Obx(
           () => Center(
             child: ListView.builder(
@@ -41,13 +40,13 @@ class CategoryHomeView extends GetView {
           .onKlikCategory(index: index, option: 2),
       child: SizedBox(
         height: 60,
-        width: 190,
+        width: 180,
         child: Stack(children: [
           Container(
-            width: 170,
+            width: 160,
             margin:
-                const EdgeInsets.only(right: 10, left: 10, top: 40, bottom: 10),
-            padding: const EdgeInsets.only(top: 50),
+                const EdgeInsets.only(right: 10, left: 10, top: 30, bottom: 10),
+            padding: const EdgeInsets.only(top: 40),
             decoration: BoxDecoration(
                 color: HexColor.fromHex(data.color!),
                 borderRadius: BorderRadius.circular(20)),
@@ -69,8 +68,8 @@ class CategoryHomeView extends GetView {
           Align(
             alignment: Alignment.topCenter,
             child: Container(
-                height: 88,
-                width: 88,
+                height: 68,
+                width: 68,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -87,8 +86,8 @@ class CategoryHomeView extends GetView {
         imageUrl: url,
         imageBuilder: (context, imageProvider) {
           return Container(
-            height: 60,
-            width: 60,
+            height: 55,
+            width: 55,
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white,
@@ -98,16 +97,16 @@ class CategoryHomeView extends GetView {
         },
         placeholder: (context, url) {
           return Container(
-            height: 60,
-            width: 60,
+            height: 55,
+            width: 55,
             decoration: const BoxDecoration(
                 shape: BoxShape.circle, color: Colors.white),
           );
         },
         errorWidget: (context, url, error) {
           return Container(
-            height: 60,
-            width: 70,
+            height: 55,
+            width: 55,
             decoration: const BoxDecoration(
                 shape: BoxShape.circle, color: Colors.white),
           );

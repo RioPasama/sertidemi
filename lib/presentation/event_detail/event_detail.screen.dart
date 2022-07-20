@@ -21,7 +21,7 @@ class EventDetailScreen extends GetView<EventDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Detail Acara'),
+      appBar: appBarDefaultView(title: 'Event Detail'),
       body: Stack(
         children: [
           RefreshIndicator(
@@ -57,7 +57,7 @@ class EventDetailScreen extends GetView<EventDetailController> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                     child: Text(
-                      'Penyedia Event',
+                      'Certification provide by',
                       style: textBold.copyWith(fontSize: 16),
                     ),
                   ),
@@ -109,7 +109,7 @@ class EventDetailScreen extends GetView<EventDetailController> {
                       color: primaryColor,
                       alignment: Alignment.center,
                       child: Text(
-                        'Daftar',
+                        'Registry',
                         style: textBold.copyWith(
                             color: Colors.white, fontSize: 16),
                       ),

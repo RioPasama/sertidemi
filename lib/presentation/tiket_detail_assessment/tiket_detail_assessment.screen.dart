@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class TiketDetailAssessmentScreen
   Widget build(BuildContext context) {
     controller.onInit();
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Detail Tiket'),
+      appBar: appBarDefaultView(title: 'Ticket Detail'),
       body: RefreshIndicator(
         onRefresh: () async {
           controller.assessmentDetailModel.value =
@@ -36,54 +37,84 @@ class TiketDetailAssessmentScreen
               controller.assessmentDetailModel.value =
                   snapshot.data as AssessmentDetailTiketModel;
 
-              return SizedBox(
-                height: Get.height,
-                width: Get.width,
-                child: Column(
-                  children: [
-                    TiketDetailAssessmentContentView(),
-                    const Spacer(),
-                    Visibility(
-                        visible: (controller.assessmentDetailModel.value!
-                                .statusPengerjaan ==
-                            'Y'),
-                        child: (controller
-                                    .assessmentDetailModel.value!.statusLulus !=
-                                'Sudah Mengerjakan')
-                            ?
-                            //Buttton Assessment
-                            GestureDetector(
-                                onTap: () => controller.onTapAssessment(),
-                                child: Container(
-                                  height: 60,
-                                  width: Get.width,
-                                  color: primaryColor,
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'Assessment',
-                                    style: textBold.copyWith(
-                                        color: Colors.white, fontSize: 16),
-                                  ),
-                                ),
-                              )
-                            //Buttton Lihat Hasil
-                            : GestureDetector(
-                                onTap: () => controller.onTapResult(),
-                                child: Container(
-                                  height: 60,
-                                  width: Get.width,
-                                  color: primaryColor,
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'Lihat Hasil',
-                                    style: textBold.copyWith(
-                                        color: Colors.white, fontSize: 16),
-                                  ),
-                                ),
-                              ))
-                  ],
-                ),
-              );
+              return Stack(children: [
+                TiketDetailAssessmentContentView(),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: SizedBox(
+                    height: 186,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //Peyedia Sertifikat
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 10),
+                          child: Text(
+                            'Certification Provide by',
+                            style: textBold.copyWith(fontSize: 16),
+                          ),
+                        ),
+                        SizedBox(
+                            height: 80,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
+                              itemCount: controller.assessmentDetailModel.value!
+                                  .contribution!.length,
+                              itemBuilder: (context, index) {
+                                return imageContribution(controller
+                                    .assessmentDetailModel
+                                    .value!
+                                    .contribution![index]
+                                    .icon);
+                              },
+                            )),
+                        const Spacer(),
+                        Visibility(
+                            visible: (controller.assessmentDetailModel.value!
+                                    .statusPengerjaan ==
+                                'Y'),
+                            child: (controller.assessmentDetailModel.value!
+                                        .statusLulus !=
+                                    'Sudah Mengerjakan')
+                                ?
+                                //Buttton Assessment
+                                GestureDetector(
+                                    onTap: () => controller.onTapAssessment(),
+                                    child: Container(
+                                      height: 60,
+                                      width: Get.width,
+                                      color: primaryColor,
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'Assessment',
+                                        style: textBold.copyWith(
+                                            color: Colors.white, fontSize: 16),
+                                      ),
+                                    ),
+                                  )
+                                //Buttton Lihat Hasil
+                                : GestureDetector(
+                                    onTap: () => controller.onTapResult(),
+                                    child: Container(
+                                      height: 60,
+                                      width: Get.width,
+                                      color: primaryColor,
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'Lihat Hasil',
+                                        style: textBold.copyWith(
+                                            color: Colors.white, fontSize: 16),
+                                      ),
+                                    ),
+                                  )),
+                      ],
+                    ),
+                  ),
+                )
+              ]);
             } else {
               return Center(child: LoadingView());
             }
@@ -91,5 +122,35 @@ class TiketDetailAssessmentScreen
         ),
       ),
     );
+  }
+
+  Widget imageContribution(url) {
+    return CachedNetworkImage(
+        imageUrl: url,
+        imageBuilder: (context, imageProvider) {
+          return Container(
+            height: 80,
+            width: 80,
+            margin: const EdgeInsets.symmetric(horizontal: 8),
+            decoration:
+                BoxDecoration(image: DecorationImage(image: imageProvider)),
+          );
+        },
+        placeholder: (context, url) {
+          return Container(
+            height: 80,
+            width: 80,
+            margin: const EdgeInsets.symmetric(horizontal: 8),
+            decoration: const BoxDecoration(color: Colors.grey),
+          );
+        },
+        errorWidget: (context, url, error) {
+          return Container(
+            height: 80,
+            width: 80,
+            margin: const EdgeInsets.symmetric(horizontal: 8),
+            decoration: const BoxDecoration(color: Colors.grey),
+          );
+        });
   }
 }
