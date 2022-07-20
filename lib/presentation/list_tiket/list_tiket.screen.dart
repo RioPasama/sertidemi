@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sertidemi/app/data/models/assessment_tiket_model.dart';
 import 'package:sertidemi/app/data/models/event_tiket_model.dart';
 import 'package:sertidemi/app/data/providers/tiket_provider.dart';
@@ -8,6 +9,7 @@ import 'package:sertidemi/app/views/views/appbar_view.dart';
 import 'package:sertidemi/app/views/views/card_tiket_assessment_view.dart';
 import 'package:sertidemi/app/views/views/card_tiket_event_view.dart';
 import 'package:sertidemi/app/views/views/loading_view.dart';
+import 'package:sertidemi/gen/assets.gen.dart';
 
 import 'controllers/list_tiket.controller.dart';
 
@@ -27,14 +29,21 @@ class ListTiketScreen extends GetView<ListTiketController> {
                   if (snapshot.hasData) {
                     List<EventTiketModel> eventTiketModel =
                         snapshot.data as List<EventTiketModel>;
-                    return ListView.builder(
-                      itemCount: eventTiketModel.length,
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      itemBuilder: (context, index) {
-                        return CardTiketEventView(
-                            eventTiketModel: eventTiketModel[index]);
-                      },
-                    );
+                    return (eventTiketModel.isEmpty)
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                                Lottie.asset(Assets.lottie.emptydatanotfound),
+                                const Center(child: Text('Data Not Found'))
+                              ])
+                        : ListView.builder(
+                            itemCount: eventTiketModel.length,
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            itemBuilder: (context, index) {
+                              return CardTiketEventView(
+                                  eventTiketModel: eventTiketModel[index]);
+                            },
+                          );
                   } else {
                     return Center(child: LoadingView());
                   }
@@ -46,14 +55,22 @@ class ListTiketScreen extends GetView<ListTiketController> {
                   if (snapshot.hasData) {
                     List<AssessmentTiketModel> assessmentTiketModel =
                         snapshot.data as List<AssessmentTiketModel>;
-                    return ListView.builder(
-                      itemCount: assessmentTiketModel.length,
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      itemBuilder: (context, index) {
-                        return CardTiketAssessmentView(
-                            assessmentTiketModel: assessmentTiketModel[index]);
-                      },
-                    );
+                    return (assessmentTiketModel.isEmpty)
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                                Lottie.asset(Assets.lottie.emptydatanotfound),
+                                const Center(child: Text('Data Not Found'))
+                              ])
+                        : ListView.builder(
+                            itemCount: assessmentTiketModel.length,
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            itemBuilder: (context, index) {
+                              return CardTiketAssessmentView(
+                                  assessmentTiketModel:
+                                      assessmentTiketModel[index]);
+                            },
+                          );
                   } else {
                     return Center(child: LoadingView());
                   }

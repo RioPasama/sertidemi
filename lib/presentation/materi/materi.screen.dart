@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sertidemi/app/data/models/materi_model.dart';
 import 'package:sertidemi/app/data/providers/event_materi_provider.dart';
 import 'package:sertidemi/app/views/views/loading_view.dart';
@@ -116,7 +117,21 @@ class MateriScreen extends GetView<MateriController> {
               cardListCategory(index: 1, title: 'Video')
             ],
           ),
-        ))
+        )),
+        SafeArea(
+            child: Padding(
+                padding: const EdgeInsets.only(top: 120),
+                child: Obx(
+                  () => Visibility(
+                    visible: controller.isEmptyData.value,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Lottie.asset(Assets.lottie.emptydatanotfound),
+                          const Center(child: Text('Data Not Found'))
+                        ]),
+                  ),
+                ))),
       ],
     ));
   }

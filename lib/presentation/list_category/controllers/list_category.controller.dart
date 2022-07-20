@@ -15,6 +15,7 @@ class ListCategoryController extends GetxController {
   RxInt indexCategoryMaster = 0.obs;
   RxInt initialLoadSubCategory = 0.obs;
   RxBool openSearch = false.obs;
+  RxBool isEmptyData = false.obs;
 
   @override
   void onInit() {
@@ -36,8 +37,14 @@ class ListCategoryController extends GetxController {
   void onTapSearch(String value) async {
     // categoryModel.value = await CategoryProvider.getCategorySub(
     //     idCategory: idCategoryMaster.value, tag: tag.value, q: value);
+    categoryModel.clear();
     categoryModel.value = await CategoryProvider.getCategorySubSearch(
         idCategory: idCategoryMaster.value, tag: tag.value, q: value);
+    if (categoryModel.isEmpty) {
+      isEmptyData.value = true;
+    } else {
+      isEmptyData.value = false;
+    }
   }
 
   void setTitle() {
@@ -50,6 +57,7 @@ class ListCategoryController extends GetxController {
 
   void onTapCategoryMaster({required int index}) async {
     categoryModel.value = [];
+    isEmptyData.value = false;
     indexCategoryMaster.value = index;
     // setSubCategory();
     idCategoryMaster.value =
@@ -63,10 +71,15 @@ class ListCategoryController extends GetxController {
     if (initialLoadSubCategory.value == 0) {
       idCategoryMaster.value =
           categoryMasterModel[indexCategoryMaster.value].idKategoriMaster!;
-
       categoryModel.value = await CategoryProvider.getCategorySub(
           idCategory: idCategoryMaster.value, tag: tag.value);
       initialLoadSubCategory.value = 1;
+
+      if (categoryModel.isEmpty) {
+        isEmptyData.value = true;
+      } else {
+        isEmptyData.value = false;
+      }
     }
   }
 

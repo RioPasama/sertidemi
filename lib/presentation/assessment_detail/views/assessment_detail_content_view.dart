@@ -28,7 +28,7 @@ class AssessmentDetailContentView extends GetView {
         //Deskripsi
         description(),
 
-        const SizedBox(height: 10),
+        const SizedBox(height: 200),
 
         // const Spacer(flex: 2),
       ],
@@ -87,7 +87,7 @@ class AssessmentDetailContentView extends GetView {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                width: Get.width - (16 * 2) - (120),
+                width: Get.width - (16 * 2) - (125),
                 child: Text(
                   controller.fetchAPIProductDetailsController
                       .assessmentDetailModel.value!.namaAssessment!,

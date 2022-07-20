@@ -22,7 +22,7 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Detail Certification'),
+      appBar: appBarDefaultView(title: 'Detail Assessment'),
       body: Stack(
         children: [
           RefreshIndicator(
@@ -51,8 +51,14 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: SizedBox(
+            child: Container(
               height: 186,
+              decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.shade300,
+                    blurRadius: 4,
+                    offset: const Offset(0, -2))
+              ]),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

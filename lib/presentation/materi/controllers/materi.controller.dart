@@ -14,6 +14,7 @@ class MateriController extends GetxController {
   RxInt indexCategoryMateri = 0.obs;
   RxDouble progress = 0.0.obs;
   RxBool isSertifikasi = true.obs;
+  RxBool isEmptyData = false.obs;
 
   @override
   void onInit() {
@@ -32,7 +33,7 @@ class MateriController extends GetxController {
   }
 
   void onTapMateri({required int index}) {
-    materiModel.value = [];
+    materiModel.clear();
     indexCategoryMateri.value = index;
   }
 

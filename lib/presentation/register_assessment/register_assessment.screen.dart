@@ -16,7 +16,7 @@ class RegisterAssessmentScreen extends GetView<RegisterAssessmentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Register Certification'),
+      appBar: appBarDefaultView(title: 'Register Assessment'),
       body: RegisterAssessmentContentView(),
       bottomSheet: GestureDetector(
         onTap: () => controller.onTapRegister(),

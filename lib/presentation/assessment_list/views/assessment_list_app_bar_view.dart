@@ -32,7 +32,7 @@ class AssessmentListAppBarView extends GetView {
                     icon:
                         const Icon(Icons.arrow_back_ios, color: Colors.white)),
                 Text(
-                  '${controller.getArguments['title']} Certification',
+                  '${controller.getArguments['title']} Assessment',
                   style: const TextStyle(color: Colors.white, fontSize: 18),
                 ),
                 const SizedBox(width: 48)

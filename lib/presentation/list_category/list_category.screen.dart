@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sertidemi/app/data/models/category_master_model.dart';
 import 'package:sertidemi/app/data/providers/category_provider.dart';
 import 'package:sertidemi/app/views/views/icon_category_view.dart';
 import 'package:sertidemi/app/views/views/loading_view.dart';
+import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 import 'package:sertidemi/infrastructure/theme/widget_decoration.theme.dart';
@@ -30,19 +32,36 @@ class ListCategoryScreen extends GetView<ListCategoryController> {
           SafeArea(
               child: Padding(
             padding: const EdgeInsets.only(top: 80),
-            child: GridView.builder(
-              itemCount: controller.categoryModel.length,
-              padding: const EdgeInsets.only(top: 60),
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 120),
-              itemBuilder: (context, index) {
-                return IconCategoryView(
-                  data: controller.categoryModel[index],
-                  option: controller.getArguments['option'],
-                );
-              },
-            ),
+            child: (controller.categoryModel.isEmpty &&
+                    !controller.isEmptyData.value)
+                ? Center(child: LoadingView())
+                : GridView.builder(
+                    itemCount: controller.categoryModel.length,
+                    padding: const EdgeInsets.only(top: 60),
+                    gridDelegate:
+                        const SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent: 120),
+                    itemBuilder: (context, index) {
+                      return IconCategoryView(
+                        data: controller.categoryModel[index],
+                        option: controller.getArguments['option'],
+                      );
+                    },
+                  ),
           )),
+          Visibility(
+              visible: controller.isEmptyData.value,
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 80),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Lottie.asset(Assets.lottie.emptydatanotfound),
+                        const Center(child: Text('Data Not Found'))
+                      ]),
+                ),
+              )),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.only(top: 68),
@@ -56,6 +75,7 @@ class ListCategoryScreen extends GetView<ListCategoryController> {
                         controller.categoryMasterModel.value =
                             snapshot.data as List<CategoryMasterModel>;
                         controller.setSubCategory();
+
                         return ListView.builder(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           scrollDirection: Axis.horizontal,

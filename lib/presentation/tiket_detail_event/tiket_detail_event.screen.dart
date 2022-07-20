@@ -46,8 +46,14 @@ class TiketDetailEventScreen extends GetView<TiketDetailEventController> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: SizedBox(
-              height: 186,
+            child: Container(
+              height: 120,
+              decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.shade300,
+                    blurRadius: 4,
+                    offset: const Offset(0, -2))
+              ]),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

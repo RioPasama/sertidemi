@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sertidemi/app/views/views/card_cover_product_view.dart';
+import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/theme/widget_decoration.theme.dart';
 
 import 'controllers/home_search.controller.dart';
@@ -31,7 +33,13 @@ class HomeSearchScreen extends GetView<HomeSearchController> {
         ),
         body: Obx(() => ((controller.productModel.isEmpty)
             ? (controller.isSearch.value)
-                ? const Center(child: Text('Data Empety'))
+                ? Column(
+                    children: [
+                      Center(
+                          child: Lottie.asset(Assets.lottie.emptydatanotfound)),
+                      const Center(child: Text('Data Not Found'))
+                    ],
+                  )
                 : const Center(child: Text('Please Do a Search'))
             : GridView.builder(
                 itemCount: controller.productModel.length,

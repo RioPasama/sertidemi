@@ -48,8 +48,14 @@ class EventDetailScreen extends GetView<EventDetailController> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: SizedBox(
+            child: Container(
               height: 186,
+              decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.shade300,
+                    blurRadius: 4,
+                    offset: const Offset(0, -2))
+              ]),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
