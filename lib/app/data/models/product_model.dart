@@ -9,6 +9,7 @@ class ProductModel {
   dynamic hargaDiskon;
   dynamic diskon;
   String? status;
+  String? sponsorUtama;
 
   ProductModel(
       {this.idProduct,
@@ -20,6 +21,7 @@ class ProductModel {
       this.harga,
       this.hargaDiskon,
       this.diskon,
+      this.sponsorUtama,
       this.status});
 
   ProductModel.fromJson(Map<String, dynamic> json) {
@@ -27,11 +29,13 @@ class ProductModel {
     namaProduct = json['nama'] ?? '';
     tanggalMulaiProduct = json['mulai'] ?? json['tgl_mulai'] ?? '';
     tanggalBatasProduct = json['selesai'] ?? json['tgl_selesai'] ?? '';
-    urlImageCoverKotak = json['url_image_kotak'];
-    urlImageCoverPanjang = json['url_image_panjang'];
+    urlImageCoverKotak = json['url_image_kotak'] ?? json['image_kotak'] ?? '';
+    urlImageCoverPanjang =
+        json['url_image_panjang'] ?? json['image_panjang'] ?? '';
     harga = json['harga'] ?? '';
     hargaDiskon = json['harga_diskon'] ?? '';
     diskon = json['diskon'] ?? '0';
+    sponsorUtama = json['sponsor_utama'] ?? '';
     status = json['status'] ?? '';
   }
 }

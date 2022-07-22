@@ -15,6 +15,7 @@ class MateriController extends GetxController {
   RxDouble progress = 0.0.obs;
   RxBool isSertifikasi = true.obs;
   RxBool isEmptyData = false.obs;
+  RxBool canDownload = true.obs;
 
   @override
   void onInit() {
@@ -51,6 +52,10 @@ class MateriController extends GetxController {
 
   void requestDownload(String link, {required String namefile}) async {
     final status = await Permission.storage.request();
+    if (!canDownload.value) {
+      return;
+    }
+    canDownload.value = false;
 
     String url = Uri.parse(link).toString();
     String savePath = await getFilePath(
@@ -75,8 +80,13 @@ class MateriController extends GetxController {
         Get.back();
         progress.value == 0.0;
         Get.snackbar(
-            'Download Success', 'Download Berhasil silakan cek file download',
-            backgroundColor: Colors.white.withOpacity(0.8));
+          'Download Success',
+          'Download Berhasil silakan cek file download',
+          backgroundColor: Colors.white.withOpacity(0.8),
+        );
+        await Future.delayed(const Duration(seconds: 4), () {
+          canDownload.value = true;
+        });
         return;
       } catch (e) {
         Get.dialog(AlertDialog(

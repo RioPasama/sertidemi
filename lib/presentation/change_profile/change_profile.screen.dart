@@ -13,7 +13,7 @@ class ChangeProfileScreen extends GetView<ChangeProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBarDefaultView(title: 'Change Profile'),
+        appBar: appBarDefaultView(title: 'Edit Profile'),
         body: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           shrinkWrap: true,

@@ -8,6 +8,6 @@ class ContributionModel {
   ContributionModel.fromJson(Map<String, dynamic> json) {
     id = json['idsponsor'] ?? '';
     nama = json['nama_sponsor'] ?? '';
-    icon = json['icon_sponsor'] ?? '';
+    icon = json['icon_sponsor'] ?? json['url_logo_sponsor'] ?? '';
   }
 }

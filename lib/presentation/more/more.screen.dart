@@ -15,6 +15,7 @@ class MoreScreen extends GetView<MoreController> {
 
   @override
   Widget build(BuildContext context) {
+    // controller.scrollController.addListener(controller.onScroll);
     return Obx(() => Scaffold(
         appBar: appBarDefaultView(title: controller.title.value),
         body: FutureBuilder(
@@ -26,13 +27,18 @@ class MoreScreen extends GetView<MoreController> {
               controller.productModel.value =
                   snapshot.data as List<ProductModel>;
               return ListView.builder(
+                controller: controller.scrollController,
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 itemCount: controller.productModel.length,
                 itemBuilder: (context, index) {
-                  return CardLengthProductView(
-                    data: controller.productModel[index],
-                  );
+                  if (index < controller.productModel.length) {
+                    return CardLengthProductView(
+                      data: controller.productModel[index],
+                    );
+                  } else {
+                    return LoadingView();
+                  }
                 },
               );
             } else {

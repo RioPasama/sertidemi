@@ -87,7 +87,7 @@ class AssessmentDetailContentView extends GetView {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                width: Get.width - (16 * 2) - (125),
+                width: Get.width - (16 * 2) - (130),
                 child: Text(
                   controller.fetchAPIProductDetailsController
                       .assessmentDetailModel.value!.namaAssessment!,

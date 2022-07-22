@@ -60,7 +60,7 @@ class AssessmentScreen extends GetView<AssessmentController> {
                 Assets.icons.menuSertifikasiIconSertifikat.path,
                 scale: 4,
               ),
-              title: const Text('certificate'),
+              title: const Text('Certificate'),
             ),
             const Divider(),
           ],

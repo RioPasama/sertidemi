@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sertidemi/app/data/models/product_model.dart';
 import 'package:sertidemi/app/data/providers/assessment_provider.dart';
-import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 
 class AssessmentListController extends GetxController {
+  final ScrollController scrollController = ScrollController();
+
   late RxList<ProductModel> productModel = RxList<ProductModel>();
   late TextEditingController search;
+  int limit = 10;
 
   Map<String, dynamic> getArguments = Get.arguments;
-
   RxInt initialShowDialog = 0.obs;
+  RxBool isSearch = false.obs;
 
   @override
   void onInit() {
@@ -235,5 +237,35 @@ class AssessmentListController extends GetxController {
         offset: 0,
         q: value,
         tag: tag.value);
+
+    isSearch.value = true;
+  }
+
+  void onResetSearc() async {
+    productModel.value = await AssessmentProvider.getListAssesment(
+        idaAssessmentKategori: getArguments['idkategori']);
+    search.text = '';
+    isSearch.value = false;
+  }
+
+  void onScroll() async {
+    double maxScroll = scrollController.position.maxScrollExtent;
+    double currentScroll = scrollController.position.pixels;
+
+    RxString tag = ''.obs;
+
+    tag.value = tagListFilter(initialShowDialog.value);
+
+    if (currentScroll == maxScroll) {
+      List<ProductModel> onScrollProductModel =
+          await AssessmentProvider.getListAssesment(
+              idaAssessmentKategori: getArguments['idkategori'],
+              offset: limit,
+              tag: tag.value,
+              q: search.text);
+
+      productModel.value += onScrollProductModel;
+      limit = limit * 2;
+    }
   }
 }

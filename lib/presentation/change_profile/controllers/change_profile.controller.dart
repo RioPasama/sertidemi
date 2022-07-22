@@ -66,7 +66,7 @@ class ChangeProfileController extends GetxController {
     // if (val == authenticationControllercontroller.nameUser.value) {
     //   return 'Nama anda masi sama';
     // }
-    return (GetUtils.isUsername(val!)) ? null : 'Silakan masukan Nama Lengkap';
+    return (val!.length > 3) ? null : 'Please Enter Full Name';
   }
 
   String? validatorPhoneNumber(String? val) {
@@ -75,20 +75,20 @@ class ChangeProfileController extends GetxController {
     // }
     return (GetUtils.isPhoneNumber(val!))
         ? null
-        : 'Pastikan nomor yang anda masukan benar';
+        : 'Make sure the number you entered is correct';
   }
 
   String? validatorPassword(String? val) {
     if (val == '') {
       return null;
     }
-    return (val!.length >= 6) ? null : 'Kata sandi min 6';
+    return (val!.length >= 6) ? null : 'Password min 6';
   }
 
   String? validatorConfirmPassword(String? val) {
     return (val! == passwordTextEditingController.text)
         ? null
-        : 'Kata sandi tidak sama';
+        : 'Password is not the same';
   }
 
   void buttonSave() async {

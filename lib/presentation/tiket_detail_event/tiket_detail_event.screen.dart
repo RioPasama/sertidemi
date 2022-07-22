@@ -19,7 +19,7 @@ class TiketDetailEventScreen extends GetView<TiketDetailEventController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Ticket Detail'),
+      appBar: appBarDefaultView(title: 'Detail Ticket'),
       body: Stack(
         children: [
           RefreshIndicator(
@@ -57,17 +57,17 @@ class TiketDetailEventScreen extends GetView<TiketDetailEventController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Spacer(),
                   Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
                     child: Text(
-                      'Penyedia Event',
+                      'Certification provide by',
                       style: textBold.copyWith(fontSize: 16),
                     ),
                   ),
+                  const Spacer(),
                   SizedBox(
-                    height: 86,
+                    height: 70,
                     child: FutureBuilder(
                       future: ContributionProvider.getListContribution(
                           id: controller.getArguments['idProduct']),
@@ -118,8 +118,8 @@ class TiketDetailEventScreen extends GetView<TiketDetailEventController> {
         imageUrl: url,
         imageBuilder: (context, imageProvider) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration:
                 BoxDecoration(image: DecorationImage(image: imageProvider)),
@@ -127,16 +127,16 @@ class TiketDetailEventScreen extends GetView<TiketDetailEventController> {
         },
         placeholder: (context, url) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: const BoxDecoration(color: Colors.grey),
           );
         },
         errorWidget: (context, url, error) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: const BoxDecoration(color: Colors.grey),
           );

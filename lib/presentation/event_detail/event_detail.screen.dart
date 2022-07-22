@@ -60,15 +60,16 @@ class EventDetailScreen extends GetView<EventDetailController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
                     child: Text(
                       'Certification provide by',
                       style: textBold.copyWith(fontSize: 16),
                     ),
                   ),
+                  const Spacer(),
                   SizedBox(
-                    height: 86,
+                    height: 70,
                     child: FutureBuilder(
                       future: ContributionProvider.getListContribution(
                           id: controller.getArguments['idProduct']),
@@ -105,7 +106,7 @@ class EventDetailScreen extends GetView<EventDetailController> {
                       },
                     ),
                   ),
-                  const Spacer(),
+
                   //Buttton Acara
                   GestureDetector(
                     onTap: () => controller.onTapRegistry(),
@@ -115,7 +116,7 @@ class EventDetailScreen extends GetView<EventDetailController> {
                       color: primaryColor,
                       alignment: Alignment.center,
                       child: Text(
-                        'Registry',
+                        'Register',
                         style: textBold.copyWith(
                             color: Colors.white, fontSize: 16),
                       ),
@@ -135,8 +136,8 @@ class EventDetailScreen extends GetView<EventDetailController> {
         imageUrl: url,
         imageBuilder: (context, imageProvider) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration:
                 BoxDecoration(image: DecorationImage(image: imageProvider)),
@@ -144,16 +145,16 @@ class EventDetailScreen extends GetView<EventDetailController> {
         },
         placeholder: (context, url) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: const BoxDecoration(color: Colors.grey),
           );
         },
         errorWidget: (context, url, error) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: const BoxDecoration(color: Colors.grey),
           );

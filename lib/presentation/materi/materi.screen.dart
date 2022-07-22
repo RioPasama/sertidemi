@@ -294,7 +294,7 @@ class MateriScreen extends GetView<MateriController> {
                 color: Colors.white,
               ),
               Text(
-                'Materi ${controller.getArguments['titleHeader']}',
+                'Lessons ${controller.getArguments['titleHeader']}',
                 style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(width: 30)

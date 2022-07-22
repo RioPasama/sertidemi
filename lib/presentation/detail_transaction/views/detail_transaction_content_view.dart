@@ -248,7 +248,7 @@ class DetailTransactionContentView extends GetView {
               imageProduct(url),
               const SizedBox(width: 6),
               SizedBox(
-                height: 120,
+                height: 100,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -262,7 +262,7 @@ class DetailTransactionContentView extends GetView {
                       ),
                     ),
                     SizedBox(
-                        width: Get.width / 2,
+                        width: Get.width / 2 - (10),
                         child: Text(
                           decs,
                           maxLines: 3,

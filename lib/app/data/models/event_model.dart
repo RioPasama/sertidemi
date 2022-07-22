@@ -8,6 +8,7 @@ class EventDetailModel {
   String? eventMulai;
   String? urlImagePanjang;
   String? urlImageKotak;
+  String? penulis;
   dynamic harga;
   dynamic diskon;
   dynamic statusDiskon;
@@ -20,6 +21,7 @@ class EventDetailModel {
       this.linkMeeting,
       this.urlImagePanjang,
       this.urlImageKotak,
+      this.penulis,
       this.eventMulai,
       this.diskon,
       this.harga,
@@ -30,6 +32,7 @@ class EventDetailModel {
     banners = List<EventDetailBannersModel>.from(
         json['banners'].map((e) => EventDetailBannersModel.fromJson(e)));
     namaEvent = json['nama_event'] ?? '';
+    penulis = json['penulis'] ?? '';
     deskripsiEvent = json['deskripsi_event'] ?? '';
     linkMeeting = json['link_meeting'] ?? '';
     eventMulai = json['event_mulai'] ?? '';

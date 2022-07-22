@@ -95,7 +95,8 @@ class EventDetailContentView extends GetView {
                 scale: 4,
               ),
               const SizedBox(width: 10),
-              const Text('Penulis')
+              Text(controller.fetchAPIProductDetailsController.eventDetailModel
+                  .value!.penulis!)
             ],
           ),
         ],
@@ -103,36 +104,58 @@ class EventDetailContentView extends GetView {
     );
   }
 
-  Padding banner() {
+  Widget banner() {
+    // return Padding(
+    //   padding: const EdgeInsets.all(16.0),
+    //   child: Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //     children: [
+    //       (controller.fetchAPIProductDetailsController.eventDetailModel.value!
+    //                   .banners!.length >=
+    //               1)
+    //           ? imagePrimary(controller.fetchAPIProductDetailsController
+    //               .eventDetailModel.value!.banners![0].linkBanner!)
+    //           : const SizedBox(),
+    //       Column(
+    //         children: [
+    //           (controller.fetchAPIProductDetailsController.eventDetailModel
+    //                       .value!.banners!.length >
+    //                   1)
+    //               ? imageSecond(controller.fetchAPIProductDetailsController
+    //                   .eventDetailModel.value!.banners![1].linkBanner!)
+    //               : const SizedBox(),
+    //           const SizedBox(height: 10),
+    //           (controller.fetchAPIProductDetailsController.eventDetailModel
+    //                       .value!.banners!.length >
+    //                   2)
+    //               ? imageSecond(controller.fetchAPIProductDetailsController
+    //                   .eventDetailModel.value!.banners![2].linkBanner!)
+    //               : const SizedBox(),
+    //         ],
+    //       )
+    //     ],
+    //   ),
+    // );
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          (controller.fetchAPIProductDetailsController.eventDetailModel.value!
-                      .banners!.length >=
-                  1)
-              ? imagePrimary(controller.fetchAPIProductDetailsController
-                  .eventDetailModel.value!.banners![0].linkBanner!)
-              : const SizedBox(),
-          Column(
-            children: [
-              (controller.fetchAPIProductDetailsController.eventDetailModel
-                          .value!.banners!.length >
-                      1)
-                  ? imageSecond(controller.fetchAPIProductDetailsController
-                      .eventDetailModel.value!.banners![1].linkBanner!)
-                  : const SizedBox(),
-              const SizedBox(height: 10),
-              (controller.fetchAPIProductDetailsController.eventDetailModel
-                          .value!.banners!.length >
-                      2)
-                  ? imageSecond(controller.fetchAPIProductDetailsController
-                      .eventDetailModel.value!.banners![2].linkBanner!)
-                  : const SizedBox(),
-            ],
-          )
-        ],
+      child: Visibility(
+        visible: !(controller.fetchAPIProductDetailsController.eventDetailModel
+                .value!.banners!.length ==
+            0),
+        child: SizedBox(
+          height: Get.width / 2.8,
+          width: Get.width - 150,
+          child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: controller.fetchAPIProductDetailsController
+                .eventDetailModel.value!.banners!.length,
+            itemBuilder: (context, index) {
+              return imagePrimary(controller.fetchAPIProductDetailsController
+                  .eventDetailModel.value!.banners![0].linkBanner!);
+            },
+          ),
+        ),
       ),
     );
   }

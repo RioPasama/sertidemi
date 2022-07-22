@@ -66,7 +66,7 @@ class ProfileScreen extends GetView<ProfileController> {
                               Assets.icons.profilIconUbahData.path,
                               scale: 4,
                             ),
-                            title: const Text('Change Profile'),
+                            title: const Text('Edit Profile'),
                             onTap: () => Get.toNamed(Routes.CHANGE_PROFILE),
                           ),
                           // ListTile(

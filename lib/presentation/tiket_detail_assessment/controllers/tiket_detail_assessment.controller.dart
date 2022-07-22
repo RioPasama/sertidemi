@@ -36,7 +36,7 @@ class TiketDetailAssessmentController extends GetxController {
 
   void onTapMateri(String idProduct) {
     Map<String, dynamic> sendArguments = {
-      'titleHeader': 'Sertifikasi',
+      'titleHeader': 'Assessment',
       'idProduct': idProduct,
     };
 

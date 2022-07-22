@@ -26,7 +26,8 @@ errorInvalidRequestException({http.Response? response}) {
 
   return Get.dialog(AlertDialog(
     title: const Center(child: Text('Error')),
-    content: Text('Bad Request ${response.statusCode}\n${result['message']}'),
+    content: Text('${result['message']}'),
+    actions: [Text('Bad Request ${response.statusCode}')],
   ));
 }
 
@@ -36,8 +37,10 @@ errorInternetFailedException({http.Response? response}) {
 
   return Get.dialog(AlertDialog(
     title: const Center(child: Text('Error')),
-    content: Text(
-        'Terjadi kesalahan, harap periksa internet dan coba lagi ${response.statusCode}\n${result['message']}'),
+    content: Text('${result['message']}'),
+    actions: [
+      Text('please check the internet and try again ${response.statusCode}')
+    ],
   ));
 }
 
@@ -46,9 +49,10 @@ errorNotFountException({http.Response? response}) {
   return Get.dialog(AlertDialog(
     title: const Center(child: Text('Error')),
     content: Text(
-      'Not Found ${response!.statusCode}\n${response.body}',
+      response!.body,
       maxLines: 6,
     ),
+    actions: [Text('Not Found ${response.statusCode}')],
   ));
 }
 
@@ -62,7 +66,9 @@ errorServerErrorException({http.Response? response, String? message}) {
   }
   return Get.dialog(AlertDialog(
     title: const Center(child: Text('Error')),
-    content: Text(
-        'Kesalahan Server, harap coba lagi nanti ${response.statusCode}\n${result?['message'] ?? ''}$message'),
+    content: Text('${result?['message'] ?? ''}$message'),
+    actions: [
+      Text('Server Error, please try again later${response.statusCode}')
+    ],
   ));
 }

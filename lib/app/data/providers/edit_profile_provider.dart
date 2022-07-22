@@ -22,7 +22,7 @@ class EditProfileProvider {
           ..fields['nama'] = name
           ..fields['uploadedfile'] = ''
           ..fields['telp'] = telp
-          ..fields['pas_login'] = pasLogin);
+          ..fields['pass_login'] = pasLogin);
 
     return LoginModel.fromJson(result.data);
   }
@@ -39,7 +39,7 @@ class EditProfileProvider {
           ..fields['nama'] = name
           ..fields['uploadedfile'] = ''
           ..fields['telp'] = telp
-          ..fields['pas_login'] = pasLogin
+          ..fields['pass_login'] = pasLogin
           ..files.add(await http.MultipartFile.fromPath(
               'uploadedfile', imageProfile!.path)));
 

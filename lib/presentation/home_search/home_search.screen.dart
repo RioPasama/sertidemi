@@ -12,6 +12,7 @@ class HomeSearchScreen extends GetView<HomeSearchController> {
   const HomeSearchScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    controller.scrollController.addListener(controller.onScroll);
     return Scaffold(
         appBar: AppBar(
           leading: GestureDetector(
@@ -21,7 +22,7 @@ class HomeSearchScreen extends GetView<HomeSearchController> {
             width: Get.width - 68,
             decoration: inputBoxDecorationRounded,
             child: TextField(
-              autofocus: true,
+              autofocus: true,controller: controller.searchTextEditingController,
               decoration: inputInputDecorationRounded.copyWith(
                 hintText: 'Search',
                 hintStyle: const TextStyle(fontSize: 14),
@@ -40,8 +41,9 @@ class HomeSearchScreen extends GetView<HomeSearchController> {
                       const Center(child: Text('Data Not Found'))
                     ],
                   )
-                : const Center(child: Text('Please Do a Search'))
+                : const Center(child: Text('Searching...'))
             : GridView.builder(
+                controller: controller.scrollController,
                 itemCount: controller.productModel.length,
                 padding: const EdgeInsets.only(top: 20),
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(

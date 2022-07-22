@@ -47,11 +47,16 @@ class EventListAppBarView extends GetView {
                     color: Colors.black54, blurRadius: 4, offset: Offset(0, 2))
               ]),
               child: TextField(
+                controller: controller.search,
                 decoration: inputInputDecorationRounded.copyWith(
-                  hintText: 'Search',
-                  hintStyle: const TextStyle(fontSize: 14),
-                  prefixIcon: const Icon(Icons.search_outlined),
-                ),
+                    hintText: 'Search',
+                    hintStyle: const TextStyle(fontSize: 14),
+                    prefixIcon: const Icon(Icons.search_outlined),
+                    suffixIcon: Obx(() => controller.isSearch.value
+                        ? GestureDetector(
+                            onTap: () => controller.onRessetSearch(),
+                            child: const Icon(Icons.close))
+                        : const SizedBox())),
                 onSubmitted: (value) {
                   controller.onTapSearch(value);
                 },

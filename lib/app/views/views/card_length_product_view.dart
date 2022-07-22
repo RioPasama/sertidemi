@@ -72,25 +72,57 @@ class CardLengthProductView extends StatelessWidget {
                 }),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    data.namaProduct!,
-                    style: textBold.copyWith(fontSize: 16),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        data.namaProduct!,
+                        style: textBold.copyWith(fontSize: 16),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      (data.status == 'event')
+                          ? Text(
+                              '${timeFormatInCard(data.tanggalMulaiProduct!)} - ${data.tanggalMulaiProduct!.split(' ').last} WIB')
+                          : Text(
+                              '${timeFormatInCard(data.tanggalMulaiProduct!)} - ${timeFormatInCard(data.tanggalBatasProduct!)}'),
+                      Text(
+                        currencyRp(data.harga.toString()),
+                        style: TextStyle(color: primaryColor),
+                      ),
+                    ],
                   ),
-                  (data.status == 'event')
-                      ? Text(
-                          '${timeFormatInCard(data.tanggalMulaiProduct!)} - ${data.tanggalMulaiProduct!.split(' ').last} WIB')
-                      : Text(
-                          '${timeFormatInCard(data.tanggalMulaiProduct!)} - ${timeFormatInCard(data.tanggalBatasProduct!)}'),
-                  Text(
-                    currencyRp(data.harga.toString()),
-                    style: TextStyle(color: primaryColor),
-                  ),
+                  CachedNetworkImage(
+                      imageUrl: data.sponsorUtama!,
+                      imageBuilder: (context, imageProvider) {
+                        return Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(13),
+                              // color: Colors.white,
+                              image: DecorationImage(
+                                  image: imageProvider, fit: BoxFit.fill)),
+                        );
+                      },
+                      placeholder: (context, url) {
+                        return Container(
+                          height: 40,
+                          width: 40,
+                          color: Colors.grey,
+                        );
+                      },
+                      errorWidget: (context, url, error) {
+                        return Container(
+                          height: 40,
+                          width: 40,
+                          color: Colors.grey,
+                        );
+                      })
                 ],
               ),
             )

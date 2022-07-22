@@ -58,6 +58,7 @@ class CategoryHomeView extends GetView {
                 ),
                 Text(
                   data.subJudulKategoriMaster!,
+                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.white60,
                   ),

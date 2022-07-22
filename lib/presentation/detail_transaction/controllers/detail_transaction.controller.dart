@@ -36,6 +36,7 @@ class DetailTransactionController extends GetxController {
         textButton.value = 'Continue Payment';
         break;
       case 'Waiting for Payment Verification':
+        textButton.value = 'Reconfirm';
         break;
       case 'Payment Successfully':
         break;
@@ -59,6 +60,7 @@ class DetailTransactionController extends GetxController {
         waitingForPayment();
         break;
       case 'Waiting for Payment Verification':
+        waitingforPaymentVerification();
         break;
       case 'Payment Successfully':
         break;
@@ -100,5 +102,15 @@ class DetailTransactionController extends GetxController {
       'statusTransactionModel': statusTransactionModel,
     };
     Get.offNamed(Routes.STATUS_TRANSACTION, arguments: sendArguments);
+  }
+
+  void waitingforPaymentVerification() async {
+    String url = await RegisterApiPaymentToBrowserController
+        .postWaitingforPaymentVerification(
+            idTransaksi: detailTransactionModel.value!.idTransaksi!);
+
+    await canLaunchUrl(Uri.parse(url))
+        ? launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)
+        : log('cant open');
   }
 }

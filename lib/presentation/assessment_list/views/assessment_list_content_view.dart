@@ -16,6 +16,7 @@ class AssessmentListContentView extends GetView {
 
   @override
   Widget build(BuildContext context) {
+    controller.scrollController.addListener(controller.onScroll);
     return RefreshIndicator(
         onRefresh: () async {
           controller.productModel.value =
@@ -38,6 +39,7 @@ class AssessmentListContentView extends GetView {
                     ]);
               } else {
                 return Obx(() => ListView.builder(
+                      controller: controller.scrollController,
                       itemCount: controller.productModel.length,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 30),

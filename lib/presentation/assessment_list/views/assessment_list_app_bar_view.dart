@@ -57,10 +57,16 @@ class AssessmentListAppBarView extends GetView {
                   child: TextField(
                     controller: controller.search,
                     decoration: inputInputDecorationRounded.copyWith(
-                      hintText: 'Search',
-                      hintStyle: const TextStyle(fontSize: 14),
-                      prefixIcon: const Icon(Icons.search_outlined),
-                    ),
+                        hintText: 'Search',
+                        hintStyle: const TextStyle(fontSize: 14),
+                        prefixIcon: const Icon(Icons.search_outlined),
+                        suffixIcon: Obx(
+                          () => controller.isSearch.value
+                              ? GestureDetector(
+                                  onTap: () => controller.onResetSearc(),
+                                  child: const Icon(Icons.close))
+                              : const SizedBox(),
+                        )),
                     onSubmitted: (value) {
                       controller.onTapSearch(value);
                     },

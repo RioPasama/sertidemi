@@ -28,7 +28,7 @@ class ProfileController extends GetxController {
         title: const Center(child: Text('About')),
         content: Text(
             'Sertidemi is a digital platform based on Android and iOS for everyone that looking for Digital Certification Assesment also enroll at Webinars event. You will get the link, assesment, also study materials from Sertidemi Apps.\n\n Version Apps : ${versiApp.value}',
-            textAlign: TextAlign.justify),
+            textAlign: TextAlign.center),
       ),
     ));
   }

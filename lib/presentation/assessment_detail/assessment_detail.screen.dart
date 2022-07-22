@@ -52,7 +52,7 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 186,
+              height: 188,
               decoration: BoxDecoration(color: Colors.white, boxShadow: [
                 BoxShadow(
                     color: Colors.grey.shade300,
@@ -63,14 +63,17 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //Peyedia Sertifikat
+
+                  const Spacer(),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 10),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                     child: Text(
                       'Certification Provide by',
                       style: textBold.copyWith(fontSize: 16),
                     ),
                   ),
+                  const Spacer(),
                   SizedBox(
                     height: 85,
                     child: FutureBuilder(
@@ -133,8 +136,8 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
         imageUrl: url,
         imageBuilder: (context, imageProvider) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration:
                 BoxDecoration(image: DecorationImage(image: imageProvider)),
@@ -142,16 +145,16 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
         },
         placeholder: (context, url) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: const BoxDecoration(color: Colors.grey),
           );
         },
         errorWidget: (context, url, error) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: const BoxDecoration(color: Colors.grey),
           );

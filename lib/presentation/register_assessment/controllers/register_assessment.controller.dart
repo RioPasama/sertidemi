@@ -70,6 +70,8 @@ class RegisterAssessmentController extends GetxController {
     await canLaunchUrl(Uri.parse(url))
         ? launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)
         : log('cant open');
+
+    Get.offAllNamed(Routes.MAIN);
     // CheckoutAssessmentDetailModel checkoutAssessmentDetailModel =
     //     await CheckoutProvider.postCheckouttAssessment(
     //         id: fetchAPIProductDetailsController

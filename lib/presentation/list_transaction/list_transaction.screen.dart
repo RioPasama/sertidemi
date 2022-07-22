@@ -23,66 +23,94 @@ class ListTransactionScreen extends GetView<ListTransactionController> {
     return Scaffold(
         appBar: appBarDefaultView(title: 'Transaction'),
         body: (Get.arguments == 1)
-            ? FutureBuilder(
-                future: ListTransactionProvider.getEventListTransactionModel(
-                    GetStorage().read('idUser')),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    List<ListTransactionModel> listTransactionModel =
-                        snapshot.data as List<ListTransactionModel>;
-
-                    return (listTransactionModel.isEmpty)
-                        ? Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                                Lottie.asset(Assets.lottie.emptydatanotfound),
-                                const Center(child: Text('Data Not Found'))
-                              ])
-                        : ListView.builder(
-                            itemCount: listTransactionModel.length,
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
-                            itemBuilder: (context, index) {
-                              return CardListTransactionView(
-                                data: listTransactionModel[index],
-                                status: 'event',
-                              );
-                            },
-                          );
-                  } else {
-                    return Center(child: LoadingView());
-                  }
+            ? RefreshIndicator(
+                onRefresh: () async {
+                  controller.listTransactionModel.value =
+                      await ListTransactionProvider
+                          .getEventListTransactionModel(
+                              GetStorage().read('idUser'));
                 },
+                child: FutureBuilder(
+                  future: ListTransactionProvider.getEventListTransactionModel(
+                      GetStorage().read('idUser')),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      controller.listTransactionModel.value =
+                          snapshot.data as List<ListTransactionModel>;
+
+                      return Obx(
+                        () => (controller.listTransactionModel.isEmpty)
+                            ? Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                    Lottie.asset(
+                                        Assets.lottie.emptydatanotfound),
+                                    const Center(child: Text('Data Not Found'))
+                                  ])
+                            : ListView.builder(
+                                itemCount:
+                                    controller.listTransactionModel.length,
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 16),
+                                itemBuilder: (context, index) {
+                                  return CardListTransactionView(
+                                    data:
+                                        controller.listTransactionModel[index],
+                                    status: 'event',
+                                  );
+                                },
+                              ),
+                      );
+                    } else {
+                      return Center(child: LoadingView());
+                    }
+                  },
+                ),
               )
-            : FutureBuilder(
-                future:
-                    ListTransactionProvider.getAssessmentListTransactionModel(
-                        GetStorage().read('idUser')),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    List<ListTransactionModel> listTransactionModel =
-                        snapshot.data as List<ListTransactionModel>;
-
-                    return (listTransactionModel.isEmpty)
-                        ? Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                                Lottie.asset(Assets.lottie.emptydatanotfound),
-                                const Center(child: Text('Data Not Found'))
-                              ])
-                        : ListView.builder(
-                            itemCount: listTransactionModel.length,
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
-                            itemBuilder: (context, index) {
-                              return CardListTransactionView(
-                                data: listTransactionModel[index],
-                                status: 'assessment',
-                              );
-                            },
-                          );
-                  } else {
-                    return Center(child: LoadingView());
-                  }
+            : RefreshIndicator(
+                onRefresh: () async {
+                  controller.listTransactionModel.value =
+                      await ListTransactionProvider
+                          .getAssessmentListTransactionModel(
+                              GetStorage().read('idUser'));
                 },
+                child: FutureBuilder(
+                  future:
+                      ListTransactionProvider.getAssessmentListTransactionModel(
+                          GetStorage().read('idUser')),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      controller.listTransactionModel.value =
+                          snapshot.data as List<ListTransactionModel>;
+
+                      return Obx(
+                        () => (controller.listTransactionModel.isEmpty)
+                            ? Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                    Lottie.asset(
+                                        Assets.lottie.emptydatanotfound),
+                                    const Center(child: Text('Data Not Found'))
+                                  ])
+                            : ListView.builder(
+                                itemCount:
+                                    controller.listTransactionModel.length,
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 16),
+                                itemBuilder: (context, index) {
+                                  return CardListTransactionView(
+                                    data:
+                                        controller.listTransactionModel[index],
+                                    status: 'assessment',
+                                  );
+                                },
+                              ),
+                      );
+                    } else {
+                      return Center(child: LoadingView());
+                    }
+                  },
+                ),
               ));
   }
 }

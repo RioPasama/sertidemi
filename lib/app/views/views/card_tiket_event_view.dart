@@ -84,7 +84,7 @@ class CardTiketEventView extends GetView {
                                       scale: 4,
                                     ),
                                     const Text(
-                                      'Assesmet',
+                                      'Assessment',
                                       style: TextStyle(
                                           fontSize: 8, color: Colors.white),
                                     )
@@ -135,7 +135,7 @@ class CardTiketEventView extends GetView {
                                     color: Colors.blue.shade400,
                                     borderRadius: BorderRadius.circular(14)),
                                 child: Text(
-                                  'Materi',
+                                  'Lessons',
                                   style: textBold.copyWith(
                                       color: Colors.white, fontSize: 16),
                                 ),

@@ -44,7 +44,7 @@ class TiketDetailAssessmentContentView extends GetView {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Deskripsi',
+            'Description',
             style: textBold.copyWith(fontSize: 16),
           ),
           Text(controller.assessmentDetailModel.value!.deskripsiAssessment!),
@@ -85,9 +85,9 @@ class TiketDetailAssessmentContentView extends GetView {
                                   .path,
                               scale: 4,
                             ),
-                            const SizedBox(width: 10),
+                            const SizedBox(width: 0),
                             const Text(
-                              'Materi',
+                              'Lessons',
                               style: TextStyle(
                                   fontWeight: FontWeight.normal,
                                   color: Colors.white),
@@ -110,9 +110,9 @@ class TiketDetailAssessmentContentView extends GetView {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                      'Mulai    : ${controller.assessmentDetailModel.value!.tanggalMulaiAssessment!} WIB'),
+                      'Start    : ${controller.assessmentDetailModel.value!.tanggalMulaiAssessment!} WIB'),
                   Text(
-                      'Selesai  : ${controller.assessmentDetailModel.value!.tanggalBatasAssessment!} WIB'),
+                      'End  : ${controller.assessmentDetailModel.value!.tanggalBatasAssessment!} WIB'),
                 ],
               ),
             ],

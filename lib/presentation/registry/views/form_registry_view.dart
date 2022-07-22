@@ -14,7 +14,7 @@ class FormRegistryView extends GetView {
     return Form(
         key: controller.formKey,
         child: ListView(
-          physics: const NeverScrollableScrollPhysics(),
+          // physics: const NeverScrollableScrollPhysics(),
           children: [
             Text('Full Name', style: textBold),
             Container(
@@ -49,80 +49,52 @@ class FormRegistryView extends GetView {
                 validator: (val) => controller.validatorEmail(val),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  width: Get.width / 2 - 24,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Password', style: textBold),
-                      Container(
-                          margin: const EdgeInsets.only(top: 8),
-                          decoration: inputBoxDecorationRounded,
-                          child: Obx(
-                            () => TextFormField(
-                              keyboardType: TextInputType.visiblePassword,
-                              controller:
-                                  controller.passwordTextEditingController,
-                              obscureText: controller.passwordObscureText.value,
-                              decoration: inputInputDecorationRounded.copyWith(
-                                  suffixIcon: IconButton(
-                                      onPressed: () => controller
-                                          .passwordObscureText
-                                          .toggle(),
-                                      icon: Icon((!controller
-                                              .passwordObscureText.value)
-                                          ? Icons.visibility
-                                          : Icons.visibility_off))),
-                              validator: (val) =>
-                                  controller.validatorPassword(val),
-                            ),
-                          )),
-                    ],
+            Text('Password', style: textBold),
+            Container(
+                margin: const EdgeInsets.only(bottom: 16, top: 8),
+                decoration: inputBoxDecorationRounded,
+                child: Obx(
+                  () => TextFormField(
+                    keyboardType: TextInputType.visiblePassword,
+                    controller: controller.passwordTextEditingController,
+                    obscureText: controller.passwordObscureText.value,
+                    decoration: inputInputDecorationRounded.copyWith(
+                        suffixIcon: IconButton(
+                            onPressed: () =>
+                                controller.passwordObscureText.toggle(),
+                            icon: Icon((!controller.passwordObscureText.value)
+                                ? Icons.visibility
+                                : Icons.visibility_off))),
+                    validator: (val) => controller.validatorPassword(val),
                   ),
-                ),
-                SizedBox(
-                  width: Get.width / 2 - 24,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Password Confirmation', style: textBold),
-                      Container(
-                          margin: const EdgeInsets.only(top: 8),
-                          decoration: inputBoxDecorationRounded,
-                          child: Obx(
-                            () => TextFormField(
-                              controller: controller
-                                  .confirmPasswordTextEditingController,
-                              keyboardType: TextInputType.visiblePassword,
-                              obscureText:
-                                  controller.confirmPasswordObscureText.value,
-                              decoration: inputInputDecorationRounded.copyWith(
-                                  suffixIcon: IconButton(
-                                      onPressed: () => controller
-                                          .confirmPasswordObscureText
-                                          .toggle(),
-                                      icon: Icon((!controller
-                                              .confirmPasswordObscureText.value)
-                                          ? Icons.visibility
-                                          : Icons.visibility_off))),
-                              validator: (val) =>
-                                  controller.validatorConfirmPassword(val),
-                            ),
-                          )),
-                    ],
+                )),
+            Text('Password Confirmation', style: textBold),
+            Container(
+                margin: const EdgeInsets.only(top: 8),
+                decoration: inputBoxDecorationRounded,
+                child: Obx(
+                  () => TextFormField(
+                    controller: controller.confirmPasswordTextEditingController,
+                    keyboardType: TextInputType.visiblePassword,
+                    obscureText: controller.confirmPasswordObscureText.value,
+                    decoration: inputInputDecorationRounded.copyWith(
+                        suffixIcon: IconButton(
+                            onPressed: () =>
+                                controller.confirmPasswordObscureText.toggle(),
+                            icon: Icon(
+                                (!controller.confirmPasswordObscureText.value)
+                                    ? Icons.visibility
+                                    : Icons.visibility_off))),
+                    validator: (val) =>
+                        controller.validatorConfirmPassword(val),
                   ),
-                )
-              ],
-            ),
-            const SizedBox(height: 18),
-            TextFormField(
-              controller: controller.referralCodeTextEditingController,
-              decoration: const InputDecoration(
-                  hintText: 'Input if you have referal code'),
-            ),
+                )),
+            // const SizedBox(height: 18),
+            // TextFormField(
+            //   controller: controller.referralCodeTextEditingController,
+            //   decoration: const InputDecoration(
+            //       hintText: 'Input if you have referal code'),
+            // ),
             const SizedBox(height: 18),
             ElevatedButton(
                 onPressed: () => controller.onTapDaftar(),

@@ -22,7 +22,7 @@ class TiketDetailAssessmentScreen
   Widget build(BuildContext context) {
     controller.onInit();
     return Scaffold(
-      appBar: appBarDefaultView(title: 'Ticket Detail'),
+      appBar: appBarDefaultView(title: 'Detail Tiket'),
       body: RefreshIndicator(
         onRefresh: () async {
           controller.assessmentDetailModel.value =
@@ -84,7 +84,7 @@ class TiketDetailAssessmentScreen
                                 'Y'),
                             child: (controller.assessmentDetailModel.value!
                                         .statusLulus !=
-                                    'Sudah Mengerjakan')
+                                    'Already Working')
                                 ?
                                 //Buttton Assessment
                                 GestureDetector(
@@ -110,7 +110,7 @@ class TiketDetailAssessmentScreen
                                       color: primaryColor,
                                       alignment: Alignment.center,
                                       child: Text(
-                                        'Lihat Hasil',
+                                        'View Result',
                                         style: textBold.copyWith(
                                             color: Colors.white, fontSize: 16),
                                       ),
@@ -135,8 +135,8 @@ class TiketDetailAssessmentScreen
         imageUrl: url,
         imageBuilder: (context, imageProvider) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration:
                 BoxDecoration(image: DecorationImage(image: imageProvider)),
@@ -144,16 +144,16 @@ class TiketDetailAssessmentScreen
         },
         placeholder: (context, url) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: const BoxDecoration(color: Colors.grey),
           );
         },
         errorWidget: (context, url, error) {
           return Container(
-            height: 80,
-            width: 80,
+            height: 50,
+            width: 50,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: const BoxDecoration(color: Colors.grey),
           );

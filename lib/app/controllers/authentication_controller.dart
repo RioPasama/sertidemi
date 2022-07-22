@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:sertidemi/app/views/views/loading_view.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:sertidemi/presentation/main/controllers/main.controller.dart';
 import 'package:sertidemi/app/data/models/login_model.dart';
@@ -86,13 +87,14 @@ class AuthenticationController extends GetxController {
 
   ///logout is function for logout user, data in **GesStorage** [isLogin] `false` and [idUser] this `delete`
   void logOut() {
+    // Get.dialog(LoadingView(), barrierDismissible: false);
+    isLogin.value = false;
     Future.delayed(Duration.zero, () {
-      isLogin.value = false;
       mainController.selectedIndex.value = 0;
 
       GetStorage().write('isLogin', false);
       GetStorage().write('idUser', '');
-
+      Get.toNamed(Routes.LOGIN);
       log('User logOut');
     });
   }

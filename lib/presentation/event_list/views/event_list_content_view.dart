@@ -14,6 +14,7 @@ class EventListContentView extends GetView {
   final EventListController controller = Get.put(EventListController());
   @override
   Widget build(BuildContext context) {
+    controller.scrollController.addListener(controller.onScroll);
     return RefreshIndicator(
         onRefresh: () async {
           controller.productModel.value = await EventProvider.getListEvent(
@@ -35,6 +36,7 @@ class EventListContentView extends GetView {
                             const Center(child: Text('Data Not Found'))
                           ])
                     : ListView.builder(
+                        controller: controller.scrollController,
                         itemCount: controller.productModel.length,
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16, vertical: 30),

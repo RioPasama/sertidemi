@@ -50,4 +50,22 @@ class RegisterApiPaymentToBrowserController extends GetxController {
     Get.back();
     return data['uri'];
   }
+
+  static Future<String> postWaitingforPaymentVerification(
+      {required String idTransaksi, http.Client? client}) async {
+    Get.dialog(LoadingView(), barrierDismissible: false);
+    client ??= http.Client();
+    String url =
+        'https://devsertidemi.andipublisher.com/manual_payment/index.php';
+
+    http.Response response = await client.post(Uri.parse(url), body: {
+      'idtransaksi': idTransaksi,
+    });
+
+    log('postWaitingPaymentToBrowser${response.body}');
+
+    var data = json.decode(response.body);
+    Get.back();
+    return data['uri'];
+  }
 }

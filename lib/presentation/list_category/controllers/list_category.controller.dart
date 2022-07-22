@@ -51,7 +51,7 @@ class ListCategoryController extends GetxController {
     if (getArguments['option'] == 1) {
       title.value = 'Event Category';
     } else {
-      title.value = 'Certification Category';
+      title.value = 'Assessment Category';
     }
   }
 

@@ -42,6 +42,7 @@ class RegisterEventController extends GetxController {
 
   String? validatorName(String? val) {
     // return (GetUtils.isUsername(val!)) ? null : 'Silakan masukan Nama Lengkap';
+    return (val!.length > 2) ? null : 'Please enter Full Name';
   }
 
   void onTapRegister() {
@@ -68,6 +69,8 @@ class RegisterEventController extends GetxController {
     await canLaunchUrl(Uri.parse(url))
         ? launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)
         : log('cant open');
+
+    Get.offAllNamed(Routes.MAIN);
     // CheckoutEventDetailModel checkoutEventDetailModel =
     //     await CheckoutProvider.postCheckoutEvent(
     //         id: fetchAPIProductDetailsController
