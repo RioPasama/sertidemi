@@ -194,15 +194,18 @@ class MateriScreen extends GetView<MateriController> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  materiModel[index].deskripsiMateri!,
-                  style: textBold.copyWith(fontSize: 16),
-                ),
-                // Text(assessmentMateriModel[index].keterangan!)
-              ],
+            SizedBox(
+              width: Get.width / 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    materiModel[index].deskripsiMateri!,
+                    style: textBold.copyWith(fontSize: 16),
+                  ),
+                  // Text(assessmentMateriModel[index].keterangan!)
+                ],
+              ),
             ),
             Container(
               height: 60,
@@ -238,15 +241,18 @@ class MateriScreen extends GetView<MateriController> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  materiModel[index].deskripsiMateri!,
-                  style: textBold.copyWith(fontSize: 16),
-                ),
-                Text(materiModel[index].keterangan!)
-              ],
+            SizedBox(
+              width: Get.width / 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    materiModel[index].deskripsiMateri!,
+                    style: textBold.copyWith(fontSize: 16),
+                  ),
+                  Text(materiModel[index].keterangan!)
+                ],
+              ),
             ),
             Container(
               height: 60,
