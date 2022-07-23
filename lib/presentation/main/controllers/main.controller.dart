@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:new_version/new_version.dart';
 import 'package:sertidemi/app/controllers/fetch_a_p_i_home_controller.dart';
 
 class MainController extends GetxController {
@@ -9,6 +10,7 @@ class MainController extends GetxController {
 
   @override
   void onInit() {
+    _checkVersion();
     fetchAPIHomeController.fetchHomeListProduct();
     fetchAPIHomeController.fetchHomeCategoryMaster();
     fetchAPIHomeController.fetchHomeBanner();
@@ -25,5 +27,22 @@ class MainController extends GetxController {
 
   void onItemTapped(int index) {
     selectedIndex.value = index;
+  }
+
+  void _checkVersion() async {
+    final newVersion = NewVersion(androidId: 'com.ags.sertidemi');
+    final status = await newVersion.getVersionStatus();
+
+    if (status == null) {
+      return;
+    }
+
+    if (status.canUpdate) {
+      newVersion.showUpdateDialog(
+          context: Get.context!,
+          versionStatus: status,
+          dialogText: status.releaseNotes,
+          allowDismissal: false);
+    }
   }
 }
