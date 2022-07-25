@@ -4,6 +4,7 @@ class AssessmentDetailTiketModel {
   String? idassessment;
   String? idtransaksi;
   String? namaAssessment;
+  String? namaDaftar;
   String? deskripsiAssessment;
   String? tanggalMulaiAssessment;
   String? tanggalBatasAssessment;
@@ -25,6 +26,7 @@ class AssessmentDetailTiketModel {
       {required this.idassessment,
       required this.idtransaksi,
       required this.namaAssessment,
+      required this.namaDaftar,
       required this.deskripsiAssessment,
       required this.diskonAssessment,
       required this.hargaAssessment,
@@ -46,6 +48,7 @@ class AssessmentDetailTiketModel {
     idassessment = json['idassessment'] ?? '';
     idtransaksi = json['idtransaksi'] ?? '';
     namaAssessment = json['nama_assessment'] ?? '';
+    namaDaftar = json['nama_daftar'] ?? '';
     deskripsiAssessment = json['deskripsi_assessment'] ?? '';
     urlSertifikatDepanTemplate = json['url_sertifikat_depan_template'] ?? '';
     tanggalMulaiAssessment = json['tanggal_mulai_assessment'] ?? '';

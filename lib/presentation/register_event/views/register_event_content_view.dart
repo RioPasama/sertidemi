@@ -117,7 +117,8 @@ class RegisterEventContentView extends GetView {
                 scale: 4,
               ),
               const SizedBox(width: 10),
-              const Text('Penulis')
+              Text(controller.fetchAPIProductDetailsController.eventDetailModel
+                  .value!.penulis!)
             ],
           ),
         ],

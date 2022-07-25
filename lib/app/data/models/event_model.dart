@@ -3,9 +3,11 @@ class EventDetailModel {
   String? idEvent;
   List<EventDetailBannersModel>? banners;
   String? namaEvent;
+  String? namaDaftar;
   String? deskripsiEvent;
   String? linkMeeting;
   String? eventMulai;
+  String? eventSelesai;
   String? urlImagePanjang;
   String? urlImageKotak;
   String? penulis;
@@ -17,12 +19,14 @@ class EventDetailModel {
       {this.idEvent,
       this.banners,
       this.namaEvent,
+      this.namaDaftar,
       this.deskripsiEvent,
       this.linkMeeting,
       this.urlImagePanjang,
       this.urlImageKotak,
       this.penulis,
       this.eventMulai,
+      this.eventSelesai,
       this.diskon,
       this.harga,
       this.statusDiskon});
@@ -32,10 +36,12 @@ class EventDetailModel {
     banners = List<EventDetailBannersModel>.from(
         json['banners'].map((e) => EventDetailBannersModel.fromJson(e)));
     namaEvent = json['nama_event'] ?? '';
+    namaDaftar = json['nama_daftar'] ?? '';
     penulis = json['penulis'] ?? '';
     deskripsiEvent = json['deskripsi_event'] ?? '';
     linkMeeting = json['link_meeting'] ?? '';
     eventMulai = json['event_mulai'] ?? '';
+    eventSelesai = json['event_selesai'] ?? '';
     urlImagePanjang = json['url_image_panjang'] ?? '';
     urlImageKotak = json['url_image_kotak'] ?? '';
     harga = json['harga'] ?? '';

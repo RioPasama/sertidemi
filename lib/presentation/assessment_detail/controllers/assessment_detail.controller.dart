@@ -8,8 +8,11 @@ class AssessmentDetailController extends GetxController {
 
   Map<String, dynamic> getArguments = Get.arguments;
 
+  RxBool isOnTapRegistry = false.obs;
+
   @override
   void onInit() {
+    isOnTapRegistry.value = false;
     super.onInit();
   }
 
@@ -31,6 +34,9 @@ class AssessmentDetailController extends GetxController {
   }
 
   void onTapRegistry() {
+    if (!isOnTapRegistry.value) {
+      return;
+    }
     Get.toNamed(Routes.REGISTER_ASSESSMENT);
   }
 }

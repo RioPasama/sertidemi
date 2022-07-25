@@ -24,7 +24,10 @@ class VerificationEmailController extends GetxController {
   }
 
   String? validatorEmail(String? val) {
-    return (GetUtils.isEmail(val!)) ? null : 'Please check your email again';
+    if (val!.contains(' ')) {
+      return 'Your email uses spaces';
+    }
+    return (GetUtils.isEmail(val)) ? null : 'Please check your email again';
   }
 
   void onTapReSendEmail() async {

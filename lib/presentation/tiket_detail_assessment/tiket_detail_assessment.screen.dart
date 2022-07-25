@@ -78,13 +78,24 @@ class TiketDetailAssessmentScreen
                               },
                             )),
                         const Spacer(),
-                        Visibility(
-                            visible: (controller.assessmentDetailModel.value!
+                        (controller.assessmentDetailModel.value!
                                     .statusPengerjaan ==
-                                'Y'),
-                            child: (controller.assessmentDetailModel.value!
-                                        .statusLulus !=
-                                    'Already Working')
+                                '1')
+                            ? //Buttton Assessment
+                            Container(
+                                height: 60,
+                                width: Get.width,
+                                color: Colors.grey,
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'Assessment',
+                                  style: textBold.copyWith(
+                                      color: Colors.white, fontSize: 16),
+                                ),
+                              )
+                            : (controller.assessmentDetailModel.value!
+                                        .statusPengerjaan ==
+                                    '2')
                                 ?
                                 //Buttton Assessment
                                 GestureDetector(
@@ -101,21 +112,26 @@ class TiketDetailAssessmentScreen
                                       ),
                                     ),
                                   )
-                                //Buttton Lihat Hasil
-                                : GestureDetector(
-                                    onTap: () => controller.onTapResult(),
-                                    child: Container(
-                                      height: 60,
-                                      width: Get.width,
-                                      color: primaryColor,
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        'View Result',
-                                        style: textBold.copyWith(
-                                            color: Colors.white, fontSize: 16),
-                                      ),
-                                    ),
-                                  )),
+                                : (controller.assessmentDetailModel.value!
+                                            .statusPengerjaan ==
+                                        '3')
+                                    //Buttton Lihat Hasil
+                                    ? GestureDetector(
+                                        onTap: () => controller.onTapResult(),
+                                        child: Container(
+                                          height: 60,
+                                          width: Get.width,
+                                          color: primaryColor,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            'View Result',
+                                            style: textBold.copyWith(
+                                                color: Colors.white,
+                                                fontSize: 16),
+                                          ),
+                                        ),
+                                      )
+                                    : const SizedBox(),
                       ],
                     ),
                   ),

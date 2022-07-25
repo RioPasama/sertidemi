@@ -46,7 +46,10 @@ class LoginController extends GetxController {
   }
 
   String? validatorEmail(String? val) {
-    return (GetUtils.isEmail(val!)) ? null : 'Silakan cek email anda kembali';
+    if (val!.contains(' ')) {
+      return 'Your email uses spaces';
+    }
+    return (GetUtils.isEmail(val)) ? null : 'Silakan cek email anda kembali';
   }
 
   String? validatorPassword(String? val) {

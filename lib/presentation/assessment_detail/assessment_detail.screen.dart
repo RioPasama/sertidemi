@@ -86,6 +86,8 @@ class AssessmentDetailScreen extends GetView<AssessmentDetailController> {
                               .contributionModel
                               .value = snapshot.data as List<ContributionModel>;
 
+                          controller.isOnTapRegistry.value = true;
+
                           return ListView.builder(
                             scrollDirection: Axis.horizontal,
                             padding: const EdgeInsets.symmetric(horizontal: 16),

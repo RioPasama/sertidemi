@@ -7,9 +7,11 @@ class EventDetailController extends GetxController {
       Get.put(FetchAPIProductDetailsController());
 
   Map<String, dynamic> getArguments = Get.arguments;
+  RxBool isOnTapRegistry = false.obs;
 
   @override
   void onInit() {
+    isOnTapRegistry.value = false;
     super.onInit();
   }
 
@@ -22,6 +24,9 @@ class EventDetailController extends GetxController {
   void onClose() {}
 
   void onTapRegistry() {
+    if (!isOnTapRegistry.value) {
+      return;
+    }
     Get.toNamed(Routes.REGISTER_EVENT);
   }
 }

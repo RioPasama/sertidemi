@@ -48,6 +48,12 @@ class CardTiketAssessmentView extends GetView {
                         '${timeFormatInCard(assessmentTiketModel.tanggalMulai!)} ${clockFormat(assessmentTiketModel.tanggalMulai!)}',
                         style: const TextStyle(color: Colors.white),
                       ),
+                      Text(
+                        'Name : ${assessmentTiketModel.namaDaftar}',
+                        style: const TextStyle(color: Colors.white),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                       const SizedBox(height: 10),
                       Text(
                         assessmentTiketModel.deskripsi!,

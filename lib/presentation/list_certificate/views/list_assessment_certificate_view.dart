@@ -70,6 +70,10 @@ class ListAssessmentCertificateView extends GetView {
                       Text(
                         '${timeFormatInCard(data.tglInputTime!)}, ${clockFormat(data.tglInputTime!)}',
                         style: const TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        'Name : ${data.namaDaftar}',
+                        style: const TextStyle(color: Colors.white),
                       )
                     ],
                   ),

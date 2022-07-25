@@ -31,8 +31,16 @@ class EventDetailContentView extends GetView {
       width: Get.width,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       color: Colors.white,
-      child: Text(controller.fetchAPIProductDetailsController.eventDetailModel
-          .value!.deskripsiEvent!),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Text(
+          //     'Participant Name : ${controller.fetchAPIProductDetailsController.eventDetailModel.value!.namaDaftar!}'),
+          // const SizedBox(height: 10),
+          Text(controller.fetchAPIProductDetailsController.eventDetailModel
+              .value!.deskripsiEvent!),
+        ],
+      ),
     );
   }
 
@@ -81,9 +89,19 @@ class EventDetailContentView extends GetView {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text('Start '),
+                  Text('End'),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                       '${controller.fetchAPIProductDetailsController.eventDetailModel.value!.eventMulai} WIB'),
+                  Text(
+                      '${controller.fetchAPIProductDetailsController.eventDetailModel.value!.eventSelesai} WIB'),
                 ],
               ),
             ],

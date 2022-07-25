@@ -1,9 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:sertidemi/gen/assets.gen.dart';
-import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 import 'package:sertidemi/presentation/tiket_detail_assessment/controllers/tiket_detail_assessment.controller.dart';
 
@@ -43,6 +41,9 @@ class TiketDetailAssessmentContentView extends GetView {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Text(
+              'Participant name : ${controller.assessmentDetailModel.value!.namaDaftar!} '),
+          const SizedBox(height: 10),
           Text(
             'Description',
             style: textBold.copyWith(fontSize: 16),
@@ -131,8 +132,7 @@ class TiketDetailAssessmentContentView extends GetView {
             children: [
               const Text('Status :'),
               const SizedBox(width: 10),
-              (controller.assessmentDetailModel.value!.statusLulus !=
-                      'Sudah Mengerjakan')
+              (controller.assessmentDetailModel.value!.statusPengerjaan != '3')
                   ? Text(
                       controller.assessmentDetailModel.value!.statusLulus!,
                       style: const TextStyle(color: Colors.red),

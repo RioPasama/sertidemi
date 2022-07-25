@@ -55,6 +55,12 @@ class CardTiketEventView extends GetView {
                                 style: const TextStyle(color: Colors.white),
                               ),
                               Text(
+                                'Name :${eventTiketModel.namaDaftar}',
+                                style: const TextStyle(color: Colors.white),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              Text(
                                 eventTiketModel.deskripsi!,
                                 style: const TextStyle(color: Colors.white),
                                 maxLines: 1,

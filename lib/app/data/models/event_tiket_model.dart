@@ -2,6 +2,7 @@ class EventTiketModel {
   String? idassessment;
   String? idevent;
   String? namaEvent;
+  String? namaDaftar;
   String? eventMulai;
   String? eventSelesai;
   String? urlImagePanjang;
@@ -13,6 +14,7 @@ class EventTiketModel {
     required this.idassessment,
     required this.idevent,
     required this.namaEvent,
+    required this.namaDaftar,
     required this.eventMulai,
     required this.eventSelesai,
     required this.deskripsi,
@@ -23,9 +25,10 @@ class EventTiketModel {
   });
 
   EventTiketModel.fromJson(Map<String, dynamic> json) {
-    idassessment=json['idassessment']??'';
+    idassessment = json['idassessment'] ?? '';
     idevent = json['idevent'] ?? '';
     namaEvent = json['nama_event'] ?? '';
+    namaDaftar = json['nama_daftar'] ?? '';
     eventMulai = json['event_mulai'] ?? '';
     eventSelesai = json['event_selesai'] ?? '';
     urlImagePanjang = json['url_image_panjang'] ?? '';

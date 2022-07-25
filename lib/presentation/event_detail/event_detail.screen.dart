@@ -38,6 +38,7 @@ class EventDetailScreen extends GetView<EventDetailController> {
                 if (snapshot.hasData) {
                   controller.fetchAPIProductDetailsController.eventDetailModel
                       .value = snapshot.data as EventDetailModel;
+                  controller.isOnTapRegistry.value = true;
 
                   return EventDetailContentView();
                 } else {
