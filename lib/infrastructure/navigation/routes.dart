@@ -18,6 +18,7 @@ class Routes {
   static const EVENT_DETAIL = '/event-detail';
   static const EVENT_LIST = '/event-list';
   static const FINISH_ASSESSMENT = '/finish-assessment';
+  static const FORGOT_PASSWROD = '/forgot-passwrod';
   static const HOME = '/home';
   static const HOME_SEARCH = '/home-search';
   static const LIST = '/list';
@@ -26,6 +27,7 @@ class Routes {
   static const LIST_DATA_CERTIFICATIONS = '/list-data-certifications';
   static const LIST_TIKET = '/list-tiket';
   static const LIST_TRANSACTION = '/list-transaction';
+  static const LIST_VOUCHER = '/list-voucher';
   static const LOGIN = '/login';
   static const MAIN = '/main';
   static const MATERI = '/materi';
@@ -43,5 +45,6 @@ class Routes {
   static const TIKET_DETAIL_ASSESSMENT = '/tiket-detail-assessment';
   static const TIKET_DETAIL_EVENT = '/tiket-detail-event';
   static const VERIFICATION_EMAIL = '/verification-email';
-  static const FORGOT_PASSWROD = '/forgot-passwrod';
+  static const VOUCHER = '/voucher';
+  static const MY_VOUCHER = '/my-voucher';
 }

@@ -19,10 +19,12 @@ export 'package:sertidemi/infrastructure/navigation/bindings/controllers/list_ce
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/list_data_certifications.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/list_tiket.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/list_transaction.controller.binding.dart';
+export 'package:sertidemi/infrastructure/navigation/bindings/controllers/list_voucher.controller.binding.dart'; 
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/login.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/main.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/materi.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/more.controller.binding.dart';
+export 'package:sertidemi/infrastructure/navigation/bindings/controllers/my_voucher.controller.binding.dart'; 
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/notification.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/payment.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/profile.controller.binding.dart';
@@ -35,3 +37,4 @@ export 'package:sertidemi/infrastructure/navigation/bindings/controllers/status_
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/tiket_detail_assessment.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/tiket_detail_event.controller.binding.dart';
 export 'package:sertidemi/infrastructure/navigation/bindings/controllers/verification_email.controller.binding.dart';
+export 'package:sertidemi/infrastructure/navigation/bindings/controllers/voucher.controller.binding.dart'; 

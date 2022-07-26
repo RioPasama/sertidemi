@@ -20,10 +20,12 @@ export 'package:sertidemi/presentation/list_certificate/list_certificate.screen.
 export 'package:sertidemi/presentation/list_data_certifications/list_data_certifications.screen.dart';
 export 'package:sertidemi/presentation/list_tiket/list_tiket.screen.dart';
 export 'package:sertidemi/presentation/list_transaction/list_transaction.screen.dart';
+export 'package:sertidemi/presentation/list_voucher/list_voucher.screen.dart';
 export 'package:sertidemi/presentation/login/login.screen.dart';
 export 'package:sertidemi/presentation/main/main.screen.dart';
 export 'package:sertidemi/presentation/materi/materi.screen.dart';
 export 'package:sertidemi/presentation/more/more.screen.dart';
+export 'package:sertidemi/presentation/my_voucher/my_voucher.screen.dart';
 export 'package:sertidemi/presentation/notification/notification.screen.dart';
 export 'package:sertidemi/presentation/payment/payment.screen.dart';
 export 'package:sertidemi/presentation/profile/profile.screen.dart';
@@ -37,3 +39,4 @@ export 'package:sertidemi/presentation/status_transaction/status_transaction.scr
 export 'package:sertidemi/presentation/tiket_detail_assessment/tiket_detail_assessment.screen.dart';
 export 'package:sertidemi/presentation/tiket_detail_event/tiket_detail_event.screen.dart';
 export 'package:sertidemi/presentation/verification_email/verification_email.screen.dart';
+export 'package:sertidemi/presentation/voucher/voucher.screen.dart';

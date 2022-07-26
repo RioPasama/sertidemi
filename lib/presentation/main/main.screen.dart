@@ -53,6 +53,17 @@ class MainScreen extends GetView<MainController> {
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
+                Assets.icons.menuVoucherBlmKlik.path,
+                scale: 6,
+              ),
+              activeIcon: Image.asset(
+                Assets.icons.menuVoucherKlik.path,
+                scale: 6,
+              ),
+              label: 'Voucher',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset(
                 Assets.icons.menuProfil.path,
                 scale: 6,
               ),
@@ -82,6 +93,7 @@ class MainScreen extends GetView<MainController> {
     HomeScreen(),
     EventScreen(),
     AssessmentScreen(),
+    VoucherScreen(),
     ProfileScreen()
   ];
 }

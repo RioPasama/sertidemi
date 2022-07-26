@@ -1,6 +1,9 @@
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sertidemi/app/data/models/main_model.dart';
+import 'package:sertidemi/app/data/providers/list_voucher_all_product_provider.dart';
 import 'package:sertidemi/infrastructure/navigation/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,6 +20,17 @@ class KlikContentController extends GetxController {
 
   @override
   void onClose() {}
+
+  void onKlikVoucherAllProduct(String idVoucher) async {
+    MainModel mainModel = await ListVoucherAllProdutProvider.postClaimVoucher(
+        idVoucher: idVoucher);
+
+    Get.dialog(AlertDialog(
+      title: const Text('Claim Voucher'),
+      content: Text(mainModel.message!),
+      actions: [TextButton(onPressed: ()=>Get.back(), child: const Text('Back'))],
+    ));
+  }
 
   void onKlikCategory({int index = 0, int option = 1}) {
     Map<String, dynamic> sendArguments = {

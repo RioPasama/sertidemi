@@ -224,5 +224,20 @@ class Nav {
       page: () => ForgotPasswrodScreen(),
       binding: ForgotPasswrodControllerBinding(),
     ),
+    GetPage(
+      name: Routes.LIST_VOUCHER,
+      page: () => const ListVoucherScreen(),
+      binding: ListVoucherControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.VOUCHER,
+      page: () => VoucherScreen(),
+      binding: VoucherControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.MY_VOUCHER,
+      page: () => const MyVoucherScreen(),
+      binding: MyVoucherControllerBinding(),
+    ),
   ];
 }

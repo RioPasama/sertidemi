@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:sertidemi/app/data/models/voucher_model.dart';
+import 'package:sertidemi/app/data/models/list_voucher_model.dart';
 import 'package:sertidemi/domain/core/extensions/formatTime.extension.dart';
 import 'package:sertidemi/gen/assets.gen.dart';
 import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 
 class CardVoucherView extends GetView {
-  final VoucherModel data;
+  final ListVoucherModel data;
   const CardVoucherView({required this.data, Key? key}) : super(key: key);
 
   @override

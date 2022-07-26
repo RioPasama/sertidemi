@@ -21,6 +21,8 @@ AppBar appBarMultiScreenView({
 
 AppBar appBarSearch({
   required String title,
+  required Function onTap,
+  required TextEditingController txtEditingController,
   bool leadingActive = true,
 }) {
   return AppBar(
@@ -77,11 +79,13 @@ AppBar appBarSearch({
                       offset: const Offset(0, 4))
                 ]),
             child: TextField(
+              controller: txtEditingController,
               decoration: inputInputDecorationRounded.copyWith(
-                hintText: 'Pencarian',
+                hintText: 'Search',
                 hintStyle: const TextStyle(fontSize: 14),
                 prefixIcon: const Icon(Icons.search_outlined),
               ),
+              onSubmitted: (value) => onTap(),
             ),
           ),
         ],

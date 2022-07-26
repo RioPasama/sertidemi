@@ -141,7 +141,8 @@ class PaymentContentView extends GetView {
                           shrinkWrap: true,
                           itemCount: voucherModel.length,
                           itemBuilder: (context, index) {
-                            return CardVoucherView(data: voucherModel[index]);
+                            // return CardVoucherView(data: voucherModel[index]);
+                            return Text('s');
                           },
                         );
                       } else {
@@ -165,7 +166,8 @@ class PaymentContentView extends GetView {
                 decoration: BoxDecoration(
                     color: Colors.red,
                     shape: BoxShape.circle,
-                    image: DecorationImage(image: AssetImage(Assets.icons.close.path)))),
+                    image: DecorationImage(
+                        image: AssetImage(Assets.icons.close.path)))),
           ),
         ),
       ],

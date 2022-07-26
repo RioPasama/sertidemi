@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
+import 'package:sertidemi/app/data/models/list_voucher_all_product_model.dart';
+import 'package:sertidemi/app/data/providers/list_voucher_all_product_provider.dart';
+import 'package:sertidemi/app/views/views/appbar_view.dart';
+import 'package:sertidemi/app/views/views/loading_view.dart';
+import 'package:sertidemi/presentation/list_voucher/views/voucher_content_view.dart';
+
+import 'controllers/voucher.controller.dart';
+
+class VoucherScreen extends GetView<VoucherController> {
+  VoucherScreen({Key? key}) : super(key: key);
+
+  @override
+  final VoucherController controller = Get.put(VoucherController());
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: appBarSearch(
+          title: 'Voucher',
+          leadingActive: false,
+          txtEditingController: controller.searchtxtEditingController,
+          onTap: () => controller.onSearch(),
+        ),
+        body: Stack(
+          children: [
+            FutureBuilder(
+              future: ListVoucherAllProdutProvider.getListVoucher(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  controller.listVoucherAllProductModel.value =
+                      snapshot.data as List<ListVoucherAllProductModel>;
+                  return VoucherContentView();
+                } else {
+                  return Center(child: LoadingView());
+                }
+              },
+            )
+          ],
+        ));
+  }
+}

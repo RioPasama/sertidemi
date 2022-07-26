@@ -69,14 +69,14 @@ class ProfileScreen extends GetView<ProfileController> {
                             title: const Text('Edit Profile'),
                             onTap: () => Get.toNamed(Routes.CHANGE_PROFILE),
                           ),
-                          // ListTile(
-                          //   onTap: () => Get.toNamed(Routes.BOOKSHELF),
-                          //   leading: Image.asset(
-                          //     Assets.icons.iconVoucher.path,
-                          //     scale: 4,
-                          //   ),
-                          //   title: const Text('Voucher'),
-                          // ),
+                          ListTile(
+                            onTap: () => Get.toNamed(Routes.MY_VOUCHER),
+                            leading: Image.asset(
+                              Assets.icons.iconVoucher.path,
+                              scale: 4,
+                            ),
+                            title: const Text('My Voucher'),
+                          ),
                           // ListTile(
                           //   onTap: () => Get.toNamed(Routes.BOOKSHELF),
                           //   leading: Image.asset(

@@ -9,7 +9,7 @@ class EbookScreen extends GetView<EbookController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarSearch(title: 'E-Book', leadingActive: false),
+      // appBar: appBarSearch(title: 'E-Book', leadingActive: false),
       body: Center(
         child: Text(
           'EbookScreen is working',

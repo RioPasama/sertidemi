@@ -14,7 +14,7 @@ class ListDataCertificationsScreen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarSearch(title: controller.title.value),
+      // appBar: appBarSearch(title: controller.title.value),
       body: Center(
         child: Text(
           'ListDataCertificationsScreen is working',
