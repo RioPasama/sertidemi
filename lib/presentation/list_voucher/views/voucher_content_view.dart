@@ -12,15 +12,13 @@ class VoucherContentView extends GetView {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => ListView.builder(
-        padding: const EdgeInsets.only(left: 16, right: 16, top: 0),
-        itemCount: controller.listVoucherAllProductModel.length,
-        itemBuilder: (context, index) {
-          return CardVoucherAllProductView(
-              data: controller.listVoucherAllProductModel[index]);
-        },
-      ),
+    return ListView.builder(
+      padding: const EdgeInsets.only(left: 16, right: 16, top: 0),
+      itemCount: controller.listVoucherAllProductModel.length,
+      itemBuilder: (context, index) {
+        return CardVoucherAllProductView(
+            data: controller.listVoucherAllProductModel[index]);
+      },
     );
   }
 }

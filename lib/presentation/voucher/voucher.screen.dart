@@ -25,17 +25,32 @@ class VoucherScreen extends GetView<VoucherController> {
         ),
         body: Stack(
           children: [
-            FutureBuilder(
-              future: ListVoucherAllProdutProvider.getListVoucher(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  controller.listVoucherAllProductModel.value =
-                      snapshot.data as List<ListVoucherAllProductModel>;
-                  return VoucherContentView();
-                } else {
-                  return Center(child: LoadingView());
-                }
-              },
+            Obx(
+              () => (controller.isSearch.value)
+                  ? FutureBuilder(
+                      future: ListVoucherAllProdutProvider.getListVoucher(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          controller.listVoucherAllProductModel.value =
+                              snapshot.data as List<ListVoucherAllProductModel>;
+                          return VoucherContentView();
+                        } else {
+                          return Center(child: LoadingView());
+                        }
+                      },
+                    )
+                  : FutureBuilder(
+                      future: ListVoucherAllProdutProvider.getListVoucher(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          controller.listVoucherAllProductModel.value =
+                              snapshot.data as List<ListVoucherAllProductModel>;
+                          return VoucherContentView();
+                        } else {
+                          return Center(child: LoadingView());
+                        }
+                      },
+                    ),
             )
           ],
         ));

@@ -14,11 +14,9 @@ class ListVoucherAllProdutProvider {
   }
 
   static Future<MainModel> postClaimVoucher({String idVoucher = ''}) async {
-    MainModel result =
-        await MainProvider.postAPI(url: 'voucher_klaim.php', body: {
-      'idtransaksi_voucher_mandiri ': idVoucher,
-      'iduser ': GetStorage().read('idUser')
-    });
+    MainModel result = await MainProvider.postAPI(
+        url: 'voucher_klaim.php',
+        body: {'idvoucher': idVoucher, 'iduser': GetStorage().read('idUser')});
 
     return result;
   }

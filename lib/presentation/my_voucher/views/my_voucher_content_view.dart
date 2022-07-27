@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-import 'package:sertidemi/app/views/views/card_voucher_all_product_view.dart';
-import 'package:sertidemi/gen/assets.gen.dart';
+import 'package:sertidemi/app/views/views/card_my_voucher_view.dart';
 import 'package:sertidemi/presentation/my_voucher/controllers/my_voucher.controller.dart';
 
 class MyVoucherContentView extends GetView {
@@ -18,8 +16,8 @@ class MyVoucherContentView extends GetView {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         itemCount: controller.listVoucherAllProductModel.length,
         itemBuilder: (context, index) {
-          return CardVoucherAllProductView(
-              data: controller.listVoucherAllProductModel[index]);
+          return cardMyVoucherAllProductView(
+              controller.listVoucherAllProductModel[index]);
         });
   }
 }

@@ -50,7 +50,7 @@ class CardVoucherAllProductView extends GetView {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: Get.width / 2.2),
+                    padding: EdgeInsets.only(left: Get.width / 2.3),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 4, horizontal: 6),

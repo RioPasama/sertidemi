@@ -9,6 +9,8 @@ class VoucherController extends GetxController {
       RxList<ListVoucherAllProductModel>();
   late TextEditingController searchtxtEditingController;
 
+  RxBool isSearch = false.obs;
+
   @override
   void onInit() {
     searchtxtEditingController = TextEditingController();
@@ -32,5 +34,6 @@ class VoucherController extends GetxController {
         await ListVoucherAllProdutProvider.getListVoucher(
             q: searchtxtEditingController.text);
     Get.back();
+    isSearch.value = true;
   }
 }
