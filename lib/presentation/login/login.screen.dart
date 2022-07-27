@@ -27,14 +27,18 @@ class LoginScreen extends GetView<LoginController> {
         ),
 
         Container(color: Colors.white.withOpacity(0.8)),
-        Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            height: Get.height / 4,
-            width: Get.height / 4,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(Assets.images.logoSertidemiPng.path))),
+        SafeArea(
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              height: Get.height / 4.8,
+              width: Get.height / 4.8,
+              margin: const EdgeInsets.only(top: 30),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(
+                          Assets.images.logoSertidemi512X512bPxPng.path))),
+            ),
           ),
         ),
         Scaffold(

@@ -210,17 +210,21 @@ class $AssetsImagesGen {
   AssetGenImage get loginGambarCrop =>
       const AssetGenImage('assets/images/Login - Gambar crop.png');
 
-  /// File path: assets/images/Logo Google Play Store.png
-  AssetGenImage get logoGooglePlayStore =>
-      const AssetGenImage('assets/images/Logo Google Play Store.png');
+  /// File path: assets/images/Logo Sertidemi 512 x 512b px jpg.jpg
+  AssetGenImage get logoSertidemi512X512bPxJpg =>
+      const AssetGenImage('assets/images/Logo Sertidemi 512 x 512b px jpg.jpg');
 
-  /// File path: assets/images/Logo Sertidemi png.png
-  AssetGenImage get logoSertidemiPng =>
-      const AssetGenImage('assets/images/Logo Sertidemi png.png');
+  /// File path: assets/images/Logo Sertidemi 512 x 512b px png.png
+  AssetGenImage get logoSertidemi512X512bPxPng =>
+      const AssetGenImage('assets/images/Logo Sertidemi 512 x 512b px png.png');
 
-  /// File path: assets/images/Logo Sertidemi.jpg
-  AssetGenImage get logoSertidemi =>
-      const AssetGenImage('assets/images/Logo Sertidemi.jpg');
+  /// File path: assets/images/Logo Sertidemi JPG.jpg
+  AssetGenImage get logoSertidemiJPG =>
+      const AssetGenImage('assets/images/Logo Sertidemi JPG.jpg');
+
+  /// File path: assets/images/Logo Sertidemi PNG.png
+  AssetGenImage get logoSertidemiPNG =>
+      const AssetGenImage('assets/images/Logo Sertidemi PNG.png');
 
   /// File path: assets/images/Transaksi - BG Detail Transaksi.png
   AssetGenImage get transaksiBGDetailTransaksi =>
