@@ -9,14 +9,14 @@ import 'package:http/http.dart' as http;
 ///and [message] resault for try catch
 errorNotDetectedException({http.Response? response, String? message}) {
   dynamic result;
-  log(response!.body.toString());
-  if (response.body.isNotEmpty) {
-    result = jsonDecode(response.body);
-  }
+  // log(response?.body.toString() ?? '');
+  // if (response!.body.isNotEmpty) {
+  //   result = jsonDecode(response.body);
+  // }
   return Get.dialog(AlertDialog(
-    title: Center(child: Text('Error ${response.statusCode}')),
-    content: Text(
-        'Terjadi kesalahan coba lagi\n$message\n${result?['message'] ?? ''}'),
+    title: Center(child: Text('Error ${response?.statusCode}')),
+    content:
+        Text('Check your connection\n$message\n${result?['message'] ?? ''}'),
   ));
 }
 

@@ -160,18 +160,19 @@ class EventDetailContentView extends GetView {
         visible: !(controller.fetchAPIProductDetailsController.eventDetailModel
                 .value!.banners!.length ==
             0),
-        child: SizedBox(
-          height: Get.width / 2.8,
-          width: Get.width - 150,
-          child: ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemCount: controller.fetchAPIProductDetailsController
-                .eventDetailModel.value!.banners!.length,
-            itemBuilder: (context, index) {
-              return imagePrimary(controller.fetchAPIProductDetailsController
-                  .eventDetailModel.value!.banners![0].linkBanner!);
-            },
+        child: Center(
+          child: SizedBox(
+            height: Get.width / 2.8,
+            width: Get.width - 68,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: controller.fetchAPIProductDetailsController
+                  .eventDetailModel.value!.banners!.length,
+              itemBuilder: (context, index) {
+                return imagePrimary(controller.fetchAPIProductDetailsController
+                    .eventDetailModel.value!.banners![index].linkBanner!);
+              },
+            ),
           ),
         ),
       ),
@@ -184,7 +185,7 @@ class EventDetailContentView extends GetView {
         imageBuilder: (context, imageProvider) {
           return Container(
             height: Get.width / 2.8,
-            width: Get.width - 150,
+            width: Get.width - 68,
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
@@ -194,7 +195,7 @@ class EventDetailContentView extends GetView {
         placeholder: (context, url) {
           return Container(
             height: Get.width / 2.8,
-            width: Get.width - 150,
+            width: Get.width - 68,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(8),
@@ -204,7 +205,7 @@ class EventDetailContentView extends GetView {
         errorWidget: (context, url, error) {
           return Container(
             height: Get.width / 2.8,
-            width: Get.width - 150,
+            width: Get.width - 68,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(8),

@@ -94,7 +94,7 @@ class DetailTransactionController extends GetxController {
         noInvoice: detailTransactionModel.value!.invoice,
         namaProduct: detailTransactionModel.value!.nama,
         metodePembayaranal: detailTransactionModel.value!.paymentType,
-        total: detailTransactionModel.value!.totalPembayaran,
+        total: detailTransactionModel.value!.totalHargaTicketAkhir,
         createdAt: detailTransactionModel.value!.tanggalInput);
     Map<String, dynamic> sendArguments = {
       'nameOption': 'Sertifikasi',

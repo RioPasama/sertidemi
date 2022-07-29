@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:sertidemi/app/controllers/authentication_controller.dart';
 import 'package:sertidemi/app/data/models/list_voucher_all_product_model.dart';
 import 'package:sertidemi/app/data/providers/list_voucher_all_product_provider.dart';
 import 'package:sertidemi/app/views/views/appbar_view.dart';
@@ -14,8 +15,11 @@ class VoucherScreen extends GetView<VoucherController> {
 
   @override
   final VoucherController controller = Get.put(VoucherController());
+  final AuthenticationController authenticationControllercontroller =
+      Get.put(AuthenticationController());
   @override
   Widget build(BuildContext context) {
+    authenticationControllercontroller.authProfile();
     return Scaffold(
         appBar: appBarSearch(
           title: 'Voucher',
@@ -33,7 +37,10 @@ class VoucherScreen extends GetView<VoucherController> {
                         if (snapshot.hasData) {
                           controller.listVoucherAllProductModel.value =
                               snapshot.data as List<ListVoucherAllProductModel>;
-                          return VoucherContentView();
+
+                          return VoucherContentView(
+                            data: controller.listVoucherAllProductModel,
+                          );
                         } else {
                           return Center(child: LoadingView());
                         }
@@ -45,7 +52,10 @@ class VoucherScreen extends GetView<VoucherController> {
                         if (snapshot.hasData) {
                           controller.listVoucherAllProductModel.value =
                               snapshot.data as List<ListVoucherAllProductModel>;
-                          return VoucherContentView();
+
+                          return VoucherContentView(
+                            data: controller.listVoucherAllProductModel,
+                          );
                         } else {
                           return Center(child: LoadingView());
                         }

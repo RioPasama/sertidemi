@@ -7,11 +7,14 @@ class DetailTransactionModel {
   String? deskripsi;
   String? batasPembayaran;
   String? totalPembayaran;
+  String? totalHargaTicketAkhir;
+  String? potonganVoucher;
   String? nama;
   String? namaSertifikat;
   String? urlImagePanjang;
   String? urlImageKotak;
   String? paymentType;
+  String? nomorPayment;
   String? tanggalDibayar;
 
   DetailTransactionModel(
@@ -27,6 +30,7 @@ class DetailTransactionModel {
       this.tanggalDibayar,
       this.paymentType,
       this.totalPembayaran,
+      this.nomorPayment,
       this.urlImageKotak,
       this.urlImagePanjang});
 
@@ -38,7 +42,10 @@ class DetailTransactionModel {
     statusTransaksi = json['status_transaksi'] ?? '';
     batasPembayaran = json['batas_pembayaran'] ?? '';
     tanggalInput = json['tanggal_input'] ?? '';
+    nomorPayment = json['nomor_payment'] ?? '';
     totalPembayaran = json['total_pembayaran'] ?? '';
+    totalHargaTicketAkhir = json['total_harga_ticket_akhir'] ?? '';
+    potonganVoucher = json['potongan_voucher'] ?? '';
     tanggalDibayar = json['tanggal_dibayar'] ?? '';
     nama = json['nama'] ?? '';
     namaSertifikat = json['nama_sertifikat'] ?? '';

@@ -30,18 +30,31 @@ class DetailTransactionContentView extends GetView {
             nameProduct: controller.detailTransactionModel.value!.nama!,
             decs: controller.detailTransactionModel.value!.deskripsi!,
             totalPrice:
-                controller.detailTransactionModel.value!.totalPembayaran!,
+                (controller.detailTransactionModel.value!.statusTransaksi ==
+                        'Waiting For Payment')
+                    ? controller.detailTransactionModel.value!.totalPembayaran!
+                    : controller
+                        .detailTransactionModel.value!.totalHargaTicketAkhir!,
             priceProduct:
                 controller.detailTransactionModel.value!.totalPembayaran!,
+            priceVoucher:
+                controller.detailTransactionModel.value!.potonganVoucher!,
             url: controller.detailTransactionModel.value!.urlImageKotak!),
         const SizedBox(height: 20),
-        Visibility(visible: false, child: cardInfoPayment()),
+        Visibility(
+            visible:
+                (controller.detailTransactionModel.value!.paymentType != ''),
+            child: cardInfoPayment(
+              paymentType:
+                  controller.detailTransactionModel.value!.paymentType!,
+              noRek: controller.detailTransactionModel.value!.nomorPayment!,
+            )),
         const SizedBox(height: 40)
       ],
     );
   }
 
-  Widget cardInfoPayment() {
+  Widget cardInfoPayment({required String paymentType, required String noRek}) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -54,7 +67,7 @@ class DetailTransactionContentView extends GetView {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Info Pembayaran',
+            'Info Payment',
             style: textBold.copyWith(fontSize: 16),
           ),
           const Divider(thickness: 2),
@@ -72,7 +85,7 @@ class DetailTransactionContentView extends GetView {
               ),
               SizedBox(
                 width: Get.width / 2 - (10),
-                child: Text('statusTransaction'),
+                child: Text(paymentType),
               )
             ],
           ),
@@ -90,7 +103,7 @@ class DetailTransactionContentView extends GetView {
               ),
               SizedBox(
                 width: Get.width / 2 - (10),
-                child: Text('statusTransaction'),
+                child: Text(noRek),
               )
             ],
           ),
@@ -226,6 +239,7 @@ class DetailTransactionContentView extends GetView {
       required String decs,
       required String priceProduct,
       required String totalPrice,
+      required String priceVoucher,
       required String url}) {
     return Container(
       padding: const EdgeInsets.all(8),
@@ -279,11 +293,27 @@ class DetailTransactionContentView extends GetView {
             ],
           ),
           const Divider(thickness: 2),
+          Visibility(
+            visible: (priceVoucher != '0'),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Voucher',
+                  style: textBold,
+                ),
+                Text(
+                  '-${currencyRp(priceVoucher)}',
+                  style: textBold,
+                ),
+              ],
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Total :',
+                'Total',
                 style: textBold,
               ),
               Text(

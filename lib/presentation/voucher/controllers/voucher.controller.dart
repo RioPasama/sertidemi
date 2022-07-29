@@ -24,7 +24,6 @@ class VoucherController extends GetxController {
 
   @override
   void onClose() {
-    searchtxtEditingController.dispose();
     super.onClose();
   }
 

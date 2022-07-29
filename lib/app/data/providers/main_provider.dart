@@ -34,7 +34,7 @@ class MainProvider {
     try {
       final response = await http
           .get(Uri.parse(apiHttp))
-          .timeout(const Duration(seconds: 20));
+          .timeout(const Duration(seconds: 50));
 
       log('Url: $apiHttp\nParams\n$body\n${response.body}');
       res = response;
@@ -72,7 +72,7 @@ class MainProvider {
     try {
       final response = await http
           .post(Uri.parse(apiHttp), body: body)
-          .timeout(const Duration(seconds: 20));
+          .timeout(const Duration(seconds: 50));
 
       log('Url: $apiHttp\nBody\n$body\n${response.body}');
 

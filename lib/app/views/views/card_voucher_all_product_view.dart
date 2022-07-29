@@ -50,7 +50,7 @@ class CardVoucherAllProductView extends GetView {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: Get.width / 2.3),
+                    padding: EdgeInsets.only(left: Get.width / 2.4),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 4, horizontal: 6),
@@ -135,12 +135,44 @@ class CardVoucherAllProductView extends GetView {
         Align(
           alignment: Alignment.topCenter,
           child: Text(
-            '${nilaiPotongan.replaceAll('000', '')} rb',
+            '${formatPrice(nilaiPotongan)}',
             style: textBold.copyWith(fontSize: 20, color: Colors.white),
           ),
         ),
-        const Spacer()
+        const Spacer(flex: 2)
       ],
     );
+  }
+
+  dynamic formatPrice(String price) {
+    int a = int.parse(price);
+
+    var priceFormat =
+        (checkInt(a)) ? '${price.substring(0, price.length - 3)} rb' : a;
+    return priceFormat;
+  }
+
+  bool checkInt(int a) {
+    if (a > 999) {
+      if ((a / 1000) % 1 == 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else if (a > 9999) {
+      if ((a / 10000) % 1 == 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else if (a > 99999) {
+      if ((a / 100000) % 1 == 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 }
