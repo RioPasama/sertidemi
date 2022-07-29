@@ -7,39 +7,79 @@ import 'package:sertidemi/infrastructure/theme/colors.theme.dart';
 import 'package:sertidemi/infrastructure/theme/fonts.theme.dart';
 
 Widget cardMyVoucherAllProductView(ListVoucherAllProductModel data) {
-  return Container(
-    width: Get.width - (16 * 4),
-    margin: const EdgeInsets.symmetric(vertical: 8),
-    decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
-          BoxShadow(color: Colors.grey, blurRadius: 4, offset: Offset(2, 2))
-        ]),
-    child: Row(children: [
-      cardCover(data),
-      Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(data.namaVoucher!, style: textBold),
-              Text(data.deskripsiVoucher!),
-              Row(
-                children: [
-                  Image.asset(
-                    Assets.icons.kelender.path,
-                    scale: 4,
+  return GestureDetector(
+    onTap: () => Get.bottomSheet(detailVoucher(data)),
+    child: Container(
+      width: Get.width - (16 * 4),
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: const [
+            BoxShadow(color: Colors.grey, blurRadius: 4, offset: Offset(2, 2))
+          ]),
+      child: Row(children: [
+        cardCover(data),
+        Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: Get.width / 2,
+                  child: Text(
+                    data.namaVoucher!,
+                    style: textBold,
+                    maxLines: 2,
                   ),
-                  Text(
-                    ' Valid until ${timeFormatInCard(data.tanggalSelesai!)}',
-                    style: TextStyle(color: primaryColor),
-                  )
-                ],
-              )
-            ],
-          ))
-    ]),
+                ),
+                // Text(data.deskripsiVoucher!),
+                Row(
+                  children: [
+                    Image.asset(
+                      Assets.icons.kelender.path,
+                      scale: 4,
+                    ),
+                    Text(
+                      ' Valid until ${timeFormatInCard(data.tanggalSelesai!)}',
+                      style: TextStyle(color: primaryColor),
+                    )
+                  ],
+                )
+              ],
+            ))
+      ]),
+    ),
+  );
+}
+
+Container detailVoucher(ListVoucherAllProductModel data) {
+  return Container(
+    padding: const EdgeInsets.all(26),
+    decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(data.namaVoucher!, textAlign: TextAlign.center, style: textBold),
+        const SizedBox(height: 4),
+        Row(
+          children: [
+            Image.asset(
+              Assets.icons.kelender.path,
+              scale: 4,
+            ),
+            Text(
+              ' Valid until ${timeFormatInCard(data.tanggalSelesai!)}',
+              style: TextStyle(color: primaryColor),
+            )
+          ],
+        ),
+        const SizedBox(height: 28),
+        Text(data.deskripsiVoucher!),
+      ],
+    ),
   );
 }
 

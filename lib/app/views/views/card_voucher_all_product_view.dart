@@ -17,8 +17,7 @@ class CardVoucherAllProductView extends GetView {
     final KlikContentController klikContentController =
         Get.put(KlikContentController());
     return GestureDetector(
-      onTap: () =>
-          klikContentController.onKlikVoucherAllProduct(data.idVoucher!),
+      onTap: () => Get.bottomSheet(detailVoucher(data)),
       child: Container(
         width: Get.width - (16 * 4),
         margin: const EdgeInsets.symmetric(vertical: 8),
@@ -35,8 +34,15 @@ class CardVoucherAllProductView extends GetView {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(data.namaVoucher!, style: textBold),
-                  Text(data.deskripsiVoucher!),
+                  SizedBox(
+                    width: Get.width / 2,
+                    child: Text(
+                      data.namaVoucher!,
+                      style: textBold,
+                      maxLines: 2,
+                    ),
+                  ),
+                  // Text(data.deskripsiVoucher!),
                   Row(
                     children: [
                       Image.asset(
@@ -49,24 +55,59 @@ class CardVoucherAllProductView extends GetView {
                       )
                     ],
                   ),
+                  const SizedBox(height: 10),
                   Padding(
                     padding: EdgeInsets.only(left: Get.width / 2.4),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 4, horizontal: 6),
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: primaryColor),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        'Claim',
-                        style: TextStyle(color: primaryColor),
+                    child: GestureDetector(
+                      onTap: () => klikContentController
+                          .onKlikVoucherAllProduct(data.idVoucher!),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 4, horizontal: 6),
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: primaryColor),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          'Claim',
+                          style: TextStyle(color: primaryColor),
+                        ),
                       ),
                     ),
                   )
                 ],
               ))
         ]),
+      ),
+    );
+  }
+
+  Container detailVoucher(ListVoucherAllProductModel data) {
+    return Container(
+      padding: const EdgeInsets.all(26),
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(data.namaVoucher!, textAlign: TextAlign.center, style: textBold),
+          const SizedBox(height: 4),
+          Row(
+            children: [
+              Image.asset(
+                Assets.icons.kelender.path,
+                scale: 4,
+              ),
+              Text(
+                ' Valid until ${timeFormatInCard(data.tanggalSelesai!)}',
+                style: TextStyle(color: primaryColor),
+              )
+            ],
+          ),
+          const SizedBox(height: 28),
+          Text(data.deskripsiVoucher!),
+        ],
       ),
     );
   }
